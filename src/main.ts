@@ -1,1 +1,1 @@
-import '@core/polyfills';
+import './polyfills';
