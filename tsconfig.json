@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["./app/*"],
+      "@env/*": ["./enviroment/*"]
+    },
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["dom", "esnext"]
+  },
+  "files": ["./src/main.ts"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
+}
