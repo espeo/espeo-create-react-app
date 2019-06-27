@@ -1,0 +1,8 @@
+{
+  "name": "create-espeo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:przemyslawjanpietrzak/create-espeo-app.git",
+  "author": "Przemyslaw Beigert <przemyslaw.jan.beigert@protonmail.com>",
+  "license": "MIT"
+}
