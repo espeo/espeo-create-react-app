@@ -9,13 +9,13 @@ const getPath = file => path.resolve(__dirname, file);
 
 module.exports = {
   entry: {
-    app: './src/main.ts',
+    app: './src/main.tsx',
   },
   output: {
     filename: './bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
