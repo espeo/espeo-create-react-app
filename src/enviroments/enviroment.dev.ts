@@ -1,3 +1,5 @@
 export default {
-    isProduction: false,
-}
+  isProduction: false,
+};
+
+const fn = (a: string) => a;yarn
