@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
-    "lint": "tslint --config ./tslint.json --project ./tsconfig.json 'src/**/*.ts'",
+    "lint": "tslint --config ./tslint.json --project ./tsconfig.json './src/**/*'",
     "test": "jest",
     "build:dev": "webpack --config ./webpack.config.js --mode=development",
     "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.1.0",
     "@types/react-router-dom": "^4.3.4",
     "core-js": "^3.1.4",
     "react": "^16.8.6",
