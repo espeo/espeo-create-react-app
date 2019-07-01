@@ -8,13 +8,16 @@ export interface SecondState {
 }
 
 const defaultState: SecondState = {
-    isLoading: false,
-    isError: false,
-    data: null,
+  isLoading: false,
+  isError: false,
+  data: null,
 };
 
 // tslint:disable-next-line only-arrow-functions
-export const secondReducer = function(state = defaultState, action: SecondActions): SecondState {
+export const secondReducer = function(
+  state = defaultState,
+  action: SecondActions,
+): SecondState {
   if (action.type === SecondActionTypes.FETCH_SECOND) {
     return {
       ...state,

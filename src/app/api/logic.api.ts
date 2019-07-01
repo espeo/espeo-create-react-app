@@ -1,5 +1,10 @@
-import { Logic } from '@core/domain';
+import axios from 'axios';
 
-export const fetchLogic = (): Logic => ({
-    name: 'logic',
-});
+import { Logic, LogicResponse } from '@core/domain';
+import { getData } from '@core/utils';
+
+export const fetchLogic = (): Promise<Logic> => axios
+    .request<LogicResponse>({
+        url: '/api/logic',
+    })
+    .then(getData);

@@ -1,4 +1,5 @@
-import { Action, Logic } from '@core/domain';
+import { Logic } from '@core/domain';
+import { Action } from '@core/utils';
 
 export enum SecondActionTypes {
   FETCH_SECOND = '[Second] Fetch Second',
@@ -6,19 +7,19 @@ export enum SecondActionTypes {
   ERROR_SECOND = '[Second] Error Second',
 }
 
-export class FetchSecond implements Action {
-  type = SecondActionTypes.FETCH_SECOND;
-  payload: null = null;
-}
+export const fetchSecond = (): Action => ({
+  type: SecondActionTypes.FETCH_SECOND,
+  payload: null,
+});
 
-export class LoadSecond implements Action {
-  type = SecondActionTypes.LOAD_SECOND;
-  constructor(public payload: Logic) {}
-}
+export const loadSecond = (payload: Logic): Action<Logic> => ({
+  type: SecondActionTypes.LOAD_SECOND,
+  payload,
+});
 
-export class ErrorSecond implements Action {
-  type = SecondActionTypes.ERROR_SECOND;
-  payload: null = null;
-}
+export const errorSecond = (): Action => ({
+  type: SecondActionTypes.ERROR_SECOND,
+  payload: null,
+});
 
-export type SecondActions = FetchSecond | LoadSecond | ErrorSecond;
+export type SecondActions = Action<null | Logic>;
