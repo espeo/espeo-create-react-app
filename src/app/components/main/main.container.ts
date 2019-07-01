@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
 
-import { Logic } from '@core/domain/logic';
+import { Logic } from '@core/domain';
 
-import { RootStore } from '@core/store/index';
-import { getFirstData } from '@core/store/first/first.selectors';
-import { FetchFirst } from '@core/store/first/first.actions';
+import { RootStore, getFirstData, FetchFirst } from '@core/store';
 
 import { MainComponent } from './main.component';
 
 interface MainPropsAttrs {
-    first: Logic | null;
+  first: Logic | null;
 }
 
 interface MainPropsActions {
-    fetchFirst: () => FetchFirst;
+  fetchFirst: () => FetchFirst;
 }
 
 export type MainProps = MainPropsAttrs & MainPropsActions;

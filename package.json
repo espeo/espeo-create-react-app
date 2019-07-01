@@ -8,11 +8,11 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
     "lint": "tslint --config ./tslint.json --project ./tsconfig.json './src/**/*'",
-    "test": "ts-jest",
+    "test": "jest",
     "build:dev": "webpack --config ./webpack.config.js --mode=development",
     "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
     "build:version": "node src/version.js",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist ; rm src/environments/version.ts ; rm src/environments/version.ts"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",

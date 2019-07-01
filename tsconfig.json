@@ -11,13 +11,14 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictBindCallApply": true,
+    "esModuleInterop": true,
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",
     "paths": {
-      "@core/*": ["./app/*"],
-      "@env/*": ["./enviroment/*"],
-      "@assets/*": ["./assets/*"]
+      "@core/*": ["app/*"],
+      "@environments/*": ["environments/*"],
+      "@assets/*": ["assets/*"]
     },
     "typeRoots": ["node_modules/@types"],
      "lib": ["dom", "esnext"]

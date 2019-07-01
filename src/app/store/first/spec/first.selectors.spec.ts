@@ -1,10 +1,8 @@
 import { getFirstData } from '../first.selectors';
+import { mockStore } from '@core/mocks';
 
 describe('fist selectors', () => {
   it('getFirstData', () => {
-    const importantData = 42;
-    const store = { first: { data: importantData } } as any;
-
-    expect(getFirstData(store)).toEqual(importantData);
+    expect(getFirstData(mockStore)).toEqual(null);
   });
 });
