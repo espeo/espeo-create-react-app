@@ -14,6 +14,7 @@ const defaultState: FirstState = {
   data: null,
 };
 
+// tslint:disable-next-line only-arrow-functions
 export const firstReducer = function(state = defaultState, action: FirstActions): FirstState {
   if (action.type === FirstActionTypes.FETCH_First) {
     return {
