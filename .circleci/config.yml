@@ -23,6 +23,10 @@ jobs:
           key: dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Audit vulnerabilities
+          command: yarn audit:ci
+
+      - run:
           name: Static code analyze
           command: yarn lint
 
@@ -32,4 +36,4 @@ jobs:
 
       - run:
           name: Run compilation
-          command: yarn build:prod  
+          command: yarn build:prod

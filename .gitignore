@@ -1,5 +1,5 @@
 node_modules
 dist
 yarn-error.log
-src/enviroments/enviroment.ts
-src/enviroments/version.ts
+src/environments/environment.ts
+src/environments/version.ts
