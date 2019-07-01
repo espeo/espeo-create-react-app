@@ -7,10 +7,16 @@ module.exports = {
     }
   },
   moduleDirectories: ["node_modules", "src"],
-  moduleFileExtensions: ['ts', 'html', 'js', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'html', 'js', 'json'],
   "moduleNameMapper": {
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
     "^@environments/(.*)": "<rootDir>/src/environments/$1"
   },
+  // transform: {
+  //   "^.+\\.(ts|tsx)$": "<rootDir>/test-preprocessor.js"
+  // },
+  setupFiles: [
+    "<rootDir>/test-setup.js"
+  ],
 };

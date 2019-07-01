@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Title Component should match snapshot 1`] = `
+<h1>
+  title
+</h1>
+`;
