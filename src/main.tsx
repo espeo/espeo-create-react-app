@@ -7,6 +7,8 @@ import { store } from './app/store';
 
 import './polyfills';
 
+import './assets/styles/main.css';
+
 ReactDOM.render(
   <Provider store={store}>
     <AppRoutes />,

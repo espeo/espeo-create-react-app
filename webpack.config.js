@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
 
 const env = process.env.npm_lifecycle_event;
-const isProduction = env.includes('production');
+const isProduction = env.includes('prod');
 
 const getPath = file => path.resolve(__dirname, file);
 
@@ -12,7 +14,7 @@ module.exports = {
     app: './src/main.tsx',
   },
   output: {
-    filename: './bundle.js',
+    filename: isProduction ? './bundle.[hash].js' : './bundle.js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -34,6 +36,23 @@ module.exports = {
         include: [getPath('./src')],
         exclude: [getPath('node_modules')],
       },
+      {
+        test: /\.css$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer()],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
     ],
   },
   optimization: {},
@@ -42,17 +61,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       // global variables (just in case)
     }),
-  ].concat(
-    isProduction
-      ? []
-      : [
-          new HtmlWebpackPlugin({
-            template: './src/index.html',
-            inject: 'body',
-          }),
-          new webpack.HotModuleReplacementPlugin(),
-        ],
-  ),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      inject: 'body',
+      removeComments: isProduction,
+      collapseWhitespace: isProduction,
+      preserveLineBreaks: true,
+      decodeEntities: true,
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].css',
+    }),
+  ].concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]),
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 4200,

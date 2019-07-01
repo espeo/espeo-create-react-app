@@ -13,9 +13,6 @@ module.exports = {
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
     "^@environments/(.*)": "<rootDir>/src/environments/$1"
   },
-  // transform: {
-  //   "^.+\\.(ts|tsx)$": "<rootDir>/test-preprocessor.js"
-  // },
   setupFiles: [
     "<rootDir>/test-setup.js"
   ],
