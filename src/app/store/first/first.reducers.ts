@@ -9,9 +9,9 @@ export interface FirstState {
 }
 
 const defaultState: FirstState = {
-    isLoading: false,
-    isError: false,
-    data: null,
+  isLoading: false,
+  isError: false,
+  data: null,
 };
 
 export const firstReducer = function(state = defaultState, action: FirstActions): FirstState {

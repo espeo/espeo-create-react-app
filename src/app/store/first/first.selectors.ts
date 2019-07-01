@@ -2,4 +2,4 @@ import { Logic } from '@core/domain';
 
 import { RootStore } from '../index';
 
-export const getFirstDate = ({ first }: RootStore): Logic => first.data;
+export const getFirstData = ({ first }: RootStore): Logic | null => first.data;
