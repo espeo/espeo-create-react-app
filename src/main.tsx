@@ -11,7 +11,7 @@ import './assets/styles/main.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppRoutes />,
+    <AppRoutes />
   </Provider>,
   document.getElementById('root'),
 );

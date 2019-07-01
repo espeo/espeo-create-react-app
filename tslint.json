@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended", "tslint-sonarts"],
+  "extends": ["tslint:recommended", "tslint-sonarts", "tslint-react"],
   "rules": {
     "callable-types": true,
     "comment-format": [true, "check-space"],
@@ -139,7 +139,9 @@
     "no-identical-functions": true,
     "no-redundant-parentheses": true,
     "no-redundant-jump": true,
-    "no-useless-catch": true
+    "no-useless-catch": true,
+    // tslint-react
+    "jsx-wrap-multiline": false
   },
   "jsRules": {},
   "rulesDirectory": []

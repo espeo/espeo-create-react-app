@@ -14,6 +14,12 @@
     "build:version": "node src/version.js",
     "clean": "rm -rf dist ; rm -f src/environments/version.ts ; rm -f src/environments/version.ts"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test"
+    }
+  },
   "devDependencies": {
     "@types/enzyme": "^3.9.4",
     "@types/jest": "^24.0.15",
@@ -25,6 +31,7 @@
     "file-loader": "^4.0.0",
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.7.0",
     "jest": "^24.8.0",
     "postcss-loader": "^3.0.0",
     "react-test-renderer": "^16.8.6",
@@ -32,6 +39,7 @@
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
+    "tslint-react": "^4.0.0",
     "tslint-sonarts": "^1.9.0",
     "typescript": "^3.5.2",
     "webpack": "^4.35.0",
