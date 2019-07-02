@@ -26,6 +26,10 @@ Run unit tests in watch mode:
 ```bash
 yarn test --watch
 ```
+Run unit tests and update snapshots:
+```bash
+yarn test -u
+```
 
 Build bundle in development mode:
 ```bash
@@ -40,6 +44,21 @@ yarn build:prod
 Full build:
 ```bash
 yarn build
+```
+
+Run mocked server (on port 4201):
+```bash
+yarn mocked-server
+```
+
+Open Cypress panel (required running mocked-server):
+```bash
+yarn cy:open
+```
+
+Run Cypress tests in headless mode (required running mocked-server):
+```bash
+yarn cy:run
 ```
 
 Remove builded files:
@@ -61,6 +80,8 @@ yarn audit
 * [Enzyme](https://airbnb.io/enzyme/docs/guides/jest.html)
 * [TSLint](https://palantir.github.io/tslint/)
 * [Webpack](https://webpack.js.org/)
+* [Cypress](https://cypress.io/)
+* [CircleCi](https://circleci.com)
 
 ## Customize
 
@@ -74,6 +95,13 @@ For date parsing [optional]:
 
 Forms [optional]:
 * [final-form](https://github.com/final-form/react-final-form#videos)
+* [formik](https://jaredpalmer.com/formik)
+* [redux-form](https://redux-form.com/8.2.2/)
+
+CSS-IN-JS:
+* [styled-components](https://www.styled-components.com) [default]
+* [typestyle](https://github.com/typestyle/typestyle)
+* [emotion](https://github.com/emotion-js/emotion)
 
 ## Prohibited technologies
 * [redux-thunk](https://github.com/reduxjs/redux-thunk)

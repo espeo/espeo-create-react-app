@@ -9,7 +9,7 @@
     },
     "eofline": true,
     "forin": true,
-    "indent": [true, "spaces"],
+    "indent": [true, "spaces", 2],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [true, 140],
@@ -102,6 +102,7 @@
     "prefer-template": true,
     "whitespace": true,
     "max-classes-per-file": false,
+    "max-file-line-count": [true, 420],
 
     // sonar - bug detection https://github.com/SonarSource/SonarTS
     "no-all-duplicated-branches": true,

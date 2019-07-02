@@ -1,4 +1,5 @@
-import { Action, Logic } from '@core/domain';
+import { Logic } from '@core/domain';
+import { ReturnType } from '@core/utils';
 
 export enum FirstActionTypes {
   FETCH_First = '[First] Fetch First',
@@ -6,19 +7,21 @@ export enum FirstActionTypes {
   ERROR_First = '[First] Error First',
 }
 
-export class FetchFirst implements Action {
-  type = FirstActionTypes.FETCH_First;
-  payload: null = null;
-}
+export const fetchFirst = () => ({
+  type: FirstActionTypes.FETCH_First,
+  payload: null,
+} as const);
 
-export class LoadFirst implements Action {
-  type = FirstActionTypes.LOAD_First;
-  constructor(public payload: Logic) {}
-}
+export const loadFirst = (payload: Logic) => ({
+  type: FirstActionTypes.LOAD_First,
+  payload,
+} as const);
 
-export class ErrorFirst implements Action {
-  type = FirstActionTypes.ERROR_First;
-  payload: null = null;
-}
+export const errorFirst = () => ({
+  type: FirstActionTypes.ERROR_First,
+  payload: null,
+} as const);
 
-export type FirstActions = FetchFirst | LoadFirst | ErrorFirst;
+export type FirstActions = ReturnType<typeof fetchFirst>
+ | ReturnType<typeof loadFirst>
+ | ReturnType<typeof errorFirst>;

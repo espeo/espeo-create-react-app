@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { Logic } from '@core/domain';
 
-import { RootStore, getFirstData, FetchFirst } from '@core/store';
+import { RootStore, getFirstData, fetchFirst } from '@core/store';
 
 import { MainComponent } from './main.component';
 import { LocalStorageService } from '../../services/local-storage.service';
@@ -13,7 +13,7 @@ interface MainPropsAttrs {
 }
 
 interface MainPropsActions {
-  fetchFirst: () => FetchFirst;
+  fetchFirst: typeof fetchFirst;
 }
 
 export type MainProps = MainPropsAttrs & MainPropsActions;
@@ -24,6 +24,6 @@ export default connect(
     localStorageService: new LocalStorageService(),
   }),
   (dispatch): MainPropsActions => ({
-    fetchFirst: () => dispatch({ ...new FetchFirst() }),
+    fetchFirst: () => dispatch(fetchFirst()),
   }),
 )(MainComponent);

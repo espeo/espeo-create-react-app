@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "strictBindCallApply": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",

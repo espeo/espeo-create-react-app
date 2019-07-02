@@ -1,5 +1,4 @@
 import { Logic } from '@core/domain';
-import { Action } from '@core/utils';
 
 export enum SecondActionTypes {
   FETCH_SECOND = '[Second] Fetch Second',
@@ -7,19 +6,21 @@ export enum SecondActionTypes {
   ERROR_SECOND = '[Second] Error Second',
 }
 
-export const fetchSecond = (): Action => ({
+export const fetchSecond = () => ({
   type: SecondActionTypes.FETCH_SECOND,
   payload: null,
-});
+} as const);
 
-export const loadSecond = (payload: Logic): Action<Logic> => ({
+export const loadSecond = (payload: Logic) => ({
   type: SecondActionTypes.LOAD_SECOND,
   payload,
-});
+} as const);
 
-export const errorSecond = (): Action => ({
+export const errorSecond = () => ({
   type: SecondActionTypes.ERROR_SECOND,
   payload: null,
-});
+} as const);
 
-export type SecondActions = Action<null | Logic>;
+export type SecondActions = ReturnType<typeof fetchSecond>
+ | ReturnType<typeof loadSecond>
+ | ReturnType<typeof errorSecond>;

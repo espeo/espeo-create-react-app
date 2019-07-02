@@ -1,5 +1,3 @@
-import { cyan } from 'ansi-colors';
-
 describe('Main View', () => {
   it('should render title and button', () => {
     cy

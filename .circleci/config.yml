@@ -1,7 +1,7 @@
 jobs:
   build:
     docker:
-      - image: cypress
+      - image: cypress-io/cypress
 
     working_directory: ~/src
 
