@@ -47,6 +47,8 @@ describe('Main Title Component', () => {
     ).find('button').simulate('click');
 
     expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toBeCalledWith('key', '42');
     spy.mockRestore();
   });
 
