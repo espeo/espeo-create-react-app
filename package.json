@@ -5,6 +5,7 @@
   "repository": "git@github.com:przemyslawjanpietrzak/create-espeo-app.git",
   "author": "Przemyslaw Beigert <przemyslaw.jan.beigert@protonmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "yarn config:dev && webpack-dev-server --config ./webpack.config.js",
     "lint": "tslint --config ./tslint.json --project ./tsconfig.json './src/**/*'",
