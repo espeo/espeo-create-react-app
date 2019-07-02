@@ -3,7 +3,7 @@ import * as React from 'react';
 import { MainTitle } from './sub-components/main-title.component';
 import { MainProps } from './main.container';
 
-export class MainComponent extends React.Component<MainProps> {
+export class MainComponent extends React.PureComponent<MainProps> {
 
   componentDidMount() {
     this.props.fetchFirst();

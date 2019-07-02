@@ -16,7 +16,11 @@
     "build:prod": "yarn config:prod && webpack --config ./webpack.config.js --optimize-minimize --mode=production",
     "build:version": "node src/version.js",
     "build": "yarn clean && yarn build:version && yarn build:prod",
-    "clean": "rm -rf dist ; rm -f src/environments/version.ts ; rm -f src/environments/version.ts"
+    "clean": "rm -rf dist ; rm -f src/environments/version.ts ; rm -f src/environments/version.ts",
+    "mocked-server": "json-server mocked-server/data.json --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)"
   },
   "husky": {
     "hooks": {
@@ -30,6 +34,7 @@
     "@types/react-test-renderer": "^16.8.2",
     "autoprefixer": "^9.6.0",
     "css-loader": "^3.0.0",
+    "cypress": "^3.3.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "file-loader": "^4.0.0",
@@ -38,6 +43,7 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.7.0",
     "jest": "^24.8.0",
+    "json-server": "^0.15.0",
     "mini-css-extract-plugin": "^0.7.0",
     "postcss-loader": "^3.0.0",
     "react-test-renderer": "^16.8.6",
@@ -65,5 +71,9 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=10.9.0",
+    "yarn": ">=1.17.0"
   }
 }

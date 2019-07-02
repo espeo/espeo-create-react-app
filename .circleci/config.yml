@@ -1,7 +1,7 @@
 jobs:
   build:
     docker:
-      - image: circleci/node:10.13
+      - image: cypress
 
     working_directory: ~/src
 
@@ -10,8 +10,8 @@ jobs:
 
       - restore_cache:
           keys:
-          - dependencies-{{ checksum "package.json" }}
-          - dependencies-
+            - dependencies-{{ checksum "package.json" }}
+            - dependencies-
 
       - run:
           name: Install dependencies
@@ -37,3 +37,7 @@ jobs:
       - run:
           name: Run compilation
           command: yarn build:prod
+
+      - run:
+          name: Run integration tests
+          command: yarn cy:ci
