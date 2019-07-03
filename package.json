@@ -54,6 +54,7 @@
     "jest-styled-components": "^6.3.3",
     "json-server": "^0.15.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
     "postcss-loader": "^3.0.0",
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
