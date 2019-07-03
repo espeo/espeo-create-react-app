@@ -51,12 +51,12 @@ Run mocked server (on port 4201):
 yarn mocked-server
 ```
 
-Open Cypress panel (required running mocked-server):
+Open Cypress panel (required running mocked-server & build dist):
 ```bash
 yarn cy:open
 ```
 
-Run Cypress tests in headless mode (required running mocked-server):
+Run Cypress tests in headless mode (required running mocked-server & buil dist):
 ```bash
 yarn cy:run
 ```
@@ -103,7 +103,22 @@ CSS-IN-JS:
 * [typestyle](https://github.com/typestyle/typestyle)
 * [emotion](https://github.com/emotion-js/emotion)
 
+## Remove unused CI
+
+Circle:
+```bash
+rm -rf .circleci
+```
+
+Bitbucket pipelines:
+```bash
+rm bitbucket-pipelines.yml
+```
+
 ## Prohibited technologies
 * [redux-thunk](https://github.com/reduxjs/redux-thunk)
 * [momentjs](https://momentjs.com/)
 * [lodash](https://lodash.com/)
+
+// containers, pages, components
+// root-store, dedicated-store

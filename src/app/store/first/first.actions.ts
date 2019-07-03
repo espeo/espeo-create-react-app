@@ -1,5 +1,5 @@
 import { Logic } from '@core/domain';
-import { ReturnType } from '@core/utils';
+import { ReturnType } from '@core/utils/util-types';
 
 export enum FirstActionTypes {
   FETCH_First = '[First] Fetch First',

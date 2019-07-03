@@ -3,3 +3,6 @@ dist
 yarn-error.log
 src/environments/environment.ts
 src/environments/version.ts
+cypress/screenshots
+*-code-workspace
+.idea

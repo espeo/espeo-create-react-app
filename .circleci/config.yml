@@ -1,7 +1,8 @@
+version: 2
 jobs:
   build:
     docker:
-      - image: cypress-io/cypress
+      - image: cypress/base:10.16.0
 
     working_directory: ~/src
 

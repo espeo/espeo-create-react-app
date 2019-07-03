@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MainTitle } from './sub-components/main-title.component';
+import { MainTitle } from './components/main-title.component';
 import { MainProps } from './main.container';
 
 export class MainComponent extends React.PureComponent<MainProps> {

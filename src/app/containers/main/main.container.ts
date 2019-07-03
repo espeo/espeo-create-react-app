@@ -4,8 +4,9 @@ import { Logic } from '@core/domain';
 
 import { RootStore, getFirstData, fetchFirst } from '@core/store';
 
+import { LocalStorageService } from '@core/services/local-storage.service';
+
 import { MainComponent } from './main.component';
-import { LocalStorageService } from '../../services/local-storage.service';
 
 interface MainPropsAttrs {
   first: Logic | null;
@@ -18,12 +19,16 @@ interface MainPropsActions {
 
 export type MainProps = MainPropsAttrs & MainPropsActions;
 
+const mapStateToProps = (store: RootStore): MainPropsAttrs => ({
+  first: getFirstData(store),
+  localStorageService: new LocalStorageService(),
+});
+
+const mapDispatchToProps: MainPropsActions = {
+  fetchFirst,
+};
+
 export default connect(
-  (store: RootStore): MainPropsAttrs => ({
-    first: getFirstData(store),
-    localStorageService: new LocalStorageService(),
-  }),
-  (dispatch): MainPropsActions => ({
-    fetchFirst: () => dispatch(fetchFirst()),
-  }),
+  mapStateToProps,
+  mapDispatchToProps,
 )(MainComponent);

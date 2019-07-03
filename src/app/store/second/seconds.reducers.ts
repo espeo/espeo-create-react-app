@@ -13,11 +13,10 @@ const defaultState: SecondState = {
   data: null,
 };
 
-// tslint:disable-next-line only-arrow-functions
-export const secondReducer = function(
+export const secondReducer = (
   state = defaultState,
   action: SecondActions,
-): SecondState {
+): SecondState => {
   if (action.type === SecondActionTypes.FETCH_SECOND) {
     return {
       ...state,

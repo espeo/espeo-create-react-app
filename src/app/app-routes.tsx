@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import MainView from './components/main/main.container';
+import MainView from './containers/main/main.container';
 
 export const AppRoutes = () => (
   <Router basename='/react-dash'>
