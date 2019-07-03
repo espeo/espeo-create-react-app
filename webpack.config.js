@@ -55,14 +55,6 @@ module.exports = {
         ],
       },
       {
-        test: /src\/environments\/environments.ts/,
-        loader: 'file-replace-loader',
-        options: {
-          replacement: path.resolve('./src/environments/environments.production.ts'),
-          async: true,
-        },
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
       },
