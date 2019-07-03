@@ -1,0 +1,14 @@
+image: node:10.9
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - yarn install
+          - yarn audit:ci
+          - yarn lint
+          - yarn test
+          - yarn build
+          - yarn cy:ci
