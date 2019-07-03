@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn config:dev && webpack-dev-server --config ./webpack.config.js",
     "lint": "tslint --config ./tslint.json --project ./tsconfig.json './src/**/*'",
-    "test": "jest src/",
+    "test": "jest src/**",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
     "config:dev": "cp ./src/environments/environment.development.ts ./src/environments/environment.ts",
     "config:prod": "cp ./src/environments/environment.production.ts ./src/environments/environment.ts",

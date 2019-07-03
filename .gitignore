@@ -4,5 +4,6 @@ yarn-error.log
 src/environments/environment.ts
 src/environments/version.ts
 cypress/screenshots
+cypress/videos
 *-code-workspace
 .idea

@@ -56,7 +56,7 @@ Open Cypress panel (required running mocked-server & build dist):
 yarn cy:open
 ```
 
-Run Cypress tests in headless mode (required running mocked-server & buil dist):
+Run Cypress tests in headless mode (required running mocked-server & build dist):
 ```bash
 yarn cy:run
 ```
@@ -74,33 +74,49 @@ yarn audit
 ## Used technologies
 
 * [React](https://reactjs.org/)
+
 * [Redux](https://redux.js.org/)
+
 * [TypeScript](https://www.typescriptlang.org/)
+
 * [Jest](https://jestjs.io/)
+
 * [Enzyme](https://airbnb.io/enzyme/docs/guides/jest.html)
+
 * [TSLint](https://palantir.github.io/tslint/)
+
 * [Webpack](https://webpack.js.org/)
+
 * [Cypress](https://cypress.io/)
-* [CircleCi](https://circleci.com)
 
 ## Customize
 
 Install one of this redux middleware
+
 * [redux-observable](https://redux-observable.js.org/)
+
 * [redux-saga](https://redux-saga.js.org/)
+
 * [redux-loop](https://redux-loop.js.org/)
 
 For date parsing [optional]:
+
 * [dayjs](https://github.com/iamkun/dayjs)
 
 Forms [optional]:
+
 * [final-form](https://github.com/final-form/react-final-form#videos)
+
 * [formik](https://jaredpalmer.com/formik)
+
 * [redux-form](https://redux-form.com/8.2.2/)
 
 CSS-IN-JS:
+
 * [styled-components](https://www.styled-components.com) [default]
+
 * [typestyle](https://github.com/typestyle/typestyle)
+
 * [emotion](https://github.com/emotion-js/emotion)
 
 ## Remove unused CI
@@ -115,10 +131,12 @@ Bitbucket pipelines:
 rm bitbucket-pipelines.yml
 ```
 
+GitlabCI
+```bash
+rm .gitlab-ci.yml
+```
+
 ## Prohibited technologies
 * [redux-thunk](https://github.com/reduxjs/redux-thunk)
 * [momentjs](https://momentjs.com/)
 * [lodash](https://lodash.com/)
-
-// containers, pages, components
-// root-store, dedicated-store

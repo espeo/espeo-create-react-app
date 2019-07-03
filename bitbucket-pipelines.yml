@@ -11,4 +11,5 @@ pipelines:
           - yarn lint
           - yarn test
           - yarn build
+          - yarn cypress install
           - yarn cy:ci
