@@ -1,0 +1,17 @@
+{
+	"espeo-component-functional": {
+		"scope": "typescriptreact",
+		"prefix": "espeo-component-functional",
+		"body": [
+			"import * as React from 'react';",
+			"",
+			"interface Props {",
+			"  $1",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g} = ({ $2 }: Props) => <div>${TM_FILENAME_BASE/(.*?).component/${1}/g} component works!</div>;",
+			""
+		],
+		"description": ""
+	}
+}
