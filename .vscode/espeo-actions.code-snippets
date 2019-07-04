@@ -1,0 +1,36 @@
+{
+	"Create espeo actions": {
+		"scope": "typescript",
+		"prefix": "espeo-actions",
+		"body": [
+			"import { Logic } from '@core/domain';",
+			"",
+			"export enum ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}ActionTypes {",
+			"  FETCH_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g} = '[${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}] Fetch ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}',",
+			"  LOAD_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g} = '[${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}] Load ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}',",
+			"  ERROR_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g} = '[${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}] Error ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}',",
+			"}",
+			"",
+			"export const fetch${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g} = () => ({",
+			"  type: ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}ActionTypes.FETCH_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g},",
+			"  payload: null,",
+			"} as const);",
+			"",
+			"export const load${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g} = (payload: object) => ({",
+			"  type: ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}ActionTypes.LOAD_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g},",
+			"  payload,",
+			"} as const);",
+			"",
+			"export const error${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g} = () => ({",
+			"  type: ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}ActionTypes.ERROR_${TM_FILENAME_BASE/(.*?).actions/${1:/upcase}/g},",
+			"  payload: null,",
+			"} as const);",
+			"",
+			"export type ${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}Actions = ReturnType<typeof fetch${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}>",
+			" | ReturnType<typeof load${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}>",
+			" | ReturnType<typeof error${TM_FILENAME_BASE/(.*?).actions/${1:/capitalize}/g}>;",
+			""
+		],
+		"description": "Type-safe actions for redux purposes"
+	}
+}
