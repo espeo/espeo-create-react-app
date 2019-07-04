@@ -1,0 +1,24 @@
+{
+	"espeo-container-component": {
+		"prefix": "espeo-container-component",
+		"scope": "typescriptreact",
+		"body": [
+			"import * as React from 'react';",
+			"",
+			"import { ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Props } from './${TM_FILENAME_BASE/(.*?).component/${1}/g}.container';",
+			"",
+			"export class ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Component extends React.PureComponent<${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Props> {",
+			"",
+			"  render() {",
+			"    return (",
+			"      <div>",
+			"        ${TM_FILENAME_BASE/(.*?).component/${1}/g} container component works!",
+			"      </div>",
+			"    );",
+			"  }",
+			"}",
+			""
+		],
+		"description": ""
+	}
+}

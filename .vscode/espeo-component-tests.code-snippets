@@ -1,0 +1,34 @@
+{
+	"espeo-component-tests": {
+		"prefix": "espeo-component-test",
+		"body": [
+			"import React from 'react';",
+			"import renderer from 'react-test-renderer';",
+			"import { shallow } from 'enzyme';",
+			"",
+			"import { ${TM_FILENAME_BASE/(.*?).component.spec/${1:/capitalize}/g}Component } from '../${TM_FILENAME_BASE/(.*?).component.spec/${1}/g}.component';",
+			"",
+			"describe('${TM_FILENAME_BASE/(.*?).component.spec/${1:/capitalize}/g} Component', () => {",
+			"  test('should be defined', () => {",
+			"    const component = renderer.create(<${TM_FILENAME_BASE/(.*?).component.spec/${1:/capitalize}/g}Component />);",
+			"    expect(component).toBeDefined();",
+			"  });",
+			"",
+			"  test('should match snapshot', () => {",
+			"    const component = renderer.create(<${TM_FILENAME_BASE/(.*?).component.spec/${1:/capitalize}/g}Component />);",
+			"    const tree = component.toJSON();",
+			"    expect(tree).toMatchSnapshot();",
+			"  });",
+			"",
+			"  test('should contains text', () => {",
+			"    const text = shallow(<${TM_FILENAME_BASE/(.*?).component.spec/${1:/capitalize}/g}Component />)",
+			"      .children()",
+			"      .text();",
+			"    expect(text).toEqual('${TM_FILENAME_BASE/(.*?).component.spec/${1}/g} container component works!');",
+			"  });",
+			"});",
+			""
+		],
+		"description": ""
+	}
+}
