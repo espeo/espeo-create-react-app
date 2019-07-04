@@ -17,7 +17,7 @@
 			"  data: null,",
 			"};",
 			"",
-			"export const secondReducer = (",
+			"export const ${TM_FILENAME_BASE/(.*?).reducers/${1}/g}Reducer = (",
 			"  state = defaultState,",
 			"  action: ${TM_FILENAME_BASE/(.*?).reducers/${1:/capitalize}/g}Actions,",
 			"): ${TM_FILENAME_BASE/(.*?).reducers/${1:/capitalize}/g}State => {",

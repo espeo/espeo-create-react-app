@@ -1,0 +1,21 @@
+{
+	"espeo-reducers-test": {
+		"prefix": "espeo-reducers-test",
+		"body": [
+			"import { ${TM_FILENAME_BASE/(.*?).reducers.spec/${1}/g}Reducer } from '../${TM_FILENAME_BASE/(.*?).reducers.spec/${1}/g}.reducers';",
+			"",
+			"describe('First Reducers', () => {",
+			"  it('should return default state ', () => {",
+			"    const state = ${TM_FILENAME_BASE/(.*?).reducers.spec/${1}/g}Reducer(undefined as any, {} as any);",
+			"    expect(state).toEqual({",
+			"      data: null,",
+			"      isLoading: false,",
+			"      isError: false,",
+			"    });",
+			"  });",
+			"});",
+			""
+		],
+		"description": "Create unit test for reducer function"
+	}
+}
