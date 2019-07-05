@@ -133,9 +133,19 @@ espeo-reducers
 espeo-reducers-tests
 ```
 
+* Create simple unit test (required `.ts` extension in `spec` director)
+```bash
+espeo-unit-test
+```
+
 * Create cypress test (required `.spec.js` extension in `cypres/integrations` directory)
 ```bash
-espeo-reducers-tests
+espeo-cypress-test
+```
+
+* Create cypress command (required `.js` extension in `cypres/support` directory)
+```bash
+espeo-cypress-command
 ```
 
 ## Customize
