@@ -9,7 +9,7 @@
 			"  $1",
 			"}",
 			"",
-			"export const ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g} = ({ $2 }: Props) => <div>${TM_FILENAME_BASE/(.*?).component/${1}/g} component works!</div>;",
+			"export const ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} = ({ $2 }: Props) => <div>${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} component works!</div>;",
 			""
 		],
 		"description": ""

@@ -5,9 +5,9 @@
 		"body": [
 			"import * as React from 'react';",
 			"",
-			"import { ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Props } from './${TM_FILENAME_BASE/(.*?).component/${1}/g}.container';",
+			"import { ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g}Props } from './${TM_FILENAME_BASE/(.*?)\\.component/${1}/g}.container';",
 			"",
-			"export class ${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Component extends React.PureComponent<${TM_FILENAME_BASE/(.*?).component/${1:/capitalize}/g}Props> {",
+			"export class ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} extends React.PureComponent<${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g}Props> {",
 			"",
 			"  render() {",
 			"    return (",
