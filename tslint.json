@@ -1,6 +1,9 @@
 {
   "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-sonarts", "tslint-react"],
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
   "rules": {
     "callable-types": true,
     "comment-format": [true, "check-space"],
@@ -142,8 +145,21 @@
     "no-redundant-jump": true,
     "no-useless-catch": true,
     // tslint-react
-    "jsx-wrap-multiline": false
+    "jsx-wrap-multiline": false,
+
+    // tslint-eslint-rules
+    "no-constant-condition": true,
+    "no-control-regex": true,
+    "no-duplicate-case": true,
+    "no-empty-character-class": true,
+    "no-ex-assign": true,
+    "no-irregular-whitespace": true,
+    "no-regex-spaces": true,
+    "no-sparse-arrays": true,
+    "valid-jsdoc": true,
+    // tslint-eslint-rules Best Practices
+    "no-multi-spaces": true,
+    "ter-indent": [true, 2]
   },
-  "jsRules": {},
-  "rulesDirectory": []
+  "jsRules": {}
 }

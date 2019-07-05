@@ -1,4 +1,4 @@
-import { Response } from './common';
+import { Response } from '@core/utils';
 
 export interface Logic {
   id: string;
