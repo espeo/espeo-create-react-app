@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import { Logic } from '@core/domain';
-
 import { RootStore } from '@core/store';
 
 import { fetchStateful, StatefulState } from './stateful-store';
