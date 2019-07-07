@@ -13,13 +13,13 @@
 			"  render() {",
 			"    return (",
 			"      <div>",
-			"        ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1}${2:/capitalize}/g} container component works!",
+			"        ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} component works!",
 			"      </div>",
 			"    );",
 			"  }",
 			"}",
 			""
 		],
-		"description": ""
+		"description": "Initial structure of class component in react."
 	}
 }

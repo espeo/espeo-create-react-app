@@ -12,6 +12,6 @@
 			"export const ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} = ({ $2 }: Props) => <div>${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} component works!</div>;",
 			""
 		],
-		"description": ""
+		"description": "Initial structure of functional react component."
 	}
 }

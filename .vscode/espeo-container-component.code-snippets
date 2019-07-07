@@ -12,13 +12,13 @@
 			"  render() {",
 			"    return (",
 			"      <div>",
-			"        ${TM_FILENAME_BASE/(.*?).component/${1}/g} container component works!",
+			"        ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} component works!",
 			"      </div>",
 			"    );",
 			"  }",
 			"}",
 			""
 		],
-		"description": ""
+		"description": "Inital structure for component connected to store."
 	}
 }

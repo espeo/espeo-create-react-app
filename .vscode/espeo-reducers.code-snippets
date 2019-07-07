@@ -45,6 +45,6 @@
 			"};",
 			""
 		],
-		"description": ""
+		"description": "Example redux redcuer file."
 	}
 }

@@ -4,7 +4,7 @@
 		"body": [
 			"import { ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.reducers.spec/$1${2:/capitalize}/g}Reducer } from '../${TM_FILENAME_BASE/(.*?)\\.reducers.spec/$1/g}.reducers';",
 			"",
-			"describe('First Reducers', () => {",
+			"describe('${TM_FILENAME_BASE/([^-]*)-?(.*)\\.reducers.spec/${1:/capitalize}${2:/capitalize}/g} Reducers', () => {",
 			"  it('should return default state ', () => {",
 			"    const state = ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.reducers.spec/$1${2:/capitalize}/g}Reducer(undefined as any, {} as any);",
 			"    expect(state).toEqual({",
@@ -16,6 +16,6 @@
 			"});",
 			""
 		],
-		"description": "Create unit test for reducer function"
+		"description": "Create unit test for reducer function."
 	}
 }

@@ -33,6 +33,6 @@
 			")(${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g});",
 			""
 		],
-		"description": ""
+		"description": "Initial structure of connection componennt to store."
 	}
 }

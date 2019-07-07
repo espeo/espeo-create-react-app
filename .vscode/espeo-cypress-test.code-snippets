@@ -12,6 +12,6 @@
 			"});",
 			""
 		],
-		"description": ""
+		"description": "Empty cypress test."
 	}
 }

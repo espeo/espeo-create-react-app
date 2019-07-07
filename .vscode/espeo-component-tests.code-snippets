@@ -25,11 +25,11 @@
 			"    const text = shallow(<${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component.spec/${1:/capitalize}${2:/capitalize}/g} />)",
 			"      .children()",
 			"      .text();",
-			"    expect(text).toEqual('${TM_FILENAME_BASE/(.*?).component.spec/${1}/g} container component works!');",
+			"    expect(text).toEqual('${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component.spec/${1:/capitalize}${2:/capitalize}/g} component works!');",
 			"  });",
 			"});",
 			""
 		],
-		"description": ""
+		"description": "Basic structure for component unit test."
 	}
 }

@@ -3,6 +3,8 @@
 		"scope": "typescript",
 		"prefix": "espeo-actions",
 		"body": [
+			"import { ReturnType } from '@core/utils';",
+			"",
 			"export enum ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}ActionTypes {",
 			"  FETCH_${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/upcase}${2:/upcase}/g} = '[${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}] Fetch ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}',",
 			"  LOAD_${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/upcase}${2:/upcase}/g} = '[${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}] Load ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}',",
@@ -29,6 +31,6 @@
 			" | ReturnType<typeof error${TM_FILENAME_BASE/([^-]*)-?(.*)\\.actions/${1:/capitalize}${2:/capitalize}/g}>;",
 			""
 		],
-		"description": "Type-safe actions for redux purposes"
+		"description": "Type-safe actions for redux."
 	}
 }
