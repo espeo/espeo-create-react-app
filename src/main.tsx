@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { AppRoutes } from './app/app-routes';
 import { rootStore } from './app/root-store';
-import { defaultTheme } from './app/ui/theme/defaultTheme';
+import { defaultTheme } from '@core/ui';
 
 import './polyfills';
 
