@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 
 import { getLocalStorageServiceMock } from '@core/mocks';
 import { shallowWithTheme, withThemeProvider } from '@core/utils';
-import { defaultTheme } from '@core/ui';
+import { defaultTheme } from '@core/themes';
 
 import { MainComponent } from './main.component';
 
