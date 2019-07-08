@@ -4,7 +4,7 @@ exports[`Main Title Component should match snapshot 1`] = `
 .c0 {
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: #db7093;
 }
 
 <h1

@@ -1,8 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 
 import { getLocalStorageServiceMock } from '@core/mocks';
+import { shallowWithTheme, withThemeProvider } from '@core/utils';
+import { defaultTheme } from '@core/themes';
 
 import { MainComponent } from './main.component';
 
@@ -10,11 +11,11 @@ describe('Main Title Component', () => {
   test('should be defined', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const component = renderer.create(
-      <MainComponent
+      withThemeProvider(<MainComponent
         first={null}
         localStorageService={localStorageServiceMock}
         fetchFirst={jest.fn()}
-      />,
+      />, defaultTheme),
     );
     expect(component).toBeDefined();
   });
@@ -22,12 +23,13 @@ describe('Main Title Component', () => {
   test('after mount component should be call fetchFirst action', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const spy = jest.fn();
-    shallow(
+    shallowWithTheme(
       <MainComponent
         first={null}
         localStorageService={localStorageServiceMock}
         fetchFirst={spy}
       />,
+      defaultTheme,
     );
 
     expect(spy).toHaveBeenCalled();
@@ -38,12 +40,13 @@ describe('Main Title Component', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const spy = jest.spyOn(localStorageServiceMock, 'set');
 
-    shallow(
+    shallowWithTheme(
       <MainComponent
         first={null}
         localStorageService={localStorageServiceMock}
         fetchFirst={jest.fn()}
       />,
+      defaultTheme,
     ).find('button').simulate('click');
 
     expect(spy).toHaveBeenCalled();

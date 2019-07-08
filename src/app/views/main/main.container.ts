@@ -4,7 +4,7 @@ import { Logic } from '@core/domain';
 
 import { RootStore, getFirstData, fetchFirst } from '@core/store';
 
-import { LocalStorageService } from '@core/services/local-storage.service';
+import { LocalStorageService } from '@core/services';
 
 import { MainComponent } from './main.component';
 
