@@ -1,0 +1,38 @@
+{
+	"espeo-container": {
+		"prefix": "espeo-container",
+		"scope": "typescript",
+		"body": [
+			"import { connect } from 'react-redux';",
+			"",
+			"import { RootStore } from '@core/store';",
+			"",
+			"import { ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g} } from './${TM_FILENAME_BASE/(.*?)\\.container/${1}/g}.component';",
+			"",
+			"interface ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsAttrs {",
+			"  $1",
+			"}",
+			"",
+			"interface ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsActions {",
+			"  $2",
+			"}",
+			"",
+			"export type ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}Props = ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsAttrs & ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsActions;",
+			"",
+			"const mapStateToProps = (store: RootStore): ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsAttrs => ({",
+			"  $3",
+			"});",
+			"",
+			"const mapDispatchToProps: ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g}PropsActions = {",
+			"  $4",
+			"};",
+			"",
+			"export default connect(",
+			"  mapStateToProps,",
+			"  mapDispatchToProps,",
+			")(${TM_FILENAME_BASE/([^-]*)-?(.*)\\.container/${1:/capitalize}${2:/capitalize}/g});",
+			""
+		],
+		"description": "Initial structure of connection componennt to store."
+	}
+}

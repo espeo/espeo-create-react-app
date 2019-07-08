@@ -1,0 +1,25 @@
+{
+	"espeo-component": {
+		"scope": "typescriptreact",
+		"prefix": "espeo-component",
+		"body": [
+			"import * as React from 'react';",
+			"",
+			"interface Props {",
+			"  $1",
+			"}",
+			"",
+			"export class ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} extends React.Component<Props> {",
+			"  render() {",
+			"    return (",
+			"      <div>",
+			"        ${TM_FILENAME_BASE/([^-]*)-?(.*)\\.component/${1:/capitalize}${2:/capitalize}/g} component works!",
+			"      </div>",
+			"    );",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Initial structure of class component in react."
+	}
+}

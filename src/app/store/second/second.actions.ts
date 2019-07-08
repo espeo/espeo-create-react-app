@@ -1,4 +1,5 @@
 import { Logic } from '@core/domain';
+import { ReturnType } from '@core/utils';
 
 export enum SecondActionTypes {
   FETCH_SECOND = '[Second] Fetch Second',

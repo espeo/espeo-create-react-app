@@ -1,0 +1,15 @@
+{
+	"espeo-unit-test": {
+		"prefix": "espeo-unit-test",
+		"scope": "typescript",
+		"body": [
+			"describe('$1', () => {",
+			"  it('$2', () => {",
+			"    $3",
+			"  });",
+			"});",
+			""
+		],
+		"description": "Empty Jest unit test."
+	}
+}

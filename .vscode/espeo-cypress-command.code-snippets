@@ -1,0 +1,13 @@
+{
+	"espeo-cypress-command": {
+		"prefix": "espeo-cypress-command",
+		"scope": "javascript",
+		"body": [
+			"Cypress.Commands.add('$1', () => {",
+			"  cy.$2",
+			"});",
+			""
+		],
+		"description": "Empty cypress command."
+	}
+}
