@@ -71,6 +71,11 @@ Installed dependencies security audit:
 yarn audit
 ```
 
+To analyze bundle size (via [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)):
+```bash
+yarn analyze
+```
+
 ## Used technologies
 
 * [React](https://reactjs.org/)

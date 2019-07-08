@@ -1,10 +1,14 @@
 const path = require('path');
+
 const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
 
 const env = process.env.npm_lifecycle_event;
+const inAnalyze = process.env.ANALYZE === 'true';
 const isProduction = env.includes('prod');
 
 const getPath = file => path.resolve(__dirname, file);
@@ -81,7 +85,9 @@ module.exports = {
       filename: '[name].[hash].css',
       chunkFilename: '[id].css',
     }),
-  ].concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]),
+  ]
+    .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
+    .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 4200,
