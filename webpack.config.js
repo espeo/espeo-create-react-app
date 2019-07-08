@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const env = process.env.npm_lifecycle_event;
 const inAnalyze = process.env.ANALYZE === 'true';
@@ -54,20 +55,15 @@ module.exports = {
         ],
       },
       {
-        test: /src\/environments\/environments.ts/,
-        loader: 'file-replace-loader',
-        options: {
-          replacement: path.resolve('./src/environments/environments.production.ts'),
-          async: true,
-        },
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
       },
     ],
   },
-  optimization: {},
+  optimization: {
+    minimizer: [new OptimizeCssAssetsPlugin({})],
+  },
+  bail: isProduction,
   devtool: !isProduction ? 'source-map' : 'none',
   plugins: [
     new webpack.ProvidePlugin({
@@ -76,10 +72,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body',
-      removeComments: isProduction,
-      collapseWhitespace: isProduction,
-      preserveLineBreaks: true,
-      decodeEntities: true,
+      minify: isProduction ? {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      } : undefined,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
