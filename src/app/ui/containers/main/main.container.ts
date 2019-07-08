@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import { Logic } from '@core/domain';
 
-import { RootStore, getFirstData, fetchFirst } from '@core/store';
+import { RootStore, getFirstData, fetchFirst } from '../../../store';
 
-import { LocalStorageService } from '@core/services/local-storage.service';
+import { LocalStorageService } from '@core/services';
 
 import { MainComponent } from './main.component';
 

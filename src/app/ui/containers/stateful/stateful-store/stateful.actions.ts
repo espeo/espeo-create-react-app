@@ -1,5 +1,5 @@
 import { Logic } from '@core/domain';
-import { ReturnType } from '@core/utils/util-types';
+import { ReturnType } from '@core/utils';
 
 export enum StatefulActionTypes {
   FETCH_Stateful = '[Stateful] Fetch Stateful',
