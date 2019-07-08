@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { getLocalStorageServiceMock } from '../../../mocks';
-import { shallowWithTheme, withThemeProvider } from '../../../utils';
-import { defaultTheme } from '../../theme/defaultTheme';
+import { getLocalStorageServiceMock } from '@core/mocks';
+import { shallowWithTheme, withThemeProvider } from '@core/utils';
+import { defaultTheme } from '@core/ui';
 
 import { MainComponent } from './main.component';
 

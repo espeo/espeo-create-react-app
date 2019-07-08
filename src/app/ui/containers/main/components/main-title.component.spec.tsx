@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
-import { shallowWithTheme, withThemeProvider } from '../../../../utils';
+import { shallowWithTheme, withThemeProvider } from '@core/utils';
+import { defaultTheme } from '@core/ui';
 import { MainTitle } from './main-title.component';
-import { defaultTheme } from '../../../theme/defaultTheme';
 
 describe('Main Title Component', () => {
 
