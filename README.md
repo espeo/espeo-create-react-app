@@ -7,6 +7,11 @@ Install dependencies:
 yarn install
 ```
 
+Run dev server (on port 4200):
+```bash
+yarn start
+```
+
 Run static code analyze:
 ```bash
 yarn lint
