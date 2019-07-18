@@ -8,3 +8,11 @@ export interface Response<T extends { id: string }> {
   id: string;
   data: Omit<T, 'id'>;
 }
+
+export interface Dict<T> {
+  [key: string]: T;
+}
+
+export type ReadOnly<T extends object> = {
+  readonly [K in keyof T]: T[K];
+};
