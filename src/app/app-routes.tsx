@@ -5,9 +5,9 @@ import MainView from './views/main/main.container';
 import StateFulView from './views/stateful/stateful.container';
 
 export const AppRoutes = () => (
-  <Router basename='/react-dash'>
+  <Router>
     <Switch>
-      <Route path='/' component={MainView} />
+      <Route path='/' exact={true} component={MainView} />
       <Route path='/stateful' component={StateFulView} />
     </Switch>
   </Router>
