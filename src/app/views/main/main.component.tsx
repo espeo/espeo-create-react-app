@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 
+import { Input } from '@core/views/common';
+
 import { MainTitle } from './components/main-title.component';
 import { MainProps } from './main.container';
-import { Input } from '../common/input/input.component';
 
 export class MainComponent extends PureComponent<MainProps> {
 
