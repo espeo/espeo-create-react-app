@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
 import { getLocalStorageServiceMock } from '@core/mocks';
 import { shallowWithTheme, withThemeProvider } from '@core/utils';

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
@@ -7,9 +7,9 @@ import { AppRoutes } from './app/app-routes';
 import { rootStore } from './app/root-store';
 import { defaultTheme } from '@core/themes';
 
-import './polyfills';
+import '@assets/styles/main.css';
 
-import './assets/styles/main.css';
+import './polyfills';
 
 ReactDOM.render(
   <Provider store={rootStore}>
