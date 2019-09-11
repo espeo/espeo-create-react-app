@@ -25,5 +25,5 @@
      "lib": ["dom", "esnext"]
   },
   "files": ["src/main.tsx"],
-  "exclude": ["node_modules", "dist", "**/*.spec.ts"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
 }

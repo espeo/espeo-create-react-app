@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { shallow } from 'enzyme';
 

@@ -25,6 +25,8 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@core': path.resolve(__dirname, './src/app/'),
+      '@environments': path.resolve(__dirname, './src/environments/'),
+      '@assets': path.resolve(__dirname, './src/assets/'),
     },
   },
   module: {

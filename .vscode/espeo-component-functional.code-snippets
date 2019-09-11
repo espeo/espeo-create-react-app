@@ -3,7 +3,7 @@
 		"scope": "typescriptreact",
 		"prefix": "espeo-component-functional",
 		"body": [
-			"import * as React from 'react';",
+			"import React from 'react';",
 			"",
 			"interface Props {",
 			"  $1",

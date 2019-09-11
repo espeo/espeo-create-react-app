@@ -1,9 +1,10 @@
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
+import React from 'react';
+import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
 import { shallowWithTheme, withThemeProvider } from '@core/utils';
 import { defaultTheme } from '@core/themes';
+
 import { MainTitle } from './main-title.component';
 
 describe('Main Title Component', () => {
