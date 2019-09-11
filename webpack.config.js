@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const env = process.env.npm_lifecycle_event;
 const inAnalyze = process.env.ANALYZE === 'true';
@@ -60,10 +60,15 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimizer: [new OptimizeCssAssetsPlugin({})],
-  },
   bail: isProduction,
+  optimization: {
+    minimize: isProduction,
+    minimizer: isProduction ? [
+      new TerserPlugin({
+        extractComments: 'all',
+      }),
+    ] : [],
+  },
   devtool: !isProduction ? 'source-map' : 'none',
   plugins: [
     new webpack.ProvidePlugin({
