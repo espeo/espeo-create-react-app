@@ -1,6 +1,6 @@
 {
-  "name": "create-espeo-app",
-  "version": "1.0.0",
+  "name": "@espeo/create-espeo-app",
+  "version": "1.0.1",
   "main": "src/main.ts",
   "repository": "git@github.com:przemyslawjanpietrzak/create-espeo-app.git",
   "author": "Przemyslaw Beigert <przemyslaw.jan.beigert@protonmail.com>",
