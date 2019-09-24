@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "src/main.ts",
   "repository": "git@github.com:przemyslawjanpietrzak/create-espeo-app.git",
-  "author": "Przemyslaw Beigert <przemyslaw.jan.beigert@protonmail.com>",
+  "author": "Espeo Software",
   "license": "MIT",
   "private": true,
   "scripts": {

@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import { AppRoutes } from './app/app-routes';
-import { rootStore } from './app/root-store';
+import { AppRoutes } from '@core/config/routes';
+import { rootStore } from '@core/store';
 import { defaultTheme } from '@core/themes';
 
-import '@assets/styles/main.css';
-
-import './polyfills';
+// place to import external css files
+import '@assets/external-styles/main.css';
 
 ReactDOM.render(
   <Provider store={rootStore}>

@@ -1,4 +1,4 @@
-import { getData } from '.';
+import { getData } from './';
 
 describe('Utils: getData', () => {
   it('should return value from data key', () => {

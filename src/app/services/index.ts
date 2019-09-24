@@ -1,1 +1,2 @@
-export * from './local-storage.service';
+export * from './local-storage/local-storage';
+export * from './logic/logic';
