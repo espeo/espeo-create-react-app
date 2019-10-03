@@ -14,7 +14,10 @@ const defaultState: StatefulState = {
   data: null,
 };
 
-export const statefulReducer = (state = defaultState, action: StatefulActions): StatefulState => {
+export const statefulReducer = (
+  state = defaultState,
+  action: StatefulActions,
+): StatefulState => {
   if (action.type === StatefulActionTypes.FETCH_Stateful) {
     return {
       ...state,

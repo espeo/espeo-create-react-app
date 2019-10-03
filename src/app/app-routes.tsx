@@ -7,8 +7,8 @@ import StateFulView from './views/stateful/stateful.container';
 export const AppRoutes = () => (
   <Router>
     <Switch>
-      <Route path='/' exact={true} component={MainView} />
-      <Route path='/stateful' component={StateFulView} />
+      <Route path="/" exact component={MainView} />
+      <Route path="/stateful" component={StateFulView} />
     </Switch>
   </Router>
 );

@@ -12,5 +12,4 @@ export class LocalStorageService {
   public remove(key: string) {
     localStorage.removeItem(`${this.PREFIX}-${key}`);
   }
-
 }

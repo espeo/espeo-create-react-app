@@ -1,5 +1,5 @@
-import { getFirstData } from '../first.selectors';
 import { mockStore } from '@core/mocks';
+import { getFirstData } from '../first.selectors';
 
 describe('fist selectors', () => {
   it('getFirstData', () => {
