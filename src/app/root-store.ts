@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
 
 export const rootStore = createStore(
   rootReducer,
-  // @ts-ignore
-  window['__REDUX_DEVTOOLS_EXTENSION__'] && !env.isProduction ? window['__REDUX_DEVTOOLS_EXTENSION__'](): <T>(f: T) => f,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && !env.isProduction
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    : <T>(f: T) => f,
 );

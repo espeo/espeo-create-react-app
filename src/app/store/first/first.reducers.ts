@@ -14,7 +14,10 @@ const defaultState: FirstState = {
   data: null,
 };
 
-export const firstReducer = (state = defaultState, action: FirstActions): FirstState => {
+export const firstReducer = (
+  state = defaultState,
+  action: FirstActions,
+): FirstState => {
   if (action.type === FirstActionTypes.FETCH_First) {
     return {
       ...state,

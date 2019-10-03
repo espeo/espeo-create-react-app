@@ -16,7 +16,9 @@ interface StatefulPropsActions {
 
 export type StatefulProps = StatefulPropsAttrs & StatefulPropsActions;
 
-const mapStateToProps = (store: RootStore & { stateful: StatefulState }): StatefulPropsAttrs => ({
+const mapStateToProps = (
+  store: RootStore & { stateful: StatefulState },
+): StatefulPropsAttrs => ({
   isLoading: store.stateful.isLoading,
   isSecondLoading: store.second.isLoading,
 });

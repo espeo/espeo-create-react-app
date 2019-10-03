@@ -7,11 +7,9 @@ interface Props {
 export class Input extends PureComponent<Props> {
   onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     this.props.onChange(ev.target.value);
-  }
+  };
 
   render() {
-    return (
-      <input onChange={this.onChange} />
-    );
+    return <input onChange={this.onChange} />;
   }
 }
