@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { bind } from 'decko';
 
 interface IProps {
   text: string;
@@ -7,6 +8,7 @@ interface IProps {
 
 export class Button extends PureComponent<IProps> {
 
+  @bind
   private buttonClickHandler() {
     const { clickHandler } = this.props;
     clickHandler();

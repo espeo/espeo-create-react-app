@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { MainComponent } from './main';
+import { injectIntl } from 'react-intl';
+import { compose } from 'redux';
+
+import MainComponent from './main';
 
 import { loadItems } from './store/actions';
 
@@ -15,7 +18,10 @@ const mapDispatchToProps: IDispatchProps = {
   loadItems,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MainComponent);
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  injectIntl,
+)(MainComponent)

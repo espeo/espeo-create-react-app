@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ComponentClass } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import * as MainPage from '@core/pages/main';
+import MainPage from '@core/pages/main';
 
 export const AppRoutes = () => (
   <Router>
     <Switch>
-      <Route path='/' exact={true} component={MainPage.default} />
+      <Route path='/' exact={true} component={MainPage as ComponentClass} />
     </Switch>
   </Router>
 );
