@@ -1,5 +1,5 @@
 export class LocalStorageService {
-  private readonly PREFIX: string = 'app';
+  private readonly PREFIX: string = 'create-espeo-app';
 
   public get(key: string) {
     return localStorage.getItem(`${this.PREFIX}-${key}`);

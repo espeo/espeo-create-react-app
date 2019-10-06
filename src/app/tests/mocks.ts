@@ -1,5 +1,5 @@
 import { RootStore } from '@core/store';
-import { LocalStorageService } from './services';
+import { LocalStorageService } from './../services';
 
 export const mockStore: RootStore = {
   first: {

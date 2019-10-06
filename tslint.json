@@ -93,7 +93,6 @@
     "array-type": [true, "generic"],
     "arrow-return-shorthand": true,
     "class-name": true,
-    "interface-name": [true, "never-prefix"],
     "import-spacing": true,
     "newline-before-return": true,
     "no-angle-bracket-type-assertion": true,

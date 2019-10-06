@@ -1,7 +1,7 @@
-const data = require('./data.json');
-const data2 = require('./data2.json')
+const items = require('./items.json');
+const itemdetails = require('./item-details.json')
 
 module.exports = () => ({
-  data,
-  data2,
+  items,
+  itemdetails,
 });

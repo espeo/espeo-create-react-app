@@ -7,7 +7,7 @@ import { defaultTheme } from '@core/themes';
 
 import { MainComponent } from './main.component';
 
-describe('Main Title Component', () => {
+describe('Main Page', () => {
   test('should be defined', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const component = renderer.create(

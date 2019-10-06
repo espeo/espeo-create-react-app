@@ -1,11 +1,6 @@
 import axios from 'axios';
 
-import { getData } from '@core/utils';
-import { Logic, Response } from '@core/namespace';
-
-interface URLS {
-  '/logic': Logic;
-}
+import { Response } from '@core/namespace';
 
 export type LogicResponse = Response<Logic>;
 
