@@ -1,8 +1,8 @@
-import { firstReducer } from './reducers';
+import { mainPageReducer } from './';
 
 describe('First Reducers', () => {
   it('should return default state ', () => {
-    const state = firstReducer(undefined as any, {} as any);
+    const state = mainPageReducer(undefined as any, {} as any);
     expect(state).toEqual({
       data: null,
       isLoading: false,

@@ -1,23 +1,28 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+// import { createEpicMiddleware } from 'redux-observable';
 
-import { secondReducer, SecondState } from '@core/store/second';
-import { firstReducer, FirstState } from '@core/store/first';
+import rootReducer from './rootReducer';
+// import rootEpic from './rootEpic';
+import rootSaga from './rootSaga';
 
-import { examplePageReducer } from '@core/pages/example/store/reducers';
+// const epicMiddleware = createEpicMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
-export interface RootStore {
-  first: FirstState;
-  second: SecondState;
-}
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = combineReducers({
-  first: firstReducer,
-  second: secondReducer,
-  example: examplePageReducer,
-});
+const middleware = [
+  // epicMiddleware,
+  sagaMiddleware,
+];
 
 export const rootStore = createStore(
   rootReducer,
-  // @ts-ignore
-  window['__REDUX_DEVTOOLS_EXTENSION__'] && window['__REDUX_DEVTOOLS_EXTENSION__'](),
+  composeEnhancers(
+    applyMiddleware(...middleware),
+  ),
 );
+
+// epicMiddleware.run(rootEpic);
+sagaMiddleware.run(rootSaga);

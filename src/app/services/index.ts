@@ -1,2 +1,3 @@
-export * from './local-storage/local-storage';
-export * from './items/items';
+export * from './local-storage';
+export * from './items';
+

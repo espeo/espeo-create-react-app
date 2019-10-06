@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import * as MainPage from './../pages/main/main.container';
+import * as MainPage from '@core/pages/main';
 
 export const AppRoutes = () => (
   <Router>

@@ -1,4 +1,4 @@
-export class LocalStorageService {
+class LocalStorageService {
   private readonly PREFIX: string = 'create-espeo-app';
 
   public get(key: string) {
@@ -12,5 +12,6 @@ export class LocalStorageService {
   public remove(key: string) {
     localStorage.removeItem(`${this.PREFIX}-${key}`);
   }
-
 }
+
+export default new LocalStorageService()

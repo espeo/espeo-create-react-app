@@ -1,30 +1,40 @@
 import React, { PureComponent } from 'react';
 
+import { loadItems } from './store/actions';
+
 import { Input } from '@core/components';
+import { Title } from './components/title/title';
 
-import { MainTitle } from './components/main-title.component';
-import { MainProps } from './main.container';
+interface IProps {
+  loadItems: typeof loadItems;
+  items: any;
+}
 
-export class MainComponent extends PureComponent<MainProps> {
-
+export class MainComponent extends PureComponent<IProps> {
   componentDidMount() {
-    this.props.fetchFirst();
-  }
-
-  saveToLocalStorage = () => {
-    this.props.localStorageService.set('key', '42');
+    this.props.loadItems();
   }
 
   onInputChange = (value: string) => {
-    this.props.localStorageService.set('input', value);
-  }
+    console.log(value);
+  };
 
   render() {
+    const { items } = this.props;
+
     return (
       <div>
-        <MainTitle text='Hello World!' />
-        <button onClick={this.saveToLocalStorage}>SaveToLS</button>
+        <Title text="Hello World!" />
         <Input onChange={this.onInputChange} />
+        <ul>
+          {
+            items.map((item: any, key: number) => {
+              return (
+                <li key={key}>{item.name}</li>
+              )
+            })
+          }
+        </ul>
       </div>
     );
   }

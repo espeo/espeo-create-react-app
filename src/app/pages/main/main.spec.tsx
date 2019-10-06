@@ -2,20 +2,23 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import { getLocalStorageServiceMock } from '@core/mocks';
-import { shallowWithTheme, withThemeProvider } from '@core/utils';
-import { defaultTheme } from '@core/themes';
+import { shallowWithTheme, withThemeProvider } from '@core/teste/theme-helpers';
+import { defaultTheme } from '@core/styles/themes';
 
-import { MainComponent } from './main.component';
+import { MainComponent } from './main';
 
 describe('Main Page', () => {
   test('should be defined', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const component = renderer.create(
-      withThemeProvider(<MainComponent
-        first={null}
-        localStorageService={localStorageServiceMock}
-        fetchFirst={jest.fn()}
-      />, defaultTheme),
+      withThemeProvider(
+        <MainComponent
+          first={null}
+          localStorageService={localStorageServiceMock}
+          fetchFirst={jest.fn()}
+        />,
+        defaultTheme,
+      ),
     );
     expect(component).toBeDefined();
   });
@@ -47,12 +50,13 @@ describe('Main Page', () => {
         fetchFirst={jest.fn()}
       />,
       defaultTheme,
-    ).find('button').simulate('click');
+    )
+      .find('button')
+      .simulate('click');
 
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toBeCalledWith('key', '42');
+    expect(spy).toHaveBeenCalledWith('key', '42');
     spy.mockRestore();
   });
-
 });

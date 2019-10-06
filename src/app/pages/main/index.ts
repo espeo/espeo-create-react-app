@@ -1,30 +1,18 @@
 import { connect } from 'react-redux';
+import { MainComponent } from './main';
 
-import { Logic } from '@core/namespace';
-import { RootStore } from '@core/store';
-import { LocalStorageService } from '@core/services';
+import { loadItems } from './store/actions';
 
-import { MainComponent } from './main.component';
-import { fetchFirst, getFirstData } from '@core/store/first';
+interface IDispatchProps {}
+interface IMapStateProps {}
 
-interface MainPropsAttrs {
-  first: Logic | null;
-  localStorageService: LocalStorageService;
-}
-
-interface MainPropsActions {
-  fetchFirst: typeof fetchFirst;
-}
-
-export type MainProps = MainPropsAttrs & MainPropsActions;
-
-const mapStateToProps = (store: RootStore): MainPropsAttrs => ({
-  first: getFirstData(store),
-  localStorageService: new LocalStorageService(),
+// TODO: change any to correct RootStore typing
+const mapStateToProps = (state: any): IMapStateProps => ({
+  items: state.main.items // TODO: use reselect selector
 });
 
-const mapDispatchToProps: MainPropsActions = {
-  fetchFirst,
+const mapDispatchToProps: IDispatchProps = {
+  loadItems,
 };
 
 export default connect(
