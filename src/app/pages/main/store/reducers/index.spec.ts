@@ -1,4 +1,4 @@
-import { mainPageReducer } from './';
+import { mainPageReducer } from '.';
 
 describe('First Reducers', () => {
   it('should return default state ', () => {

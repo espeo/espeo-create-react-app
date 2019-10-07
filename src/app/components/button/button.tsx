@@ -1,13 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ButtonHTMLAttributes } from 'react';
 import { bind } from 'decko';
 
-interface IProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   clickHandler(): void;
 }
 
-export class Button extends PureComponent<IProps> {
-
+export class Button extends PureComponent<ButtonProps> {
   @bind
   private buttonClickHandler() {
     const { clickHandler } = this.props;
@@ -18,7 +17,9 @@ export class Button extends PureComponent<IProps> {
     const { text } = this.props;
 
     return (
-      <button onClick={this.buttonClickHandler}>{text}</button>
+      <button type="button" onClick={this.buttonClickHandler}>
+        {text}
+      </button>
     );
   }
 }

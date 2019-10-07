@@ -1,23 +1,24 @@
 import React, { PureComponent } from 'react';
 import { bind } from 'decko';
 import { InjectedIntlProps } from 'react-intl';
-
+import { v1 } from 'uuid';
+import { Input, Button } from '@core/components';
 import { loadItems } from './store/actions';
 
-import { Input, Button } from '@core/components';
 import { Title } from './components/title/title';
 
-interface IOwnProps {
+interface OwnProps {
   loadItems: typeof loadItems;
   items: any;
 }
 
-type IProps = IOwnProps & InjectedIntlProps;
+type MainComponentProps = OwnProps & InjectedIntlProps;
 
-class MainComponent extends PureComponent<IProps> {
+class MainComponent extends PureComponent<MainComponentProps> {
   state = {
-    inputText: ''
-  }
+    inputText: '',
+  };
+
   componentDidMount() {
     this.props.loadItems();
   }
@@ -25,9 +26,9 @@ class MainComponent extends PureComponent<IProps> {
   @bind
   onInputChange(value: string) {
     this.setState({
-      inputText: value
-    })
-  };
+      inputText: value,
+    });
+  }
 
   @bind
   handleClick() {
@@ -39,21 +40,21 @@ class MainComponent extends PureComponent<IProps> {
 
     return (
       <div>
-        <Title text={intl.formatMessage({id: 'page.main.hello'})} />
+        <Title text={intl.formatMessage({ id: 'page.main.hello' })} />
         <Input onChange={this.onInputChange} />
-        <Button text={'example button'} clickHandler={this.handleClick}/>
+        <Button
+          type="button"
+          text="example button"
+          clickHandler={this.handleClick}
+        />
         <ul>
-          {
-            items.map((item: any, key: number) => {
-              return (
-                <li key={key}>{item.name}</li>
-              )
-            })
-          }
+          {items.map((item: any) => {
+            return <li key={v1()}>{item.name}</li>;
+          })}
         </ul>
       </div>
     );
   }
 }
 
-export default MainComponent
+export default MainComponent;

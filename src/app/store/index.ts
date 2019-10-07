@@ -9,8 +9,8 @@ import rootSaga from './rootSaga';
 // const epicMiddleware = createEpicMiddleware();
 const sagaMiddleware = createSagaMiddleware();
 
-// @ts-ignore
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middleware = [
   // epicMiddleware,
@@ -19,9 +19,7 @@ const middleware = [
 
 export const rootStore = createStore(
   rootReducer,
-  composeEnhancers(
-    applyMiddleware(...middleware),
-  ),
+  composeEnhancers(applyMiddleware(...middleware)),
 );
 
 // epicMiddleware.run(rootEpic);

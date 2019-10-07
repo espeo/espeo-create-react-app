@@ -5,5 +5,4 @@ interface Props {
   text: string;
 }
 
-export const Title = ({ text }: Props) => 
-  <TitleWrapper>{text}</TitleWrapper>;
+export const Title = ({ text }: Props) => <TitleWrapper>{text}</TitleWrapper>;

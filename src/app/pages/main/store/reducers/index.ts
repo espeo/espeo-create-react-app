@@ -1,11 +1,11 @@
-import { MainActions, MainActionTypes } from './../actions';
-import { initial } from './../initial';
-import { IState } from './../../namespace';
+import { MainActions, MainActionTypes } from '../actions';
+import { initial } from '../initial';
+import { MainComponentState } from '../../namespace';
 
 export const mainPageReducer = (
-  state = initial, 
-  action: MainActions
-): IState => {
+  state = initial,
+  action: MainActions,
+): MainComponentState => {
   switch (action.type) {
     case MainActionTypes.LOAD_ITEMS:
       return {
@@ -28,4 +28,4 @@ export const mainPageReducer = (
     default:
       return state;
   }
-}
+};

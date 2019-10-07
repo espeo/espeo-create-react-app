@@ -1,25 +1,19 @@
-import { RootStore } from '@core/store';
-import { LocalStorageService } from './../services';
+import { MainComponentState } from '../pages/main/namespace/index';
+
+export interface RootStore {
+  main: MainComponentState;
+}
 
 export const mockStore: RootStore = {
-  first: {
+  main: {
     isLoading: false,
-    isError: false,
-    data: null,
-  },
-  second: {
-    isLoading: false,
-    isError: false,
-    data: null,
+    error: false,
+    items: null,
   },
 };
 
-/* eslint-disable */
-export const getLocalStorageServiceMock = () =>
-  ({
-    get: (_key: string) => '42',
-    set: (_key: string, _value: string) => {},
-    remove: (_key: string) => {},
-  } as LocalStorageService);
-
-/* eslint-enable */
+export const getLocalStorageServiceMock = () => ({
+  get: (_key: string) => '42',
+  set: (_key: string, _value: string) => {},
+  remove: (_key: string) => {},
+});

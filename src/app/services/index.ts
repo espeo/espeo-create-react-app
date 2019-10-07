@@ -1,3 +1,2 @@
-export * from './local-storage';
+export { default as LocalStorageService } from './local-storage';
 export * from './items';
-

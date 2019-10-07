@@ -6,15 +6,15 @@ import MainComponent from './main';
 
 import { loadItems } from './store/actions';
 
-interface IDispatchProps {}
-interface IMapStateProps {}
+interface DispatchProps {}
+interface MapStateProps {}
 
 // TODO: change any to correct RootStore typing
-const mapStateToProps = (state: any): IMapStateProps => ({
-  items: state.main.items // TODO: use reselect selector
+const mapStateToProps = (state: any): MapStateProps => ({
+  items: state.main.items, // TODO: use reselect selector
 });
 
-const mapDispatchToProps: IDispatchProps = {
+const mapDispatchToProps: DispatchProps = {
   loadItems,
 };
 
@@ -24,4 +24,4 @@ export default compose(
     mapDispatchToProps,
   ),
   injectIntl,
-)(MainComponent)
+)(MainComponent);

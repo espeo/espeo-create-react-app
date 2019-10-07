@@ -3,7 +3,7 @@ import { ReturnType } from '@core/namespace';
 export enum MainActionTypes {
   LOAD_ITEMS = 'LOAD_ITEMS',
   LOAD_ITEMS_SUCCESS = 'LOAD_ITEMS_SUCCESS',
-  LOAD_ITEMS_FAILED = 'LOAD_ITEMS_FAILED'
+  LOAD_ITEMS_FAILED = 'LOAD_ITEMS_FAILED',
 }
 
 export const loadItems = () =>
@@ -23,7 +23,6 @@ export const loadItemsFailed = () =>
     type: MainActionTypes.LOAD_ITEMS_FAILED,
     payload: null,
   } as const);
-
 
 export type MainActions =
   | ReturnType<typeof loadItems>

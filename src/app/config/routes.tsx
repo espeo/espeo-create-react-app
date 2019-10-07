@@ -6,7 +6,7 @@ import MainPage from '@core/pages/main';
 export const AppRoutes = () => (
   <Router>
     <Switch>
-      <Route path='/' exact={true} component={MainPage as ComponentClass} />
+      <Route path="/" exact component={MainPage as ComponentClass} />
     </Switch>
   </Router>
 );

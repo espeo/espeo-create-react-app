@@ -27,6 +27,7 @@ module.exports = {
       '@core': path.resolve(__dirname, './src/app/'),
       '@environments': path.resolve(__dirname, './src/environments/'),
       '@assets': path.resolve(__dirname, './src/assets/'),
+      '@pages': path.resolve(__dirname, 'src/app/pages'),
     },
   },
   module: {
@@ -65,11 +66,13 @@ module.exports = {
   bail: isProduction,
   optimization: {
     minimize: isProduction,
-    minimizer: isProduction ? [
-      new TerserPlugin({
-        extractComments: 'all',
-      }),
-    ] : [],
+    minimizer: isProduction
+      ? [
+          new TerserPlugin({
+            extractComments: 'all',
+          }),
+        ]
+      : [],
   },
   devtool: !isProduction ? 'source-map' : 'none',
   plugins: [
@@ -79,18 +82,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body',
-      minify: isProduction ? {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      } : undefined,
+      minify: isProduction
+        ? {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          }
+        : undefined,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',

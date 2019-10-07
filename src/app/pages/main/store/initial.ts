@@ -1,6 +1,6 @@
-import { IState } from "./../namespace";
+import { MainComponentState } from '../namespace';
 
-export const initial: IState = {
+export const initial: MainComponentState = {
   isLoading: false,
   items: [],
   error: false,

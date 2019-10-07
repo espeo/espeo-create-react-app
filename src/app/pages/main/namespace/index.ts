@@ -1,5 +1,5 @@
-export interface IState {
-  isLoading: boolean,
-  items: any,
-  error: boolean,
+export interface MainComponentState {
+  isLoading: boolean;
+  items: any;
+  error: boolean;
 }
