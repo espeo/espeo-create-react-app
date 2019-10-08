@@ -1,4 +1,5 @@
 import { ReturnType } from '@core/namespace';
+import { MainComponentState } from '../../namespace';
 
 export enum MainActionTypes {
   LOAD_ITEMS = 'LOAD_ITEMS',
@@ -6,13 +7,15 @@ export enum MainActionTypes {
   LOAD_ITEMS_FAILED = 'LOAD_ITEMS_FAILED',
 }
 
-export const loadItems = () =>
+export const loadItems = (payload: { id: number }) =>
   ({
     type: MainActionTypes.LOAD_ITEMS,
-    payload: null,
+    payload,
   } as const);
 
-export const loadItemsSuccess = (payload: any) =>
+export const loadItemsSuccess = (payload: {
+  items: MainComponentState['items'];
+}) =>
   ({
     type: MainActionTypes.LOAD_ITEMS_SUCCESS,
     payload,
@@ -21,7 +24,6 @@ export const loadItemsSuccess = (payload: any) =>
 export const loadItemsFailed = () =>
   ({
     type: MainActionTypes.LOAD_ITEMS_FAILED,
-    payload: null,
   } as const);
 
 export type MainActions =

@@ -1,22 +1,28 @@
 import axios from 'axios';
 import localStorageService from '@core/services/local-storage';
 
-const DOMAIN = 'http://localhost:4201'; // default mocked server url
+const baseURL = 'http://localhost:4201'; // default mocked server url
 
 const UNAUTHORIZED = 401;
 const ACCESS_DENIED = 403;
 
-interface ApiService {
-  [name: string]: any;
-}
+class ApiService {
+  public request: any;
 
-class ApiService implements ApiService {
-  public constructor() {
-    axios.interceptors.response.use(
-      response => {
-        return response;
+  constructor() {
+    const config = {
+      baseURL,
+      headers: {
+        'Content-Type': 'application/json',
+        ...this.getHeaders(),
       },
-      async error => {
+    };
+
+    this.request = axios.create(config);
+
+    this.request.interceptors.response.use(
+      (response: any) => response,
+      (error: any) => {
         if (error && error.response) {
           const { status } = error.response;
           if (status === UNAUTHORIZED || status === ACCESS_DENIED) {
@@ -28,25 +34,24 @@ class ApiService implements ApiService {
     );
   }
 
-  public request(type: string, url: string, data: any) {
-    const config = this.getConfig();
-    /* eslint-disable */
-    // @ts-ignore
-    return axios[type](`${DOMAIN}/${url}`, data, config);
-    /* eslint-enable */
+  public get<T>(url: string, params?: any, options?: {}): Promise<T> {
+    const config = { params, ...options };
+
+    return this.request.get(url, config);
   }
 
-  private getConfig() {
+  public post<T>(url: string, data?: {}, options?: {}): Promise<T> {
+    return this.request.post(url, data, options);
+  }
+
+  private getHeaders() {
     const token = localStorageService.get('token');
 
-    let headers = {
-      'Content-Type': 'application/json',
-    };
+    let headers = {};
 
     if (token) {
       headers = {
-        ...headers,
-        // 'x-auth-token': token,
+        'x-auth-token': token,
       };
     }
 

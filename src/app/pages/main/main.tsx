@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { bind } from 'decko';
 import { InjectedIntlProps } from 'react-intl';
 import { v1 } from 'uuid';
 import { Input, Button } from '@core/components';
@@ -15,25 +14,25 @@ interface OwnProps {
 type MainComponentProps = OwnProps & InjectedIntlProps;
 
 class MainComponent extends PureComponent<MainComponentProps> {
-  state = {
+  public state = {
     inputText: '',
   };
 
-  componentDidMount() {
-    this.props.loadItems();
-  }
-
-  @bind
-  onInputChange(value: string) {
-    this.setState({
-      inputText: value,
+  public componentDidMount() {
+    this.props.loadItems({
+      id: 1,
     });
   }
 
-  @bind
-  handleClick() {
-    alert(this.state.inputText);
-  }
+  private onInputChange = (value: string) => {
+    this.setState({
+      inputText: value,
+    });
+  };
+
+  private handleClick = () => {
+    console.log(this.state.inputText);
+  };
 
   render() {
     const { items, intl } = this.props;

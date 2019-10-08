@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 
-interface Props {
+interface InputProps {
   onChange: (text: string) => void;
 }
 
-export class Input extends PureComponent<Props> {
-  onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+export class Input extends PureComponent<InputProps> {
+  private onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     this.props.onChange(ev.target.value);
   };
 
-  render() {
+  public render() {
     return <input onChange={this.onChange} />;
   }
 }

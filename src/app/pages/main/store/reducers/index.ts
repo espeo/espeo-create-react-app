@@ -1,4 +1,4 @@
-import { MainActions, MainActionTypes } from '../actions';
+import { MainActions, MainActionTypes } from '../actions/index';
 import { initial } from '../initial';
 import { MainComponentState } from '../../namespace';
 
@@ -16,7 +16,7 @@ export const mainPageReducer = (
     case MainActionTypes.LOAD_ITEMS_SUCCESS:
       return {
         ...state,
-        items: action.payload,
+        items: action.payload.items,
         isLoading: false,
       };
     case MainActionTypes.LOAD_ITEMS_FAILED:
