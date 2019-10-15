@@ -1,11 +1,20 @@
-import { FirstState } from './first';
-import { SecondState } from './second';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import logger from 'redux-logger';
 
-// only reducers from ./store
-export interface RootStore {
-  first: FirstState;
-  second: SecondState;
-}
+import rootReducer from './rootReducer';
+import rootSaga from './rootSaga';
 
-export * from './first';
-export * from './second';
+const sagaMiddleware = createSagaMiddleware();
+
+const composeEnhancers =
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const middleware = [sagaMiddleware, logger];
+
+export const rootStore = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(...middleware)),
+);
+
+sagaMiddleware.run(rootSaga);

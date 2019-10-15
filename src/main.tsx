@@ -3,19 +3,38 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import { defaultTheme } from '@core/themes';
-import { AppRoutes } from './app/app-routes';
-import { rootStore } from './app/root-store';
+import { addLocaleData, IntlProvider } from 'react-intl';
+import en from 'react-intl/locale-data/en';
 
-import '@assets/styles/main.css';
+import translationsEn from '@assets/i18n/en.json';
 
-import './polyfills';
+import { defaultTheme } from '@core/styles/themes';
+import { AppRoutes } from '@core/config/routes';
+import { rootStore } from '@core/store';
 
+import '@assets/external-styles/main.css';
+
+addLocaleData([...en]);
+
+interface Translations {
+  en: any;
+  [key: string]: any;
+}
+
+const translations: Translations = {
+  en: translationsEn,
+};
+
+const locale = 'en';
+
+console.log(process.env);
 ReactDOM.render(
   <Provider store={rootStore}>
-    <ThemeProvider theme={defaultTheme}>
-      <AppRoutes />
-    </ThemeProvider>
+    <IntlProvider locale={locale} messages={translations[locale]}>
+      <ThemeProvider theme={defaultTheme}>
+        <AppRoutes />
+      </ThemeProvider>
+    </IntlProvider>
   </Provider>,
   document.getElementById('root'),
 );
