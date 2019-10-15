@@ -12,7 +12,6 @@ import { defaultTheme } from '@core/styles/themes';
 import { AppRoutes } from '@core/config/routes';
 import { rootStore } from '@core/store';
 
-// place to import external css files
 import '@assets/external-styles/main.css';
 
 addLocaleData([...en]);
@@ -28,6 +27,7 @@ const translations: Translations = {
 
 const locale = 'en';
 
+console.log(process.env);
 ReactDOM.render(
   <Provider store={rootStore}>
     <IntlProvider locale={locale} messages={translations[locale]}>

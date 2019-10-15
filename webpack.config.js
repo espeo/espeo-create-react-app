@@ -1,6 +1,8 @@
 const path = require('path');
+const fs = require('fs');
 
 const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -10,6 +12,22 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const inAnalyze = process.env.ANALYZE === 'true';
 const getPath = file => path.resolve(__dirname, file);
+const currentPath = path.join(__dirname);
+
+const processEnvFiles = mode => {
+  const baseEnvPath = `${currentPath}/.env`;
+  const envPath = `${baseEnvPath}.${mode}`;
+  const finalPath = fs.existsSync(envPath) ? envPath : baseEnvPath;
+  const fileEnv = dotenv.config({ path: finalPath }).parsed;
+  const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+    const prevCopy = JSON.parse(JSON.stringify(prev));
+
+    prevCopy[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+    return prevCopy;
+  }, {});
+
+  return envKeys;
+};
 
 module.exports = (env, args) => {
   const isProduction = args.mode === 'production';
@@ -24,25 +42,19 @@ module.exports = (env, args) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
       alias: {
-        '@core': path.resolve(__dirname, './src/app/'),
-        '@environments': path.resolve(__dirname, './src/environments/'),
-        '@assets': path.resolve(__dirname, './src/assets/'),
-        '@pages': path.resolve(__dirname, 'src/app/pages'),
+        '@core': getPath('./src/app'),
+        '@environments': getPath('./src/environments'),
+        '@assets': getPath('./src/assets/'),
+        '@pages': getPath('src/app/pages'),
       },
     },
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
-          loader: 'ts-loader',
-          include: [path.resolve(__dirname, './src')],
-          exclude: [getPath('node_modules'), getPath('**/*spec.ts')],
-        },
-        {
-          test: /\.jsx?$/,
+          test: /\.(ts|tsx)?$/,
           loader: 'ts-loader',
           include: [getPath('./src')],
-          exclude: [getPath('node_modules')],
+          exclude: [getPath('node_modules'), getPath('**/*spec.ts')],
         },
         {
           test: /\.css$/,
@@ -66,19 +78,11 @@ module.exports = (env, args) => {
     bail: isProduction,
     optimization: {
       minimize: isProduction,
-      minimizer: isProduction
-        ? [
-            new TerserPlugin({
-              extractComments: 'all',
-            }),
-          ]
-        : [],
+      minimizer: isProduction ? [new TerserPlugin()] : [],
     },
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
-      new webpack.ProvidePlugin({
-        // global variables (just in case)
-      }),
+      new webpack.DefinePlugin(processEnvFiles(args.mode)),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body',

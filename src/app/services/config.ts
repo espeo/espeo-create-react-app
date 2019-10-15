@@ -1,10 +1,8 @@
 import axios from 'axios';
 import localStorageService from '@core/services/local-storage';
+import { ErrorCodes } from '../constants/constants';
 
 const baseURL = 'http://localhost:4201'; // default mocked server url
-
-const UNAUTHORIZED = 401;
-const ACCESS_DENIED = 403;
 
 class ApiService {
   public request: any;
@@ -25,7 +23,11 @@ class ApiService {
       (error: any) => {
         if (error && error.response) {
           const { status } = error.response;
-          if (status === UNAUTHORIZED || status === ACCESS_DENIED) {
+          if (
+            status === ErrorCodes.UNAUTHORIZED ||
+            status === ErrorCodes.ACCESS_DENIED ||
+            status === ErrorCodes.NOT_FOUND
+          ) {
             // for example logout action here
           }
         }

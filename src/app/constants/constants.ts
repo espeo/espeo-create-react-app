@@ -1,9 +1,5 @@
-export enum DayOfWeek {
-  Monday = 0,
-  Tuesday = 1,
-  Wednesday = 2,
-  Thursday = 3,
-  Friday = 4,
-  Saturday = 5,
-  Sunday = 6,
+export enum ErrorCodes {
+  UNAUTHORIZED = 401,
+  ACCESS_DENIED = 403,
+  NOT_FOUND = 404,
 }

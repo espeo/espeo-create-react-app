@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode=development",
-    "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --config ./webpack.config.js' --mode=development",
+    "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --config ./webpack.config.js --mode=development'",
     "lint": "eslint --config ./.eslintrc.js 'src/**/*.{ts,tsx}'",
     "test": "jest src/**",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
@@ -29,7 +29,6 @@
     }
   },
   "devDependencies": {
-    "@types/uuid": "3.4.5",
     "@types/axios": "^0.14.0",
     "@types/enzyme": "^3.9.4",
     "@types/jest": "^24.0.15",
@@ -40,6 +39,7 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/react-test-renderer": "^16.8.2",
     "@types/styled-components": "^4.1.16",
+    "@types/uuid": "3.4.5",
     "@typescript-eslint/eslint-plugin": "2.3.2",
     "autoprefixer": "^9.6.0",
     "css-loader": "^3.0.0",
@@ -85,6 +85,7 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
+    "redux-logger": "3.0.6",
     "redux-observable": "1.2.0",
     "redux-saga": "1.1.1",
     "styled-components": "^4.3.2",
