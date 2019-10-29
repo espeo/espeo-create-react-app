@@ -8,7 +8,6 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "resolveJsonModule": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictBindCallApply": true,
@@ -20,11 +19,10 @@
     "paths": {
       "@core/*": ["app/*"],
       "@environments/*": ["environments/*"],
-      "@pages": ["pages/*"],
       "@assets/*": ["assets/*"]
     },
     "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "esnext"]
+     "lib": ["dom", "esnext"]
   },
   "files": ["src/main.tsx"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]

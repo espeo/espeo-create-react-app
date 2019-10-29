@@ -1,23 +1,25 @@
 {
   "name": "@espeo/create-espeo-app",
   "version": "1.0.1",
-  "main": "src/main.tsx",
-  "repository": "https://github.com/espeo/espeo-create-react-app",
-  "author": "Espeo Software",
+  "main": "src/main.ts",
+  "repository": "git@github.com:przemyslawjanpietrzak/create-espeo-app.git",
+  "author": "Przemyslaw Beigert <przemyslaw.jan.beigert@protonmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode=development",
-    "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --config ./webpack.config.js --mode=development'",
+    "start": "yarn config:dev && webpack-dev-server --config ./webpack.config.js",
     "lint": "eslint --config ./.eslintrc.js 'src/**/*.{ts,tsx}'",
     "test": "jest src/**",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
-    "build:dev": "webpack --config ./webpack.config.js --mode=development",
-    "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
-    "build": "yarn clean && yarn build:prod",
+    "config:dev": "cp ./src/environments/environment.development.ts ./src/environments/environment.ts",
+    "config:prod": "cp ./src/environments/environment.production.ts ./src/environments/environment.ts",
+    "build:dev": "yarn config:dev && webpack --config ./webpack.config.js --mode=development",
+    "build:prod": "yarn config:prod && webpack --config ./webpack.config.js --optimize-minimize --mode=production",
+    "build:version": "node src/version.js",
+    "build": "yarn clean && yarn build:version && yarn build:prod",
     "analyze": "ANALYZE=true yarn build",
-    "clean": "rm -rf dist",
-    "mocked-server": "json-server --watch mocked-server/index.js --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
+    "clean": "rm -rf dist ; rm -f src/environments/version.ts ; rm -f src/environments/version.ts",
+    "mocked-server": "json-server mocked-server/data.json --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)"
@@ -34,12 +36,10 @@
     "@types/jest": "^24.0.15",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
-    "@types/react-intl": "^2.3.17",
     "@types/react-redux": "^7.1.0",
     "@types/react-router-dom": "^4.3.4",
     "@types/react-test-renderer": "^16.8.2",
     "@types/styled-components": "^4.1.16",
-    "@types/uuid": "3.4.5",
     "@typescript-eslint/eslint-plugin": "2.3.2",
     "autoprefixer": "^9.6.0",
     "css-loader": "^3.0.0",
@@ -76,22 +76,17 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "concurrently": "4.1.2",
     "core-js": "^3.1.4",
     "enzyme": "3.10.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-intl": "^2.8.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
-    "redux-logger": "3.0.6",
-    "redux-saga": "1.1.1",
-    "styled-components": "^4.3.2",
-    "uuid": "3.3.3"
+    "styled-components": "^4.3.2"
   },
   "engines": {
     "node": ">=10.9.0",
-    "yarn": ">=1.17.0"
+    "yarn": ">=1.18.0"
   }
 }
