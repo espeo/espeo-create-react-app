@@ -97,7 +97,7 @@ yarn analyze
 
 * [Webpack](https://webpack.js.org/)
 
-* [Cypress](https://cypress.io/) (optional)
+* [Cypress](https://cypress.io/)
 
 ## Snippets
 
@@ -204,3 +204,8 @@ GitlabCI
 ```bash
 rm .gitlab-ci.yml
 ```
+
+## Prohibited technologies
+* [redux-thunk](https://github.com/reduxjs/redux-thunk)
+* [momentjs](https://momentjs.com/)
+* [lodash](https://lodash.com/)
