@@ -27,6 +27,7 @@ const translations: Translations = {
 
 const locale = 'en';
 
+console.log(process.env);
 ReactDOM.render(
   <Provider store={rootStore}>
     <IntlProvider locale={locale} messages={translations[locale]}>
