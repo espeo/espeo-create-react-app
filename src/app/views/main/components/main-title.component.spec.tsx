@@ -8,12 +8,11 @@ import { defaultTheme } from '@core/themes';
 import { MainTitle } from './main-title.component';
 
 describe('Main Title Component', () => {
+
   let component: renderer.ReactTestRenderer;
 
   beforeEach(() => {
-    component = renderer.create(
-      withThemeProvider(<MainTitle text="title" />, defaultTheme),
-    );
+    component = renderer.create(withThemeProvider(<MainTitle text='title' />, defaultTheme));
   });
 
   test('should be defined', () => {
@@ -31,9 +30,7 @@ describe('Main Title Component', () => {
   });
 
   test('should render string from title attribute', () => {
-    const text = shallowWithTheme(<MainTitle text="title" />, defaultTheme)
-      .children()
-      .text();
+    const text = shallowWithTheme(<MainTitle text='title' />, defaultTheme).children().text();
     expect(text).toEqual('title');
   });
 });

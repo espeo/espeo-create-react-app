@@ -8,4 +8,4 @@ export interface RootStore {
 }
 
 export * from './first';
-export * from './second';
+export * from './first';

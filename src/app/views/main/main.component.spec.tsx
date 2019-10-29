@@ -11,14 +11,11 @@ describe('Main Title Component', () => {
   test('should be defined', () => {
     const localStorageServiceMock = getLocalStorageServiceMock();
     const component = renderer.create(
-      withThemeProvider(
-        <MainComponent
-          first={null}
-          localStorageService={localStorageServiceMock}
-          fetchFirst={jest.fn()}
-        />,
-        defaultTheme,
-      ),
+      withThemeProvider(<MainComponent
+        first={null}
+        localStorageService={localStorageServiceMock}
+        fetchFirst={jest.fn()}
+      />, defaultTheme),
     );
     expect(component).toBeDefined();
   });
@@ -50,13 +47,12 @@ describe('Main Title Component', () => {
         fetchFirst={jest.fn()}
       />,
       defaultTheme,
-    )
-      .find('button')
-      .simulate('click');
+    ).find('button').simulate('click');
 
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith('key', '42');
+    expect(spy).toBeCalledWith('key', '42');
     spy.mockRestore();
   });
+
 });

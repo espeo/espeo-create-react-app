@@ -1,0 +1,170 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-sonarts", "tslint-react"],
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
+  "rules": {
+    "callable-types": true,
+    "comment-format": [true, "check-space"],
+    "deprecation": {
+      "severity": "warn"
+    },
+    "eofline": true,
+    "forin": true,
+    "indent": [true, "spaces", 2],
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "max-line-length": [true, 140],
+    "member-access": false,
+    "member-ordering": [
+      false,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": false,
+    "no-eval": true,
+    "no-inferrable-types": [true, "ignore-params"],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
+    "no-string-literal": false,
+    "no-switch-case-fall-through": true,
+    "no-unused-expression": true,
+    "object-literal-sort-keys": false,
+    "prefer-const": true,
+    "quotemark": [true, "single"],
+    "semicolon": [true, "always"],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "unified-signatures": true,
+    "variable-name": false,
+    "ordered-imports": [false],
+
+    // tslint specific
+    "no-any": {
+      "severity": "warn"
+    },
+    "no-empty-interface": true,
+    "no-magic-numbers": true,
+    "no-namespace": true,
+    "no-parameter-reassignment": true,
+    // tslint Functionality
+    "ban-comma-operator": true,
+    "curly": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [true, "debug", "info", "log", "time", "timeEnd", "trace"],
+    "no-dynamic-delete": true,
+    "no-for-in-array": true,
+    "no-shadowed-variable": true,
+    "no-string-throw": true,
+    "no-tautology-expression": true,
+    "no-unsafe-any": {
+      "severity": "none"
+    },
+    "no-var-keyword": true,
+    "prefer-object-spread": true,
+    "radix": true,
+    "static-this": true,
+    "unnecessary-else": true,
+    "triple-equals": true,
+    "use-isnan": true,
+
+    // tslint - style rules
+    "align": [true, "parameters", "statements"],
+    "array-type": [true, "generic"],
+    "arrow-return-shorthand": true,
+    "class-name": true,
+    "interface-name": [true, "never-prefix"],
+    "import-spacing": true,
+    "newline-before-return": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "one-line": true,
+    "one-variable-per-declaration": true,
+    "prefer-template": true,
+    "whitespace": true,
+    "max-classes-per-file": false,
+    "max-file-line-count": [true, 420],
+
+    // sonar - bug detection https://github.com/SonarSource/SonarTS
+    "no-all-duplicated-branches": true,
+    "no-case-with-or": true,
+    "no-collection-size-mischeck": true,
+    "no-element-overwrite": true,
+    "no-empty-array": true,
+    "no-empty-destructuring": true,
+    "no-identical-conditions": true,
+    "no-identical-expressions": true,
+    "no-ignored-initial-value": true,
+    "no-in-misuse": true,
+    "no-misleading-array-reverse": true,
+    "no-misspelled-operator": true,
+    "no-self-assignment": true,
+    "no-try-promise": true,
+    "no-unthrown-error": true,
+    "no-use-of-empty-return-value": true,
+    "no-useless-increment": true,
+    "no-useless-intersection": true,
+    "ban": [true, "eval", "alert"],
+    // sonar - code smell
+    "arguments-order": true,
+    "cognitive-complexity": [true, 15],
+    "parameters-max-number": [true, 4],
+    "max-union-size": [true, 5],
+    "mccabe-complexity": [true, 20],
+    "no-array-delete": true,
+    "no-collapsible-if": true,
+    "no-commented-code": true,
+    "no-dead-store": true,
+    "no-duplicate-in-composite": true,
+    "no-duplicate-string": [true, 5],
+    "no-big-function": [true, 100],
+    "no-hardcoded-credentials": true,
+    "no-nested-switch": true,
+    "no-identical-functions": true,
+    "no-inverted-boolean-check": true,
+    "no-same-line-conditional": true,
+    "no-redundant-parentheses": true,
+    "no-redundant-jump": true,
+    "no-useless-catch": true,
+    "prefer-optional": true,
+    // tslint-react
+    "jsx-wrap-multiline": false,
+
+    // tslint-eslint-rules
+    "no-constant-condition": true,
+    "no-control-regex": true,
+    "no-duplicate-case": true,
+    "no-empty-character-class": true,
+    "no-ex-assign": true,
+    "no-irregular-whitespace": true,
+    "no-regex-spaces": true,
+    "no-sparse-arrays": true,
+    "valid-jsdoc": true,
+    // tslint-eslint-rules Best Practices
+    "no-multi-spaces": true,
+    "ter-indent": [true, 2]
+  },
+  "jsRules": {}
+}

@@ -14,12 +14,8 @@ export const mockStore: RootStore = {
   },
 };
 
-/* eslint-disable */
-export const getLocalStorageServiceMock = () =>
-  ({
-    get: (_key: string) => '42',
-    set: (_key: string, _value: string) => {},
-    remove: (_key: string) => {},
-  } as LocalStorageService);
-
-/* eslint-enable */
+export const getLocalStorageServiceMock = () => ({
+  get: (_key: string) => '42',
+  set: (_key: string, _value: string) => {},
+  remove: (_key: string) => {},
+} as LocalStorageService);
