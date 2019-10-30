@@ -32,6 +32,7 @@ class MainComponent extends PureComponent<MainComponentProps> {
 
   private handleClick = () => {
     console.log(this.state.inputText);
+    console.log(this.props.items);
   };
 
   render() {
