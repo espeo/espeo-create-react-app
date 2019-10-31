@@ -1,3 +1,4 @@
+import { ItemsList } from '@core/pages/main/namespace/index';
 import ApiService from '../config';
 import { Observable, Subject } from 'rxjs';
 
@@ -11,14 +12,14 @@ export const getItemsService = (payload: { id: number }) => {
   });
 };
 
+// for Epic usage
 class ItemsService {
-  public getItems(payload: { id: number }): Observable<any> {
-    const result = new Subject<any>();
+  public getItems(payload: { id: number }): Observable<ItemsList> {
+    const result = new Subject<ItemsList>();
     ApiService.get('/items', {
       id: payload.id,
     })
       .then((data: any) => {
-        console.log(data);
         result.next(data.data);
         result.complete();
       })
