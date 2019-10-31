@@ -1,7 +1,8 @@
-import { ItemsList } from '@core/pages/main/namespace/index';
+import { ItemsList } from '@core/pages/main/namespace';
 import ApiService from '../config';
 import { Observable, Subject } from 'rxjs';
 
+// for Saga usage
 export const getItemsService = (payload: { id: number }) => {
   console.log('getItemsService payload: ', payload);
   return ApiService.get('/items', {

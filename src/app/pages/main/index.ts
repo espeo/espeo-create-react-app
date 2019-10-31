@@ -1,3 +1,4 @@
+import { RootStore } from '@core/store';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
@@ -9,8 +10,7 @@ import { loadItems } from './store/actions';
 interface DispatchProps {}
 interface MapStateProps {}
 
-// TODO: change any to correct RootStore typing
-const mapStateToProps = (state: any): MapStateProps => ({
+const mapStateToProps = (state: RootStore): MapStateProps => ({
   items: state.main.items, // TODO: use reselect selector
 });
 

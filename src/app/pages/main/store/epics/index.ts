@@ -1,3 +1,5 @@
+import { RootStore } from '@core/store';
+import { ItemsList } from '@core/pages/main/namespace';
 import { of } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { ofType, Epic } from 'redux-observable';
@@ -5,7 +7,7 @@ import { Dependencies } from '@core/store/index';
 
 import { MainActionTypes, loadItemsFailed, loadItemsSuccess } from '../actions';
 
-const executeGetItemsEpic: Epic<any, any, any, Dependencies> = (
+const executeGetItemsEpic: Epic<any, any, RootStore, Dependencies> = (
   action$,
   _state$,
   { itemsService: { getItems } },
@@ -14,9 +16,7 @@ const executeGetItemsEpic: Epic<any, any, any, Dependencies> = (
     ofType(MainActionTypes.LOAD_ITEMS),
     switchMap(({ payload }) => {
       return getItems(payload).pipe(
-        map((items: { items: { id: number; name: string }[] }) =>
-          loadItemsSuccess(items),
-        ),
+        map((items: ItemsList) => loadItemsSuccess(items)),
         catchError(() => of(loadItemsFailed())),
       );
     }),
