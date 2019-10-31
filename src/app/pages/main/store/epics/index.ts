@@ -1,9 +1,8 @@
-import { RootStore } from '@core/store';
+import { RootStore, Dependencies } from '@core/store';
 import { ItemsList } from '@core/pages/main/namespace';
 import { of } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { ofType, Epic } from 'redux-observable';
-import { Dependencies } from '@core/store/index';
 
 import { MainActionTypes, loadItemsFailed, loadItemsSuccess } from '../actions';
 

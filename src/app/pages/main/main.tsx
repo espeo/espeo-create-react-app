@@ -31,8 +31,8 @@ class MainComponent extends PureComponent<MainComponentProps> {
   };
 
   private handleClick = () => {
+    // tslint:disable-next-line:no-console
     console.log(this.state.inputText);
-    console.log(this.props.items);
   };
 
   render() {
