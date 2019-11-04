@@ -1,17 +1,36 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Create Espeo App</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="manifest.json">
+<head>
+    <meta charset="utf-8">
+    <title>Create Espeo App</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#fff">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Espeo CRA">
+    <link rel="icon" sizes="192x192" href="images/touch/icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Espeo CRA">
+    <link rel="apple-touch-icon" href="images/touch/icon-192x192.png">
+
+    <!-- Tile for Win8 -->
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="msapplication-TileImage" content="images/touch/icon-192x192.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
     <div id="root"></div>
     <script src="worker.js"></script>
     <script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
 </body>
+
 </html>
