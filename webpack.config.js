@@ -4,6 +4,7 @@ const fs = require('fs');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -105,6 +106,12 @@ module.exports = (env, args) => {
         filename: '[name].[hash].css',
         chunkFilename: '[id].css',
       }),
+      new CopyWebpackPlugin([
+        { 
+          from: 'public', 
+          ignore: ['index.html']
+        }
+      ])
     ]
       .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
       .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
