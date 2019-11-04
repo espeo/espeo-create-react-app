@@ -12,24 +12,40 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Espeo CRA">
-    <link rel="icon" sizes="192x192" href="images/touch/icon-192x192.png">
+    <link rel="icon" sizes="192x192" href="images/icon-192x192.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Espeo CRA">
-    <link rel="apple-touch-icon" href="images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
 
     <!-- Tile for Win8 -->
     <meta name="msapplication-TileColor" content="#fff">
-    <meta name="msapplication-TileImage" content="images/touch/icon-192x192.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="msapplication-TileImage" content="images/icon-192x192.png">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
     <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
     <div id="root"></div>
-    <script src="worker.js"></script>
+    <script>
+        (function() {
+            if (!('serviceWorker' in navigator)) {
+                console.log('Service worker not supported');
+                return;
+            }
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('SW successfully registered');
+                })
+                .catch(function(error) {
+                    console.log('registration failed', error);
+                });
+        })();
+    </script>
     <script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
 </body>
 
