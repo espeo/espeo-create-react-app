@@ -1,7 +1,7 @@
 import { all, takeLatest, put, call } from 'redux-saga/effects';
 // import { SagaIterator } from 'redux-saga';
 
-import { getArticlesService } from '../../../../services/articles/';
+import { getArticlesService } from '../../../../services/articles';
 import { MainArticlesTypes, fetchArticlesSuccess } from '../actions';
 
 export type dateValues = '' | 'today' | 'week' | 'month';
