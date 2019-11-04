@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 
-import { itemsService } from '@core/services/items';
+import { getItemsService } from '@core/services/items';
 import { MainComponentState } from '@core/pages/main/namespace/index';
 import { MainActions } from '@core/pages/main/store/actions/index';
 
@@ -16,7 +16,7 @@ export interface RootStore {
 }
 
 const dependencies = {
-  itemsService,
+  getItemsService,
 };
 export type Dependencies = typeof dependencies;
 
