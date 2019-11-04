@@ -12,7 +12,7 @@ class ApiService {
       baseURL,
       headers: {
         'Content-Type': 'application/json',
-        ...this.getHeaders(),
+        ...this.getHeaders().headers,
       },
     };
 
