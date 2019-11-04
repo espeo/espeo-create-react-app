@@ -10,7 +10,7 @@
         "start": "webpack-dev-server --config ./webpack.config.js --mode=development",
         "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --config ./webpack.config.js --mode=development'",
         "lint": "eslint --config ./.eslintrc.js 'src/**/*.{ts,tsx}'",
-        "test": "jest src/** --testPathIgnorePatterns lighthouse.test.js",
+        "test": "jest src/**",
         "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
         "build:dev": "webpack --config ./webpack.config.js --mode=development",
         "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
@@ -20,8 +20,7 @@
         "mocked-server": "json-server --watch mocked-server/index.js --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
         "cy:open": "cypress open",
         "cy:run": "cypress run",
-        "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)",
-        "lh": "jest lighthouse.test.js"
+        "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)"
     },
     "husky": {
         "hooks": {
@@ -85,6 +84,7 @@
         "core-js": "^3.1.4",
         "dotenv": "8.2.0",
         "enzyme": "3.10.0",
+        "lighthouse": "5.6.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-intl": "^2.8.0",
