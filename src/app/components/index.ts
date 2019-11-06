@@ -1,3 +1,11 @@
 export * from './input/input';
 export * from './button/button';
 export * from './containers/AppWrapper';
+export * from './image/ArticleImage';
+export * from './containers/ContentWrapper';
+export { ArticleDate } from './txt/ArticleInfo';
+export * from './txt/ArticleTitle';
+export { ArticleAuthor } from './txt/ArticleInfo';
+export * from './txt/ArticleDescription';
+export * from './mainTitle/MainTitle';
+export * from './containers/TitleWrapper';

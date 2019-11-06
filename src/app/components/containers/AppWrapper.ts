@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const AppWrapper = styled.div`
-  margin-top: 30px;
-  margin-bottom: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding-bottom: 50px;
+  background-color: ${props => props.theme.colors.lightGray};
 `;

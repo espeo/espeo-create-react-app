@@ -6,7 +6,9 @@ const dotenv = require('dotenv');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const {
+  BundleAnalyzerPlugin
+} = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -18,7 +20,9 @@ const processEnvFiles = mode => {
   const baseEnvPath = `${currentPath}/.env`;
   const envPath = `${baseEnvPath}.${mode}`;
   const finalPath = fs.existsSync(envPath) ? envPath : baseEnvPath;
-  const fileEnv = dotenv.config({ path: finalPath }).parsed;
+  const fileEnv = dotenv.config({
+    path: finalPath
+  }).parsed;
   const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
     const prevCopy = JSON.parse(JSON.stringify(prev));
 
@@ -49,8 +53,7 @@ module.exports = (env, args) => {
       },
     },
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.(ts|tsx)?$/,
           loader: 'ts-loader',
           include: [getPath('./src')],
@@ -82,30 +85,28 @@ module.exports = (env, args) => {
     },
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
-      new webpack.DefinePlugin(processEnvFiles(args.mode)),
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-        inject: 'body',
-        minify: isProduction
-          ? {
-              removeComments: true,
-              collapseWhitespace: true,
-              removeRedundantAttributes: true,
-              useShortDoctype: true,
-              removeEmptyAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              keepClosingSlash: true,
-              minifyJS: true,
-              minifyCSS: true,
-              minifyURLs: true,
-            }
-          : undefined,
-      }),
-      new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
-        chunkFilename: '[id].css',
-      }),
-    ]
+        new webpack.DefinePlugin(processEnvFiles(args.mode)),
+        new HtmlWebpackPlugin({
+          template: './src/index.html',
+          inject: 'body',
+          minify: isProduction ? {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          } : undefined,
+        }),
+        new MiniCssExtractPlugin({
+          filename: '[name].[hash].css',
+          chunkFilename: '[id].css',
+        }),
+      ]
       .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
       .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
     devServer: {
@@ -113,6 +114,8 @@ module.exports = (env, args) => {
       port: 4200,
       hot: true,
       inline: true,
+      writeToDisk: true,
+      historyApiFallback: true,
     },
   };
   return config;
