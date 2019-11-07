@@ -137,7 +137,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                       borderColor={defaultTheme.colors.darkViolet}
                       color={defaultTheme.colors.darkViolet}
                       clickHandler={() => alert('new page')}
-                    ></Button>
+                    />
                   </Link>
                 </ArticleWrapper>
               ))}

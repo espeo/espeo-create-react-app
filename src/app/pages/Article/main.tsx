@@ -23,7 +23,7 @@ class Article extends PureComponent<ArticleProps> {
         <TitleWrapper>
           <Title text="title" />
         </TitleWrapper>
-        <ContentWrapper></ContentWrapper>
+        <ContentWrapper />
       </AppWrapper>
     );
   }
