@@ -1,21 +1,49 @@
-self.addEventListener('install', function(event) {
+const filesToCache = [
+    './index.html',
+    './offline.html',
+    './404.html'
+];
+
+const staticCacheName = 'static-cache-v1';
+
+self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open('static-cache-v1')
-        .then(function(cache) {
-            return cache.addAll([
-                'index.html',
-            ]);
+        caches.open(staticCacheName)
+        .then(cache => {
+            return cache.addAll(filesToCache);
         })
     );
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(caches.match(event.request)
-        .then(function(response) {
-            if (response) {
-                return response;
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+        .then(response => {
+            if (!response) {
+                fetch(event.request)
+                    .then(response => {
+                        if (response) {
+                            if (response.status === 404) {
+                                return caches.match('/404.html');
+                            }
+                            return caches.open(staticCacheName)
+                                .then(cache => {
+                                    cache.put(event.request.url, response);
+                                    return response;
+                                });
+                        }
+                    }).catch(error => {
+                        console.log('fetch error: ', error);
+                        return caches.match('/offline.html');
+                    });
             }
-            return fetch(event.request);
-        })
-    );
+            return response;
+        }).catch(error => {
+            console.log('match error: ', error);
+            return caches.match('/offline.html');
+        }))
+});
+
+self.addEventListener('activate', () => {
+    console.log('Activating new service worker...', navigator);
 });
