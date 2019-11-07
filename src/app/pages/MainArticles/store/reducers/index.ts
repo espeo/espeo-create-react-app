@@ -38,6 +38,14 @@ export const mainArticlesReducer = (
         topic: action.payload.topic,
         page: 1,
       };
+    case MainArticlesTypes.CLEAR_FILTERS:
+      return {
+        ...state,
+        date: '',
+        sortBy: '',
+        topic: '',
+        page: 1,
+      };
     default:
       return state;
   }

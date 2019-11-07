@@ -3,9 +3,12 @@ import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 
 import MainArticles from './main';
-import { fetchArticles, filterArticles } from './store/actions';
+import {
+  fetchArticles,
+  filterArticles,
+  clearArticlesFilters,
+} from './store/actions';
 // import { MainArticlesState } from './namespace/index';
-// import { StateStore } from './../../store/index';
 
 const mapStateToProps = (state: any): any => {
   const { page, topic, sortBy, date, data } = state.articles;
@@ -22,6 +25,7 @@ const mapStateToProps = (state: any): any => {
 const mapDispatchToProps: any = {
   fetchArticles,
   filterArticles,
+  clearArticlesFilters,
 };
 
 export default compose(

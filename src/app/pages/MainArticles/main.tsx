@@ -29,6 +29,7 @@ import {
 interface OwnProps {
   fetchArticles: any;
   filterArticles: any;
+  clearArticlesFilters: any;
   articles: any;
   topic: string;
   sortBy: string;
@@ -66,12 +67,15 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     filterArticles({ topic, date, sortBy: value });
   };
 
-  handleClearFilters = () => {
-    return alert('cler Filters');
-  };
-
   render() {
-    const { intl, articles, topic, sortBy, date } = this.props;
+    const {
+      intl,
+      articles,
+      topic,
+      sortBy,
+      date,
+      clearArticlesFilters,
+    } = this.props;
 
     return (
       <AppWrapper>
@@ -102,7 +106,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
               <Button
                 type="button"
                 text="Clear"
-                clickHandler={this.handleClearFilters}
+                clickHandler={clearArticlesFilters}
                 backgroundColor={defaultTheme.colors.darkViolet}
                 borderColor={defaultTheme.colors.darkViolet}
                 color={defaultTheme.colors.darkViolet}

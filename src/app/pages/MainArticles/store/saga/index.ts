@@ -40,10 +40,19 @@ function* getArticles(action: {
   }
 }
 
-function* filterSortArticles(action: { payload: FiltersProps; type: string }) {
+function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
   try {
     const { topic, sortBy, date } = yield call(getFilterProps, action.payload);
     const { data } = yield call(getArticlesService, 1, topic, sortBy, date);
+    yield put(reloadArticles(data));
+  } catch (e) {
+    yield put(errArticles());
+  }
+}
+
+function* clearArticlesFilters() {
+  try {
+    const { data } = yield call(getArticlesService);
     yield put(reloadArticles(data));
   } catch (e) {
     yield put(errArticles());
@@ -58,6 +67,14 @@ function* watchFilterArticles() {
   yield takeLatest(MainArticlesTypes.SORT_ARTICLES_FILTER, filterSortArticles);
 }
 
+function* watchClearFilters() {
+  yield takeLatest(MainArticlesTypes.CLEAR_FILTERS, clearArticlesFilters);
+}
+
 export default function* mainArticlesSaga() {
-  yield all([fork(watchGetArticles), fork(watchFilterArticles)]);
+  yield all([
+    fork(watchGetArticles),
+    fork(watchFilterArticles),
+    fork(watchClearFilters),
+  ]);
 }

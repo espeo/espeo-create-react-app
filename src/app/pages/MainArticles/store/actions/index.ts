@@ -8,6 +8,7 @@ export enum MainArticlesTypes {
   ERR_ARTICLES = 'ERR_ARTICLES',
   RELOAD_ARTICLES = 'RELOAD_ARTICLES',
   SORT_ARTICLES_FILTER = 'SORT_ARTICLES_FILTER',
+  CLEAR_FILTERS = 'CLEAR_FILTERS',
 }
 
 export const fetchArticles = (page: number, filters?: FiltersProps) =>
@@ -38,9 +39,15 @@ export const filterArticles = (payload: FiltersProps) => ({
   payload,
 });
 
+export const clearArticlesFilters = () =>
+  ({
+    type: MainArticlesTypes.CLEAR_FILTERS,
+  } as const);
+
 export type MainActions =
   | ReturnType<typeof fetchArticles>
   | ReturnType<typeof fetchArticlesSuccess>
   | ReturnType<typeof errArticles>
   | ReturnType<typeof reloadArticles>
-  | ReturnType<typeof filterArticles>;
+  | ReturnType<typeof filterArticles>
+  | ReturnType<typeof clearArticlesFilters>;
