@@ -14,5 +14,7 @@ export const StyledButton = styled.button`
   border-color: ${(props: PropsButton) => props.borderColor};
   backgroud-color: ${(props: PropsButton) => props.backgroundColor};
   border-radius: ${(props: any) => (props.shape === 'round' ? '50%' : '3px')};
-  width: ${(props: PropsButton) => (props.width === 'small' ? '26%' : '38%')};
+  width: ${(props: PropsButton) =>
+    props.width === 'small' ? '60px' : '100px'};
+  height: 20px;
 `;

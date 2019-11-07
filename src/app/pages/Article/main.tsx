@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-// import { InjectedIntlProps } from 'react-intl';
 import {
   AppWrapper,
   TitleWrapper,
@@ -7,21 +6,24 @@ import {
   ContentWrapper,
 } from '@core/components';
 
-interface OwnProps {}
+interface ArticleOwnProps {
+  location: any;
+  article: string;
+}
 
-type ArticleProps = OwnProps;
+type ArticleProps = ArticleOwnProps;
 
 class Article extends PureComponent<ArticleProps> {
   render() {
-    // const { intl } = this.props;
+    const { article } = this.props.location.state;
+    console.log(article);
+
     return (
       <AppWrapper>
         <TitleWrapper>
-          <Title text="Title" />
+          <Title text="title" />
         </TitleWrapper>
-        <ContentWrapper>
-          <span>New Page contenet</span>
-        </ContentWrapper>
+        <ContentWrapper></ContentWrapper>
       </AppWrapper>
     );
   }

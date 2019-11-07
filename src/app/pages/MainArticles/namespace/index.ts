@@ -2,6 +2,7 @@ import { dateValues } from '../store/saga/index';
 
 export interface MainArticlesState {
   isLoading: boolean;
+  isErr: boolean;
   page: number;
   topic: string;
   sortBy: string;

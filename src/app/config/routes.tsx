@@ -8,7 +8,7 @@ export const AppRoutes = () => (
   <Router>
     <Switch>
       <Route path="/" exact component={MainArtices as ComponentClass} />
-      <Route path="/details" component={Article} />
+      <Route path="/details/:article" component={Article} />
     </Switch>
   </Router>
 );
