@@ -1,4 +1,5 @@
 const filesToCache = [
+    '/',
     './index.html',
     './offline.html',
     './404.html'
