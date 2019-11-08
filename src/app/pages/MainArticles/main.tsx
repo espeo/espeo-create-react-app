@@ -54,22 +54,17 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     return title.toLowerCase().replace(/ /g, '-');
   };
 
-  handleDateChange = (event: any) => {
-    const { topic, sortBy, date, filterArticles } = this.props;
-    const value = event.target.value === date ? '' : event.target.value;
-    filterArticles({ topic, date: value, sortBy });
-  };
-
-  handleTopicChange = (event: any) => {
-    const { topic, sortBy, date, filterArticles } = this.props;
-    const value = event.target.value === topic ? '' : event.target.value;
-    filterArticles({ topic: value, date, sortBy });
-  };
-
-  handleSortChange = (event: any) => {
-    const { topic, sortBy, date, filterArticles } = this.props;
-    const value = event.target.value === sortBy ? '' : event.target.value;
-    filterArticles({ topic, date, sortBy: value });
+  handleChange = (event: any) => {
+    const { filterArticles, topic, sortBy, date } = this.props;
+    const { name } = event.target;
+    const value = event.target.value === name ? '' : event.target.value;
+    if (name === 'topic') {
+      filterArticles({ [name]: value, sortBy, date });
+    } else if (name === 'sortBy') {
+      filterArticles({ [name]: value, topic, date });
+    } else if (name === 'date') {
+      filterArticles({ [name]: value, topic, sortBy });
+    }
   };
 
   render() {
@@ -90,21 +85,39 @@ class MainArticles extends PureComponent<MainArticlesProps> {
         <ContentWrapper>
           <FiltersWrapper>
             <FilterWrapper>
-              <Select value={date} onChange={this.handleDateChange}>
+              <Select
+                value={date}
+                onChange={this.handleChange}
+                id="select-date"
+                name="date"
+              >
                 <option value="" />
                 <option value="today">Today</option>
                 <option value="week">Last week</option>
                 <option value="month">Last month</option>
               </Select>
-              <Select value={topic} onChange={this.handleTopicChange}>
+              <Select
+                value={topic}
+                onChange={this.handleChange}
+                id="select-topic"
+                name="topic"
+              >
                 <option value="" />
                 <option value="sport">Sport</option>
-                <option value="fashon">Fashon</option>
+                <option value="fashon">Fashion</option>
                 <option value="design">Design</option>
+                <option value="design">Literature</option>
               </Select>
-              <Select value={sortBy} onChange={this.handleSortChange}>
+              <Select
+                value={sortBy}
+                onChange={this.handleChange}
+                id="select-sort"
+                name="sortBy"
+              >
                 <option value="" />
                 <option value="popularity">Popularity</option>
+                <option value="writenIn">Written in</option>
+                <option value="publishedAt">Published at</option>
               </Select>
             </FilterWrapper>
             <FilterButtonWrapper>
