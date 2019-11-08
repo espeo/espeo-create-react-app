@@ -7,16 +7,20 @@ import { defaultTheme } from '@core/styles/themes';
 
 import {
   AppWrapper,
-  ArticleImage,
   ContentWrapper,
   ArticleDate,
   ArticleAuthor,
   ArticleTitle,
   ArticleDescription,
+  ArticleImage,
   Title,
   TitleWrapper,
 } from '@core/components';
-import { Button } from '@core/components/button/button';
+import {
+  StyledButton,
+  ArticleButton,
+  ArticleButtonText,
+} from '@core/components/button';
 import {
   ArticlesWrapper,
   ArticleWrapper,
@@ -36,6 +40,7 @@ interface OwnProps {
   date: any;
   handleDate: any;
 }
+const image = require('../../components/image/images/logo_espeo.svg');
 
 type MainArticlesProps = OwnProps & InjectedIntlProps;
 
@@ -103,7 +108,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
               </Select>
             </FilterWrapper>
             <FilterButtonWrapper>
-              <Button
+              <StyledButton
                 type="button"
                 text="Clear"
                 clickHandler={clearArticlesFilters}
@@ -117,7 +122,11 @@ class MainArticles extends PureComponent<MainArticlesProps> {
             {articles[0] &&
               articles[0].map((article: any) => (
                 <ArticleWrapper key={article.author + v1()}>
-                  <ArticleImage height={230} src={article.urlToImage} />
+                  <ArticleImage
+                    width="100%"
+                    height={230}
+                    src={article.urlToImage ? article.urlToImage : image}
+                  />
                   <ArticleDate>
                     {dayjs(article.publishedAt).format('YYYY, MMM DD ')}
                   </ArticleDate>
@@ -134,14 +143,9 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                       state: { article },
                     }}
                   >
-                    <Button
-                      type="button"
-                      text="Read more"
-                      backgroundColor={defaultTheme.colors.nude}
-                      borderColor={defaultTheme.colors.darkViolet}
-                      color={defaultTheme.colors.darkViolet}
-                      clickHandler={() => alert('new page')}
-                    />
+                    <ArticleButton>
+                      <ArticleButtonText>Know more</ArticleButtonText>
+                    </ArticleButton>
                   </Link>
                 </ArticleWrapper>
               ))}

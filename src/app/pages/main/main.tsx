@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { InjectedIntlProps } from 'react-intl';
 import { v1 } from 'uuid';
-import { Input, Button } from '@core/components';
+import { Input, StyledButton } from '@core/components';
 import { loadItems } from './store/actions';
 
 import { Title } from './components/title/title';
@@ -41,7 +41,7 @@ class MainComponent extends PureComponent<MainComponentProps> {
       <div>
         <Title text={intl.formatMessage({ id: 'page.main.hello' })} />
         <Input onChange={this.onInputChange} />
-        <Button
+        <StyledButton
           type="button"
           text="example button"
           clickHandler={this.handleClick}

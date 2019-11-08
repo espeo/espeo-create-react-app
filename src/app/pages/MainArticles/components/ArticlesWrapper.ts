@@ -4,5 +4,5 @@ export const ArticlesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: center;
-  margin-top: 10%;
+  margin-top: 3%;
 `;

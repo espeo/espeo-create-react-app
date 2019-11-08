@@ -9,7 +9,7 @@ interface PropsButton {
   clickHandler(): void;
 }
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   color: ${(props: PropsButton) => props.color};
   border-color: ${(props: PropsButton) => props.borderColor};
   backgroud-color: ${(props: PropsButton) => props.backgroundColor};
@@ -17,4 +17,5 @@ export const StyledButton = styled.button`
   width: ${(props: PropsButton) =>
     props.width === 'small' ? '60px' : '100px'};
   height: 20px;
+  font-family: Georgia;
 `;

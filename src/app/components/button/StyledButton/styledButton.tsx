@@ -1,5 +1,5 @@
 import React, { PureComponent, ButtonHTMLAttributes } from 'react';
-import { StyledButton } from './style';
+import { Button } from './style';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   borderColor?: string;
 }
 
-export class Button extends PureComponent<ButtonProps> {
+export class StyledButton extends PureComponent<ButtonProps> {
   private buttonClickHandler = () => {
     const { clickHandler } = this.props;
     clickHandler();
@@ -20,13 +20,9 @@ export class Button extends PureComponent<ButtonProps> {
     const { text } = this.props;
 
     return (
-      <StyledButton
-        {...this.props}
-        type="button"
-        onClick={this.buttonClickHandler}
-      >
+      <Button {...this.props} type="button" onClick={this.buttonClickHandler}>
         {text}
-      </StyledButton>
+      </Button>
     );
   }
 }

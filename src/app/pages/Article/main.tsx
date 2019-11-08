@@ -1,10 +1,26 @@
 import React, { PureComponent } from 'react';
+import dayjs from 'dayjs';
+
 import {
   AppWrapper,
   TitleWrapper,
   Title,
   ContentWrapper,
+  ArticleImage,
+  ArticleBDate,
+  ArticleBAuthor,
+  ArticleBTitle,
+  ArticleTitle,
+  ArticleContent,
+  ArticleBDescription,
 } from '@core/components';
+
+import {
+  ArticleContainer,
+  BackLink,
+  BackLinkText,
+  SourceLink,
+} from './components';
 
 interface ArticleOwnProps {
   location: any;
@@ -21,9 +37,27 @@ class Article extends PureComponent<ArticleProps> {
     return (
       <AppWrapper>
         <TitleWrapper>
-          <Title text="title" />
+          <Title text="Article Details" />
         </TitleWrapper>
-        <ContentWrapper />
+        <ContentWrapper>
+          <BackLink to="/">
+            <BackLinkText>Back to Articles</BackLinkText>
+          </BackLink>
+          <ArticleContainer>
+            <ArticleBTitle>{article.title}</ArticleBTitle>
+            <ArticleBDescription>{article.description}</ArticleBDescription>
+            <ArticleImage width="100%" height={320} src={article.urlToImage} />
+            <ArticleBDate>
+              {dayjs(article.publishedAt).format('YYYY, MMM DD ')}
+            </ArticleBDate>
+            <ArticleBAuthor>{article.author}</ArticleBAuthor>
+            <ArticleTitle>{article.title}</ArticleTitle>
+            <ArticleContent>{article.content}</ArticleContent>
+            <SourceLink href={article.url} target="_blank">
+              Read more here &gt; Source: {article.source.name}
+            </SourceLink>
+          </ArticleContainer>
+        </ContentWrapper>
       </AppWrapper>
     );
   }
