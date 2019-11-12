@@ -4,6 +4,7 @@ const fs = require('fs');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -84,8 +85,8 @@ module.exports = (env, args) => {
     plugins: [
       new webpack.DefinePlugin(processEnvFiles(args.mode)),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
-        inject: 'body',
+        template: './public/index.html',
+        inject: false,
         minify: isProduction
           ? {
               removeComments: true,
@@ -105,11 +106,17 @@ module.exports = (env, args) => {
         filename: '[name].[hash].css',
         chunkFilename: '[id].css',
       }),
+      new CopyWebpackPlugin([
+        { 
+          from: 'public', 
+          ignore: ['index.html']
+        }
+      ])
     ]
       .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
       .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'public'),
       port: 4200,
       hot: true,
       inline: true,
