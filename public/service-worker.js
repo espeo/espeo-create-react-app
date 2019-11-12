@@ -2,7 +2,8 @@ const filesToCache = [
     '/',
     './index.html',
     './offline.html',
-    './404.html'
+    './404.html',
+    './images/favicon.ico'
 ];
 
 const staticCacheName = 'static-cache-v1';
@@ -18,31 +19,29 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
     event.respondWith(
-        caches.match(event.request)
+        fetch(event.request)
         .then(response => {
-            if (!response) {
-                fetch(event.request)
-                    .then(response => {
-                        if (response) {
-                            if (response.status === 404) {
-                                return caches.match('/404.html');
-                            }
-                            return caches.open(staticCacheName)
-                                .then(cache => {
-                                    cache.put(event.request.url, response);
-                                    return response;
-                                });
-                        }
-                    }).catch(error => {
-                        console.log('fetch error: ', error);
-                        return caches.match('/offline.html');
+            if (response.status === 404) {
+                return caches.match('./404.html');
+            }
+            if (response.status === 200) {
+                return caches.open(staticCacheName)
+                    .then(cache => {
+                        cache.put(event.request, response.clone());
+                        return response;
                     });
             }
-            return response;
+
         }).catch(error => {
-            console.log('match error: ', error);
-            return caches.match('/offline.html');
-        }))
+            return caches.match(event.request)
+                .then(response => {
+                    if (response) {
+                        return response;
+                    }
+                    return caches.match('./offline.html');
+                })
+        })
+    )
 });
 
 self.addEventListener('activate', () => {
