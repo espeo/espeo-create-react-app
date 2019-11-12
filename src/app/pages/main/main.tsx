@@ -19,9 +19,9 @@ class MainComponent extends PureComponent<MainComponentProps> {
   };
 
   public componentDidMount() {
-    // this.props.loadItems({
-    //   id: 1,
-    // });
+    this.props.loadItems({
+      id: 1,
+    });
   }
 
   private onInputChange = (value: string) => {
