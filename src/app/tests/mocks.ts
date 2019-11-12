@@ -1,8 +1,4 @@
-import { MainComponentState } from '../pages/main/namespace/index';
-
-export interface RootStore {
-  main: MainComponentState;
-}
+import { RootStore } from '../store';
 
 export const mockStore: RootStore = {
   main: {

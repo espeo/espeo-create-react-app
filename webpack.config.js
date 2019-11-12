@@ -46,7 +46,7 @@ module.exports = (env, args) => {
         '@core': getPath('./src/app'),
         '@environments': getPath('./src/environments'),
         '@assets': getPath('./src/assets/'),
-        '@pages': getPath('src/app/pages'),
+        '@pages': getPath('./src/app/pages'),
       },
     },
     module: {
@@ -120,6 +120,8 @@ module.exports = (env, args) => {
       port: 4200,
       hot: true,
       inline: true,
+      writeToDisk: true,
+      historyApiFallback: true,
     },
   };
   return config;

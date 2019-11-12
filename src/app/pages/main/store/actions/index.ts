@@ -13,6 +13,8 @@ export const loadItems = (payload: { id: number }) =>
     payload,
   } as const);
 
+export type LoadItemsAction = ReturnType<typeof loadItems>;
+
 export const loadItemsSuccess = (payload: {
   items: MainComponentState['items'];
 }) =>
@@ -27,6 +29,6 @@ export const loadItemsFailed = () =>
   } as const);
 
 export type MainActions =
-  | ReturnType<typeof loadItems>
+  | LoadItemsAction
   | ReturnType<typeof loadItemsSuccess>
   | ReturnType<typeof loadItemsFailed>;
