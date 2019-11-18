@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { InjectedIntlProps } from 'react-intl';
-import { v1 } from 'uuid';
+// import { v1 } from 'uuid';
 import { Input, Button } from '@core/components';
 import { loadItems } from './store/actions';
 
@@ -36,7 +36,8 @@ class MainComponent extends PureComponent<MainComponentProps> {
   };
 
   render() {
-    const { items, intl } = this.props;
+    // const { items, intl } = this.props;
+    const { intl } = this.props;
 
     return (
       <div>
@@ -47,11 +48,11 @@ class MainComponent extends PureComponent<MainComponentProps> {
           text="example button"
           clickHandler={this.handleClick}
         />
-        <ul>
+        {/* <ul>
           {items.map((item: any) => {
             return <li key={v1()}>{item.name}</li>;
           })}
-        </ul>
+        </ul> */}
       </div>
     );
   }

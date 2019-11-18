@@ -39,6 +39,7 @@ module.exports = (env, args) => {
     },
     output: {
       filename: isProduction ? './bundle.[hash].js' : './bundle.js',
+      chunkFilename: '[name].bundle.js',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -89,17 +90,17 @@ module.exports = (env, args) => {
         inject: false,
         minify: isProduction
           ? {
-              removeComments: true,
-              collapseWhitespace: true,
-              removeRedundantAttributes: true,
-              useShortDoctype: true,
-              removeEmptyAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              keepClosingSlash: true,
-              minifyJS: true,
-              minifyCSS: true,
-              minifyURLs: true,
-            }
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          }
           : undefined,
       }),
       new MiniCssExtractPlugin({
@@ -107,8 +108,8 @@ module.exports = (env, args) => {
         chunkFilename: '[id].css',
       }),
       new CopyWebpackPlugin([
-        { 
-          from: 'public', 
+        {
+          from: 'public',
           ignore: ['index.html']
         }
       ])
