@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const TitleWrapper = styled.div`
+interface PropsTitleWrapper {
+  theme: {
+    colors: string;
+  }
+}
+
+export const TitleWrapper = styled.div<PropsTitleWrapper>`
   background-color: ${props => props.theme.colors.darkViolet};
   width: 100%;
   padding-top: 2%;
