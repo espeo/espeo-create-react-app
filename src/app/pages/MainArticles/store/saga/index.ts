@@ -1,7 +1,6 @@
 import { all, takeLatest, put, call, fork } from 'redux-saga/effects';
-// import { SagaIterator } from 'redux-saga';
 
-import { getArticlesService } from '../../../../services/articles';
+import { getArticlesService } from '@core/services/articles';
 import {
   MainArticlesTypes,
   fetchArticlesSuccess,

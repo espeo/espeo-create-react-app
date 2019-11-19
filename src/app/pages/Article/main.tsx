@@ -32,7 +32,6 @@ type ArticleProps = ArticleOwnProps;
 class Article extends PureComponent<ArticleProps> {
   render() {
     const { article } = this.props.location.state;
-    console.log(article);
 
     return (
       <AppWrapper>

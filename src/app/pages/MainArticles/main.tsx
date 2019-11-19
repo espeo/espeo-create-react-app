@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { InjectedIntlProps } from 'react-intl';
 import { v1 } from 'uuid';
@@ -30,15 +30,20 @@ import {
   Select,
 } from './components';
 
+interface StringObject { 
+  [key: string]: string | number; 
+}
+
 interface OwnProps {
-  fetchArticles: any;
-  filterArticles: any;
-  clearArticlesFilters: any;
-  articles: any;
+  fetchArticles(arg1: number, arg2: StringObject): {};
+  filterArticles(arg: StringObject): void;
+  clearArticlesFilters(): void;
+  articles: Array<any>;
   topic: string;
   sortBy: string;
-  date: any;
-  handleDate: any;
+  date: string;
+  handleDate(): void;
+  
 }
 const image = require('../../components/image/images/logo_espeo.svg');
 
@@ -54,7 +59,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     return title.toLowerCase().replace(/ /g, '-');
   };
 
-  handleChange = (event: any) => {
+  handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { filterArticles, topic, sortBy, date } = this.props;
     const { name } = event.target;
     const value = event.target.value === name ? '' : event.target.value;

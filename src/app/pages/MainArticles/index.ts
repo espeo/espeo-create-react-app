@@ -8,7 +8,6 @@ import {
   filterArticles,
   clearArticlesFilters,
 } from './store/actions';
-// import { MainArticlesState } from './namespace/index';
 
 const mapStateToProps = (state: any): any => {
   const { page, topic, sortBy, date, data } = state.articles;
