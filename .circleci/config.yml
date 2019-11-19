@@ -42,3 +42,7 @@ jobs:
       - run:
           name: Run integration tests
           command: yarn cypress install > /dev/null && yarn cy:ci
+
+      - run:
+          name: Run Lighthousebot PWA test
+          command: yarn lh

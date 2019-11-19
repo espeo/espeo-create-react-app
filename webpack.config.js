@@ -4,6 +4,7 @@ const fs = require('fs');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
@@ -42,6 +43,7 @@ module.exports = (env, args) => {
     },
     output: {
       filename: isProduction ? './bundle.[hash].js' : './bundle.js',
+      chunkFilename: '[name].bundle.js',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -49,7 +51,7 @@ module.exports = (env, args) => {
         '@core': getPath('./src/app'),
         '@environments': getPath('./src/environments'),
         '@assets': getPath('./src/assets/'),
-        '@pages': getPath('src/app/pages'),
+        '@pages': getPath('./src/app/pages'),
       },
     },
     module: {
@@ -85,11 +87,12 @@ module.exports = (env, args) => {
     },
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
-        new webpack.DefinePlugin(processEnvFiles(args.mode)),
-        new HtmlWebpackPlugin({
-          template: './src/index.html',
-          inject: 'body',
-          minify: isProduction ? {
+      new webpack.DefinePlugin(processEnvFiles(args.mode)),
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+        inject: false,
+        minify: isProduction
+          ? {
             removeComments: true,
             collapseWhitespace: true,
             removeRedundantAttributes: true,
@@ -100,17 +103,24 @@ module.exports = (env, args) => {
             minifyJS: true,
             minifyCSS: true,
             minifyURLs: true,
-          } : undefined,
-        }),
-        new MiniCssExtractPlugin({
-          filename: '[name].[hash].css',
-          chunkFilename: '[id].css',
-        }),
-      ]
+          }
+          : undefined,
+      }),
+      new MiniCssExtractPlugin({
+        filename: '[name].[hash].css',
+        chunkFilename: '[id].css',
+      }),
+      new CopyWebpackPlugin([
+        {
+          from: 'public',
+          ignore: ['index.html']
+        }
+      ])
+    ]
       .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
       .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'public'),
       port: 4200,
       hot: true,
       inline: true,
