@@ -1,8 +1,8 @@
 import { dateValues } from '../../pages/MainArticles/store/saga/index';
 import ApiService from '../config';
 
-const apiUrl = 'https://newsapi.org/v2/';
-const API_KEY = 'f7bcdf1d533f4c4491fc0536acfa84ca';
+const apiUrl = process.env.API_URL;
+const apiKey = process.env.API_KEY;
 
 export const getArticlesService = (
   page = 1,
@@ -12,7 +12,7 @@ export const getArticlesService = (
 ) => {
   const sort = sortBy ? `&sortBy=${sortBy}` : '';
   const dateFilter = date || '';
-  const myUrl = `${apiUrl}everything?q=${topic}&page=${page}${sort}${dateFilter}&apiKey=${API_KEY}`;
+  const myUrl = `${apiUrl}everything?q=${topic}&page=${page}${sort}${dateFilter}&apiKey=${apiKey}`;
 
   return ApiService.get(myUrl)
     .then((data: any) => {

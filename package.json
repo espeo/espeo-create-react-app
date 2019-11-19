@@ -76,7 +76,7 @@
     "concurrently": "4.1.2",
     "copy-webpack-plugin": "5.0.4",
     "core-js": "^3.1.4",
-    "dayjs": "1.8.16",
+    "dayjs": "1.8.17",
     "dotenv": "8.2.0",
     "enzyme": "3.10.0",
     "lighthouse": "5.6.0",
