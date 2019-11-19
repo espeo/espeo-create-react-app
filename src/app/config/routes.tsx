@@ -9,7 +9,9 @@ export const AppRoutes = () => (
   <Router>
     <Switch>
       <Route path="/" exact component={MainPage as ComponentClass} />
-      <Route exact path="/dynamic-route" component={MyDynamicRoute as any} />
+      <React.Suspense fallback={<div>Loading</div>}>
+        <Route exact path="/dynamic-route" component={MyDynamicRoute as any} />
+      </React.Suspense>
     </Switch>
   </Router>
 );

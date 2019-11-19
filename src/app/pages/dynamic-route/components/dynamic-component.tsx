@@ -4,7 +4,7 @@ export default class DynamicComponent extends Component {
   render() {
     return (
       <div>
-        title
+        Example content
       </div>
     )
   }
