@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode=development",
-    "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --config ./webpack.config.js --mode=development'",
+    "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --https --config ./webpack.config.js --mode=development'",    
     "lint": "eslint --config ./.eslintrc.json 'src/**/*.{ts,tsx}'",
     "test": "jest src/** --config jest.config.json",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
