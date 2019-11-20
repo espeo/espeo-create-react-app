@@ -25,12 +25,8 @@ self.addEventListener('fetch', event => {
                     return caches.match('./404.html');
                 }
                 if (response.status === 200) {
-                    console.log('jest net');
-
                     return caches.open(staticCacheName)
                         .then(cache => {
-                            console.log('kesz', cache);
-
                             cache.put(event.request, response.clone());
 
                             return response;

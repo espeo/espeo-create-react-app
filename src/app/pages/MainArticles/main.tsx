@@ -131,7 +131,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 clickHandler={clearArticlesFilters}
                 backgroundColor={defaultTheme.colors.darkViolet}
                 borderColor={defaultTheme.colors.darkViolet}
-                color={defaultTheme.colors.darkViolet}
+                color={defaultTheme.colors.light}
               />
             </FilterButtonWrapper>
           </FiltersWrapper>
