@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface PropsTitleWrapper {
   theme: {
     colors: string;
-  }
+  };
 }
 
 export const TitleWrapper = styled.div<PropsTitleWrapper>`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface PropsTitle {
   theme: {
     colors: string;
-  }
+  };
 }
 
 export const Title = styled.h1<PropsTitle>`

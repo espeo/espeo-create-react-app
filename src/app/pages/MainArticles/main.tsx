@@ -30,8 +30,8 @@ import {
   Select,
 } from './components';
 
-interface StringObject { 
-  [key: string]: string | number; 
+interface StringObject {
+  [key: string]: string | number;
 }
 
 interface OwnProps {
@@ -43,7 +43,6 @@ interface OwnProps {
   sortBy: string;
   date: string;
   handleDate(): void;
-  
 }
 const image = require('../../components/image/images/logo_espeo.svg');
 

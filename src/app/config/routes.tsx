@@ -4,7 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainArtices from '@core/pages/MainArticles';
 import Article from '@core/pages/Article/main';
 
-const MyDynamicRoute = React.lazy(() => import(/* webpackChunkName: "dynamic-route" */ '@core/pages/dynamic-route/dynamic-route'));
+const MyDynamicRoute = React.lazy(() =>
+  import(
+    /* webpackChunkName: "dynamic-route" */ '@core/pages/dynamic-route/dynamic-route'
+  ),
+);
 
 export const AppRoutes = () => (
   <Router>
