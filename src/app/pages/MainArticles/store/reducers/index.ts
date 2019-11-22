@@ -25,12 +25,10 @@ export const mainArticlesReducer = (
         isErr: false,
       };
     case MainArticlesTypes.RELOAD_ARTICLES:
-      console.log('tutaj', state, action);
-
       return {
         ...state,
         isLoading: false,
-        data: [...state.data, action.payload.articles],
+        data: [action.payload.articles],
       };
     case MainArticlesTypes.SORT_ARTICLES_FILTER:
       return {

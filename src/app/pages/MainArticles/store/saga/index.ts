@@ -19,9 +19,9 @@ export interface FiltersProps {
 
 const getFilterProps = (payload: any) => {
   return {
-    topic: payload.topic || undefined,
-    sortBy: payload.sortBy || undefined,
-    date: payload.date || undefined,
+    topic: payload.topic || 'sport',
+    sortBy: payload.sortBy || '',
+    date: payload.date || '',
   };
 };
 
@@ -41,8 +41,9 @@ function* getArticles(action: {
 
 function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
   try {
-    const { topic, sortBy, date } = yield call(getFilterProps, action.payload);
-    const { data } = yield call(getArticlesService, 1, topic, sortBy, date);
+    const { topic, sortBy, date } = getFilterProps(action.payload);
+    const page = 1;
+    const { data } = yield call(getArticlesService, page, topic, sortBy, date);
     yield put(reloadArticles(data));
   } catch (e) {
     yield put(errArticles());

@@ -108,9 +108,9 @@ class MainArticles extends PureComponent<MainArticlesProps> {
               >
                 <option value="" />
                 <option value="sport">Sport</option>
-                <option value="fashon">Fashion</option>
+                <option value="fashion">Fashion</option>
                 <option value="design">Design</option>
-                <option value="design">Literature</option>
+                <option value="literature">Literature</option>
               </Select>
               <Select
                 value={sortBy}
