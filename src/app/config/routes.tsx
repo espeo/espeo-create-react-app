@@ -2,7 +2,7 @@ import React, { ComponentClass, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import MainArtices from '@core/pages/MainArticles';
-import Article from '@core/pages/Article/main';
+import Article from '@core/pages/Article/Article.component';
 
 const MyDynamicRoute = React.lazy(() =>
   import(

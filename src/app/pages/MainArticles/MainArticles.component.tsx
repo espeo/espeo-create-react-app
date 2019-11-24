@@ -28,7 +28,7 @@ import {
   FilterWrapper,
   FilterButtonWrapper,
   Select,
-} from './components';
+} from './styles';
 
 interface StringObject {
   [key: string]: string | number;

@@ -15,12 +15,7 @@ import {
   ArticleBDescription,
 } from '@core/components';
 
-import {
-  ArticleContainer,
-  BackLink,
-  BackLinkText,
-  SourceLink,
-} from './components';
+import { ArticleContainer, BackLink, BackLinkText, SourceLink } from './styles';
 
 interface ArticleOwnProps {
   location: any;
