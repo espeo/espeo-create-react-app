@@ -8,7 +8,7 @@ import en from 'react-intl/locale-data/en';
 
 import translationsEn from '@assets/i18n/en.json';
 
-import { defaultTheme } from '@core/styles/themes';
+import { defaultTheme, GlobalStyles } from '@core/styles/themes';
 import { AppRoutes } from '@core/config/routes';
 import { rootStore } from '@core/store';
 
@@ -31,6 +31,7 @@ ReactDOM.render(
   <Provider store={rootStore}>
     <IntlProvider locale={locale} messages={translations[locale]}>
       <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
         <AppRoutes />
       </ThemeProvider>
     </IntlProvider>

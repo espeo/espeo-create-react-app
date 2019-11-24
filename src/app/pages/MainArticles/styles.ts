@@ -1,4 +1,5 @@
 import { styled } from '@styles/themes/defaultTheme';
+import { Link } from 'react-router-dom';
 
 export const Select = styled.select`
   height: 20px;
@@ -21,9 +22,11 @@ export const ArticleWrapper = styled.div`
   padding-left: 2%;
   padding-top: 2%;
 `;
+
 export const FilterButtonWrapper = styled.div`
   padding-left: 2%;
 `;
+
 export const FiltersWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,4 +37,16 @@ export const FiltersWrapper = styled.div`
 export const FilterWrapper = styled.div`
   display: flex;
   margin-right: 0.5%;
+`;
+
+export const ArticleButton = styled(Link)`
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: ${(props: { width?: string }) => props.width ?? '100%'};
+  background-color: ${props => props.theme.colors.darkViolet};
+  border-radius: 5px;
+  color: ${props => props.theme.colors.light};
+  font-size: 16px;
+  line-height: 24px;
 `;

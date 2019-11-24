@@ -1,5 +1,4 @@
 import React, { PureComponent, ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
 import { InjectedIntlProps } from 'react-intl';
 import { v1 } from 'uuid';
 import dayjs from 'dayjs';
@@ -16,13 +15,10 @@ import {
   Title,
   TitleWrapper,
 } from '@core/components';
-import {
-  StyledButton,
-  ArticleButton,
-  ArticleButtonText,
-} from '@core/components/button';
+import { StyledButton } from '@core/components/button';
 import {
   ArticlesWrapper,
+  ArticleButton,
   ArticleWrapper,
   FiltersWrapper,
   FilterWrapper,
@@ -154,16 +150,14 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                   )}
                   <ArticleTitle>{article.title}</ArticleTitle>
                   <ArticleDescription>{article.description}</ArticleDescription>
-                  <Link
+                  <ArticleButton
                     to={{
                       pathname: `/details/:${this.changeTitle(article.title)}`,
                       state: { article },
                     }}
                   >
-                    <ArticleButton>
-                      <ArticleButtonText>Know more</ArticleButtonText>
-                    </ArticleButton>
-                  </Link>
+                    Know more
+                  </ArticleButton>
                 </ArticleWrapper>
               ))}
           </ArticlesWrapper>

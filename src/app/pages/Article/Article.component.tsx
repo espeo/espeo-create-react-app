@@ -40,7 +40,7 @@ class Article extends PureComponent<ArticleProps> {
           <ArticleContainer>
             <ArticleBTitle>{article.title}</ArticleBTitle>
             <ArticleBDescription>{article.description}</ArticleBDescription>
-            <ArticleImage width="100%" height={320} src={article.urlToImage} />
+            <ArticleImage alt={article.title} src={article.urlToImage} />
             <ArticleBDate>
               {dayjs(article.publishedAt).format('YYYY, MMM DD ')}
             </ArticleBDate>

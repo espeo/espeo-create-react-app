@@ -2,10 +2,7 @@ import axios from 'axios';
 import localStorageService from '@core/services/local-storage';
 import { ErrorCodes } from '../constants/constants';
 
-const baseURL = process.env.USE_MOCKS
-  ? process.env.MOCKS_URL
-  : process.env.API_URL;
-
+const baseURL = process.env.API_URL;
 class ApiService {
   public request: any;
 
