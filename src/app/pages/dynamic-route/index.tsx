@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import MyDynamicComponent from './components/dynamic-component';
+import MyDynamicComponent from './components/DynamicComponent/DynamiComponent';
 
 class DynamicRoute extends PureComponent {
   render() {

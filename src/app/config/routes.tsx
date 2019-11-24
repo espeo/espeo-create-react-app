@@ -2,12 +2,10 @@ import React, { ComponentClass, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import MainArtices from '@core/pages/MainArticles';
-import Article from '@core/pages/Article/Article.component';
+import Article from '@core/pages/Article/components/ArticleComponent/Article.component';
 
 const MyDynamicRoute = React.lazy(() =>
-  import(
-    /* webpackChunkName: "dynamic-route" */ '@core/pages/dynamic-route/dynamic-route'
-  ),
+  import(/* webpackChunkName: "dynamic-route" */ '@core/pages/dynamic-route'),
 );
 
 export const AppRoutes = () => (

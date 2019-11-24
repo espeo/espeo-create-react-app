@@ -40,7 +40,7 @@ interface OwnProps {
   date: string;
   handleDate(): void;
 }
-const image = require('../../components/image/images/logo_espeo.svg');
+const fallbackImage = require('@assets/images/logo_espeo.svg');
 
 type MainArticlesProps = OwnProps & InjectedIntlProps;
 
@@ -138,7 +138,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                   <ArticleImage
                     width="100%"
                     height={230}
-                    src={article.urlToImage ? article.urlToImage : image}
+                    src={article.urlToImage ?? fallbackImage}
                   />
                   <ArticleDate>
                     {dayjs(article.publishedAt).format('YYYY, MMM DD ')}

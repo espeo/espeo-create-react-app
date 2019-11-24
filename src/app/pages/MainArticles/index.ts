@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 
-import MainArticles from './MainArticles.component';
+import MainArticles from './components/MainArticles/MainArticles.component';
 import {
   fetchArticles,
   filterArticles,
