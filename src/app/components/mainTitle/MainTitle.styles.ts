@@ -1,12 +1,6 @@
-import styled from 'styled-components';
+import { styled } from '@styles/themes/defaultTheme';
 
-interface PropsTitle {
-  theme: {
-    colors: string;
-  };
-}
-
-export const Title = styled.h1<PropsTitle>`
+export const Title = styled.h1`
   font-size: 2.1em;
   text-align: center;
   color: ${props => props.theme.colors.light};

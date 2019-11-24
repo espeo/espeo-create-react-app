@@ -3,9 +3,9 @@ import logger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 import createSagaMiddleware from 'redux-saga';
 
-import { getItemsService } from '@core/services/items';
-import { MainComponentState } from '@core/pages/main/namespace/index';
-import { MainActions } from '@core/pages/main/store/actions/index';
+import { getArticlesService } from '@core/services';
+import { MainArticlesState } from '@pages/MainArticles/namespace';
+import { MainActions } from '@pages/MainArticles/store/actions';
 
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
@@ -15,11 +15,11 @@ type chosenMiddlewareType = 'saga' | 'observable';
 const chosenMiddleware: chosenMiddlewareType = 'saga' as chosenMiddlewareType;
 
 export interface RootStore {
-  main: MainComponentState;
+  main: MainArticlesState;
 }
 
 const dependencies = {
-  getItemsService,
+  getArticlesService,
 };
 export type Dependencies = typeof dependencies;
 

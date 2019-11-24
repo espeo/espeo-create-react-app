@@ -10,11 +10,12 @@ class ApiService {
   public request: any;
 
   constructor() {
+    console.log(this.getHeaders());
     const config = {
       baseURL,
       headers: {
         'Content-Type': 'application/json',
-        ...this.getHeaders().headers,
+        ...this.getHeaders(),
       },
     };
 
@@ -55,12 +56,12 @@ class ApiService {
 
     if (token) {
       headers = {
-        'x-auth-token': token,
+        'x-auth-token': 'token',
       };
     }
 
     return {
-      headers,
+      ...headers,
     };
   }
 }

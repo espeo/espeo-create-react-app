@@ -1,12 +1,6 @@
-import styled from 'styled-components';
+import { styled } from '@styles/themes/defaultTheme';
 
-interface PropsAppWrapper {
-  theme: {
-    colors: string;
-  };
-}
-
-export const AppWrapper = styled.div<PropsAppWrapper>`
+export const AppWrapper = styled.div`
   padding-bottom: 50px;
   background-color: ${props => props.theme.colors.lightGray};
 `;

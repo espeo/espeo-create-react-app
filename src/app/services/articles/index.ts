@@ -1,13 +1,12 @@
 import dayjs from 'dayjs';
 
-import { dateValues } from '../../pages/MainArticles/store/saga/index';
+import { dateValues } from '@pages/MainArticles/store/saga';
 import ApiService from '../config';
 
-const apiUrl = process.env.API_URL;
 const apiKey = process.env.API_KEY;
 const now = dayjs();
 
-export const getArticlesService = (
+const getArticlesService = (
   page = 1,
   topic?: string,
   sortBy?: string,
@@ -31,13 +30,13 @@ export const getArticlesService = (
       from = to;
   }
 
-  const myUrl = `${apiUrl}everything?q=${selectedTopic}&page=${page}&sortBy=${sort}&from=${from}&to=${to}&apiKey=${apiKey}`;
+  const myUrl = `everything?q=${selectedTopic}&page=${page}&sortBy=${sort}&from=${from}&to=${to}&apiKey=${apiKey}`;
 
   return ApiService.get(myUrl)
-    .then((data: any) => {
-      return data;
-    })
+    .then((data: any) => data)
     .catch((error: any) => {
-      console.error(error);
+      throw new Error(error);
     });
 };
+
+export default getArticlesService;

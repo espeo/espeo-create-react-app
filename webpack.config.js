@@ -7,9 +7,7 @@ const dotenv = require('dotenv');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-  BundleAnalyzerPlugin
-} = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -18,11 +16,13 @@ const getPath = file => path.resolve(__dirname, file);
 const currentPath = path.join(__dirname);
 
 const processEnvFiles = mode => {
+  const modeFile = mode === 'none' ? 'local' : mode;
+
   const baseEnvPath = `${currentPath}/.env`;
-  const envPath = `${baseEnvPath}.${mode}`;
+  const envPath = `${baseEnvPath}.${modeFile}`;
   const finalPath = fs.existsSync(envPath) ? envPath : baseEnvPath;
   const fileEnv = dotenv.config({
-    path: finalPath
+    path: finalPath,
   }).parsed;
   const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
     const prevCopy = JSON.parse(JSON.stringify(prev));
@@ -52,10 +52,12 @@ module.exports = (env, args) => {
         '@environments': getPath('./src/environments'),
         '@assets': getPath('./src/assets/'),
         '@pages': getPath('./src/app/pages'),
+        '@styles': getPath('./src/app/styles'),
       },
     },
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.(ts|tsx)?$/,
           loader: 'ts-loader',
           include: [getPath('./src')],
@@ -93,17 +95,17 @@ module.exports = (env, args) => {
         inject: false,
         minify: isProduction
           ? {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
-          }
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            }
           : undefined,
       }),
       new MiniCssExtractPlugin({
@@ -113,9 +115,9 @@ module.exports = (env, args) => {
       new CopyWebpackPlugin([
         {
           from: 'public',
-          ignore: ['index.html']
-        }
-      ])
+          ignore: ['index.html'],
+        },
+      ]),
     ]
       .concat(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()])
       .concat(inAnalyze ? [new BundleAnalyzerPlugin()] : []),

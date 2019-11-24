@@ -4,7 +4,4 @@ import { compose } from 'redux';
 
 import Article from './main';
 
-export default compose(
-  connect(),
-  injectIntl,
-)(Article);
+export default compose(connect(), injectIntl)(Article);

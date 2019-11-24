@@ -1,11 +1,11 @@
 import { all, takeLatest, put, call, fork } from 'redux-saga/effects';
 
-import { getArticlesService } from '@core/services/articles';
+import { getArticlesService } from '@core/services';
 import {
   MainArticlesTypes,
   fetchArticlesSuccess,
   reloadArticles,
-  errArticles,
+  fetchArticlesFailed,
 } from '../actions';
 
 export type dateValues = '' | 'today' | 'week' | 'month';
@@ -35,7 +35,7 @@ function* getArticles(action: {
     const data = yield call(getArticlesService, page, topic, sortBy, date);
     yield put(fetchArticlesSuccess(data));
   } catch (e) {
-    yield put(errArticles());
+    yield put(fetchArticlesFailed());
   }
 }
 
@@ -46,7 +46,7 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
     const { data } = yield call(getArticlesService, page, topic, sortBy, date);
     yield put(reloadArticles(data));
   } catch (e) {
-    yield put(errArticles());
+    yield put(fetchArticlesFailed());
   }
 }
 
@@ -55,7 +55,7 @@ function* clearArticlesFilters() {
     const { data } = yield call(getArticlesService);
     yield put(reloadArticles(data));
   } catch (e) {
-    yield put(errArticles());
+    yield put(fetchArticlesFailed());
   }
 }
 

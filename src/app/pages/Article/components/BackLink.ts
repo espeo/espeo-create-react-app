@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@styles/themes/defaultTheme';
 import { Link } from 'react-router-dom';
 
 export const BackLink = styled(Link)`

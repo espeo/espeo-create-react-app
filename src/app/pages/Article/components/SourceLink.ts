@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@styles/themes/defaultTheme';
 
 export const SourceLink = styled.a`
   font-family: Georgia;

@@ -1,4 +1,4 @@
-import { MainActions, MainArticlesTypes } from '../actions/index';
+import { MainActions, MainArticlesTypes } from '../actions';
 import { initial } from '../initial';
 import { MainArticlesState } from '../../namespace';
 
@@ -19,7 +19,7 @@ export const mainArticlesReducer = (
         isLoading: false,
         data: [...state.data, action.payload.data.articles],
       };
-    case MainArticlesTypes.ERR_ARTICLES:
+    case MainArticlesTypes.FETCH_ARTICLES_FAILED:
       return {
         ...state,
         isErr: false,
