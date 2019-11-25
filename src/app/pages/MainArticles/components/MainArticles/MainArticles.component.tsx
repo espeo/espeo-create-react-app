@@ -1,30 +1,29 @@
-import React, { PureComponent, ChangeEvent } from 'react';
+import React, { ChangeEvent, PureComponent } from 'react';
+import dayjs from 'dayjs';
 import { InjectedIntlProps } from 'react-intl';
 import { v1 } from 'uuid';
-import dayjs from 'dayjs';
-import { defaultTheme } from '@core/styles/themes';
 
+import { MainTitle, StyledButton } from '@core/components';
 import {
   AppWrapper,
-  ContentWrapper,
-  ArticleDate,
   ArticleAuthor,
-  ArticleTitle,
+  ArticleDate,
   ArticleDescription,
   ArticleImage,
-  Title,
+  ArticleTitle,
+  ContentWrapper,
   TitleWrapper,
-} from '@core/components';
-import { StyledButton } from '@core/components/button';
+} from '@styles/components';
+import { defaultTheme } from '@styles/themes';
 import {
-  ArticlesWrapper,
   ArticleButton,
+  ArticlesWrapper,
   ArticleWrapper,
+  FilterButtonWrapper,
   FiltersWrapper,
   FilterWrapper,
-  FilterButtonWrapper,
   Select,
-} from './styles';
+} from './MainArticles.style';
 
 interface StringObject {
   [key: string]: string | number;
@@ -80,7 +79,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     return (
       <AppWrapper>
         <TitleWrapper>
-          <Title text={intl.formatMessage({ id: 'page.main.title' })} />
+          <MainTitle text={intl.formatMessage({ id: 'page.main.title' })} />
         </TitleWrapper>
         <ContentWrapper>
           <FiltersWrapper>

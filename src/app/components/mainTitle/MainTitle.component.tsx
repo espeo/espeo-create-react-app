@@ -5,6 +5,6 @@ interface TitleProps {
   text: string;
 }
 
-export const Title = ({ text }: TitleProps) => (
-  <TitleWrapper>{text}</TitleWrapper>
-);
+const MainTitle = ({ text }: TitleProps) => <TitleWrapper>{text}</TitleWrapper>;
+
+export default MainTitle;

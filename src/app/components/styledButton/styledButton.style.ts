@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@styles/themes/defaultTheme';
 
 interface PropsButton {
   color?: string;

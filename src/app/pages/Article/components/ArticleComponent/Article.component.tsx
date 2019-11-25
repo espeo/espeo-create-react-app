@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import {
   AppWrapper,
   TitleWrapper,
-  Title,
   ContentWrapper,
   ArticleImage,
   ArticleBDate,
@@ -13,8 +12,8 @@ import {
   ArticleTitle,
   ArticleContent,
   ArticleBDescription,
-} from '@core/components';
-
+} from '@styles/components';
+import { MainTitle } from '@core/components';
 import { ArticleContainer, BackLink, BackLinkText, SourceLink } from './styles';
 
 interface ArticleOwnProps {
@@ -31,7 +30,7 @@ class Article extends PureComponent<ArticleProps> {
     return (
       <AppWrapper>
         <TitleWrapper>
-          <Title text="Article Details" />
+          <MainTitle text="Article Details" />
         </TitleWrapper>
         <ContentWrapper>
           <BackLink to="/">

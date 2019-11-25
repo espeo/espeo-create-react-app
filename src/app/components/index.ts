@@ -1,10 +1,3 @@
-export * from './input/input';
-export * from './button/StyledButton/styledButton';
-export * from './containers/AppWrapper';
-export * from './containers/ContentWrapper';
-export * from './txt/ArticleTitle';
-export * from './txt/ArticleInfo';
-export * from './txt/ArticleDescription';
-export * from './mainTitle/MainTitle';
-export * from './containers/TitleWrapper';
-export * from './image/ArticleImage';
+export { default as StyledButton } from './styledButton/styledButton.component';
+
+export { default as MainTitle } from './mainTitle/MainTitle.component';

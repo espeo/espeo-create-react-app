@@ -7,7 +7,6 @@ class ApiService {
   public request: any;
 
   constructor() {
-    console.log(this.getHeaders());
     const config = {
       baseURL,
       headers: {
