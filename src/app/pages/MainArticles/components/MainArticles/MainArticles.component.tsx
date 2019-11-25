@@ -135,9 +135,12 @@ class MainArticles extends PureComponent<MainArticlesProps> {
               articles[0].map((article: any) => (
                 <ArticleWrapper key={article.author + v1()}>
                   <ArticleImage
-                    width="100%"
-                    height={230}
-                    src={article.urlToImage ?? fallbackImage}
+                    alt={article.title}
+                    src={
+                      article.urlToImage
+                        ? article.urlToImage.replace('https', 'http')
+                        : fallbackImage
+                    }
                   />
                   <ArticleDate>
                     {dayjs(article.publishedAt).format('YYYY, MMM DD ')}
