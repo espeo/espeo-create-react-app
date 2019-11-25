@@ -3,7 +3,7 @@ import { styled } from '@styles/themes/defaultTheme';
 export const ArticleDescription = styled.p`
   display: flex;
   font-family: Georgia;
-  font-size: 0.7em;
+  font-size: 8px;
   color: ${props => props.theme.colors.black};
   justify-content: flex-start;
   margin-top: 0;
@@ -11,11 +11,11 @@ export const ArticleDescription = styled.p`
 `;
 
 export const ArticleBDescription = styled(ArticleDescription)`
-  font-size: 1.2em;
+  font-size: 16px;
   margin-top: 5%;
 `;
 
 export const ArticleContent = styled(ArticleDescription)`
-  font-size: 1em;
+  font-size: 14px;
   margin-top: 1%;
 `;

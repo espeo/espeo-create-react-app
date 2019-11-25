@@ -7,7 +7,7 @@ export const ArticleButton = styled.button`
   border-radius: 5px;
 `;
 export const ArticleButtonText = styled.span`
-  font-size: 1em;
+  font-size: 14px;
   color: ${props => props.theme.colors.darkViolet};
   font-family: Georgia;
 `;
