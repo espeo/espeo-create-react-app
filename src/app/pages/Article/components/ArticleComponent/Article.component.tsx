@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 import dayjs from 'dayjs';
 
 import {
@@ -21,20 +22,25 @@ interface ArticleOwnProps {
   article: string;
 }
 
-type ArticleProps = ArticleOwnProps;
+type ArticleProps = ArticleOwnProps & InjectedIntlProps;
 
 class Article extends PureComponent<ArticleProps> {
   render() {
-    const { article } = this.props.location.state;
+    const {
+      intl,
+      location: { state: article },
+    } = this.props;
 
     return (
       <AppWrapper>
         <TitleWrapper>
-          <MainTitle text="Article Details" />
+          <MainTitle text={intl.formatMessage({ id: 'article.mainTitle' })} />
         </TitleWrapper>
         <ContentWrapper>
           <BackLink to="/">
-            <BackLinkText>Back to Articles</BackLinkText>
+            <BackLinkText>
+              {intl.formatMessage({ id: 'article.backToArticles' })}
+            </BackLinkText>
           </BackLink>
           <ArticleContainer>
             <ArticleBTitle>{article.title}</ArticleBTitle>
@@ -46,8 +52,11 @@ class Article extends PureComponent<ArticleProps> {
             <ArticleBAuthor>{article.author}</ArticleBAuthor>
             <ArticleTitle>{article.title}</ArticleTitle>
             <ArticleContent>{article.content}</ArticleContent>
-            <SourceLink href={article.url} target="_blank">
-              Read more here &gt; Source: {article.source.name}
+            <SourceLink href={article.url} target="_blank" rel="noopener">
+              {intl.formatMessage(
+                { id: 'article.sourceLink' },
+                { source: article.source.name },
+              )}
             </SourceLink>
           </ArticleContainer>
         </ContentWrapper>
@@ -56,4 +65,4 @@ class Article extends PureComponent<ArticleProps> {
   }
 }
 
-export default Article;
+export default injectIntl(Article);

@@ -1,4 +1,3 @@
-// import getArticlesService from '@core/services/articles';
 import { of, from } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { ofType, Epic } from 'redux-observable';

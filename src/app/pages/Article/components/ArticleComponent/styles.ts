@@ -11,7 +11,7 @@ export const BackLink = styled(Link)`
 `;
 
 export const BackLinkText = styled.p`
-  font-size: 0.9em;
+  font-size: 14px;
   font-weight: bold;
   color: ${props => props.theme.colors.darkViolet};
   font-family: Arial;

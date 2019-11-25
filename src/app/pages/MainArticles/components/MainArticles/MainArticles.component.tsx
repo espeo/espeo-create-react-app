@@ -29,11 +29,25 @@ interface StringObject {
   [key: string]: string | number;
 }
 
+interface Article {
+  source: {
+    id: number | null;
+    name: string;
+  };
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: Date;
+  content: string;
+}
+
 interface OwnProps {
-  fetchArticles(arg1: number, arg2: StringObject): {};
-  filterArticles(arg: StringObject): void;
+  fetchArticles(page: number, filters: StringObject): {};
+  filterArticles(filters: StringObject): void;
   clearArticlesFilters(): void;
-  articles: Array<any>;
+  articles: Array<Array<Article>>;
   topic: string;
   sortBy: string;
   date: string;
@@ -91,9 +105,15 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 name="date"
               >
                 <option value="" />
-                <option value="today">Today</option>
-                <option value="week">Last week</option>
-                <option value="month">Last month</option>
+                <option value="today">
+                  {intl.formatMessage({ id: 'mainArticles.filter.today' })}
+                </option>
+                <option value="week">
+                  {intl.formatMessage({ id: 'mainArticles.filter.week' })}
+                </option>
+                <option value="month">
+                  {intl.formatMessage({ id: 'mainArticles.filter.month' })}
+                </option>
               </Select>
               <Select
                 value={topic}
@@ -102,10 +122,18 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 name="topic"
               >
                 <option value="" />
-                <option value="sport">Sport</option>
-                <option value="fashion">Fashion</option>
-                <option value="design">Design</option>
-                <option value="literature">Literature</option>
+                <option value="sport">
+                  {intl.formatMessage({ id: 'mainArticles.topic.sport' })}
+                </option>
+                <option value="fashion">
+                  {intl.formatMessage({ id: 'mainArticles.topic.fashion' })}
+                </option>
+                <option value="design">
+                  {intl.formatMessage({ id: 'mainArticles.topic.design' })}
+                </option>
+                <option value="literature">
+                  {intl.formatMessage({ id: 'mainArticles.topic.literature' })}
+                </option>
               </Select>
               <Select
                 value={sortBy}
@@ -114,15 +142,25 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 name="sortBy"
               >
                 <option value="" />
-                <option value="popularity">Popularity</option>
-                <option value="writenIn">Written in</option>
-                <option value="publishedAt">Published at</option>
+                <option value="popularity">
+                  {intl.formatMessage({ id: 'mainArticles.sortBy.popularity' })}
+                </option>
+                <option value="writenIn">
+                  {intl.formatMessage({ id: 'mainArticles.sortBy.writenIn' })}
+                </option>
+                <option value="publishedAt">
+                  {intl.formatMessage({
+                    id: 'mainArticles.sortBy.publishedAt',
+                  })}
+                </option>
               </Select>
             </FilterWrapper>
             <FilterButtonWrapper>
               <StyledButton
                 type="button"
-                text="Clear"
+                text={intl.formatMessage({
+                  id: 'mainArticles.filter.buttonClear',
+                })}
                 clickHandler={clearArticlesFilters}
                 backgroundColor={defaultTheme.colors.darkViolet}
                 borderColor={defaultTheme.colors.darkViolet}
@@ -132,7 +170,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
           </FiltersWrapper>
           <ArticlesWrapper>
             {articles[0] &&
-              articles[0].map((article: any) => (
+              articles[0].map((article: Article) => (
                 <ArticleWrapper key={article.author + v1()}>
                   <ArticleImage
                     alt={article.title}
@@ -148,7 +186,9 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                   {article.author ? (
                     <ArticleAuthor>{article.author}</ArticleAuthor>
                   ) : (
-                    <ArticleAuthor>Author</ArticleAuthor>
+                    <ArticleAuthor>
+                      {intl.formatMessage({ id: 'mainArticles.author' })}
+                    </ArticleAuthor>
                   )}
                   <ArticleTitle>{article.title}</ArticleTitle>
                   <ArticleDescription>{article.description}</ArticleDescription>
@@ -158,7 +198,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                       state: { article },
                     }}
                   >
-                    Know more
+                    {intl.formatMessage({ id: 'mainArticles.knowMore' })}
                   </ArticleButton>
                 </ArticleWrapper>
               ))}

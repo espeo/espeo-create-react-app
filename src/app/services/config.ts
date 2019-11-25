@@ -52,7 +52,7 @@ class ApiService {
 
     if (token) {
       headers = {
-        'x-auth-token': 'token',
+        'x-auth-token': token,
       };
     }
 

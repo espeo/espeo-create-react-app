@@ -43,7 +43,7 @@ export const ArticleButton = styled(Link)`
   display: block;
   text-decoration: none;
   text-align: center;
-  width: ${(props: { width?: string }) => props.width ?? '100%'};
+  width: ${(props: { width?: string }) => (props.width ? props.width : '100%')};
   background-color: ${props => props.theme.colors.darkViolet};
   border-radius: 5px;
   color: ${props => props.theme.colors.light};
