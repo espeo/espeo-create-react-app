@@ -7,21 +7,21 @@ export interface MainArticlesState {
   topic: string;
   sortBy: string;
   date: dateValues;
-  data: {
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: {
-      id: null | string;
-      name: string;
-    };
-    id: null;
-    name: string;
-    title: string;
-    url: string;
-    urlToImage: string;
-  }[];
+  data: Array<MainArticlesStateData>;
 }
 
-export default MainArticlesState;
+export interface MainArticlesStateData {
+  author: string;
+  content: string;
+  description: string;
+  publishedAt: string;
+  source: {
+    id: null | string;
+    name: string;
+  };
+  id: null;
+  name: string;
+  title: string;
+  url: string;
+  urlToImage: string;
+}

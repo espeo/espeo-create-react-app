@@ -15,21 +15,24 @@ import {
   ArticleBDescription,
 } from '@styles/components';
 import { MainTitle } from '@core/components';
+import { MainArticlesStateData } from '@core/pages/MainArticles/namespace';
 import { ArticleContainer, BackLink, BackLinkText, SourceLink } from './styles';
 
 interface ArticleOwnProps {
-  location: any;
-  article: string;
+  location: {
+    state: {
+      article: MainArticlesStateData;
+    };
+  };
 }
 
 type ArticleProps = ArticleOwnProps & InjectedIntlProps;
 
 class Article extends PureComponent<ArticleProps> {
   render() {
-    const {
-      intl,
-      location: { state: article },
-    } = this.props;
+    const { intl, location } = this.props;
+
+    const { article } = location.state;
 
     return (
       <AppWrapper>

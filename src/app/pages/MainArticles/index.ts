@@ -28,9 +28,6 @@ const mapDispatchToProps: any = {
 };
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   injectIntl,
 )(MainArticles);
