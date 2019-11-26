@@ -1,9 +1,8 @@
 import { combineReducers, Reducer } from 'redux';
-
-import { mainPageReducer } from '@core/pages/main/store/reducers';
+import { mainArticlesReducer } from '@core/pages/MainArticles/store/reducers';
 
 const rootReducer: Reducer = combineReducers({
-  main: mainPageReducer,
+  articles: mainArticlesReducer,
 });
 
 export default rootReducer;

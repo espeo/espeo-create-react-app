@@ -1,4 +1,22 @@
 {
   "page.main.hello": "hello world",
-  "page.observables.hello": "hello observables"
+  "page.main.title": "Time for new information",
+  "page.second.title": "Article Details",
+  "page.observables.hello": "hello observables",
+  "mainArticles.filter.today": "Today",
+  "mainArticles.filter.week": "Last week",
+  "mainArticles.filter.month": "Last month",
+  "mainArticles.filter.buttonClear": "Clear",
+  "mainArticles.author": "Author",
+  "mainArticles.knowMore": "Know more",
+  "mainArticles.topic.sport": "Sport",
+  "mainArticles.topic.fashion": "Fashion",
+  "mainArticles.topic.design": "Design",
+  "mainArticles.topic.literature": "Literature",
+  "mainArticles.sortBy.popularity": "Popularity",
+  "mainArticles.sortBy.writenIn": "WritenIn",
+  "mainArticles.sortBy.publishedAt": "PublishedAt",
+  "article.mainTitle": "Article Details",
+  "article.backToArticles": "Back to Articles",
+  "article.sourceLink": "Read more here > Source: {source}"
 }

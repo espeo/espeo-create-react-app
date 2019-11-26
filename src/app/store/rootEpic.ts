@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
 
-import { mainEpic } from '@core/pages/main/store/epics';
+import { articlesEpic } from '@core/pages/MainArticles/store/epics';
 
-export const rootEpic = combineEpics(...mainEpic);
+export const rootEpic = combineEpics(...articlesEpic);

@@ -38,7 +38,9 @@
           ["@core", "./src/app"],
           ["@environments", "./src/environments"],
           ["@assets", "./src/assets"],
-          ["@pages", "./src/app/pages"]
+          ["@pages", "./src/app/pages"],
+          ["@services", "./src/app/services"],
+          ["@styles", "./src/app/styles"]
         ],
         "extensions": [".ts", ".tsx", ".json", ".js"]
       }
