@@ -24,30 +24,17 @@ import {
   FilterWrapper,
   Select,
 } from './MainArticles.style';
+import { MainArticlesStateData } from '../../namespace';
 
 interface StringObject {
   [key: string]: string | number;
-}
-
-interface Article {
-  source: {
-    id: number | null;
-    name: string;
-  };
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: Date;
-  content: string;
 }
 
 interface OwnProps {
   fetchArticles(page: number, filters: StringObject): {};
   filterArticles(filters: StringObject): void;
   clearArticlesFilters(): void;
-  articles: Array<Array<Article>>;
+  articles: Array<MainArticlesStateData>;
   topic: string;
   sortBy: string;
   date: string;
@@ -63,11 +50,15 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     fetchArticles(1, { topic: '', sortBy: '', date: '' });
   }
 
-  changeTitle = (title: string) => {
+  private changeTitle = (title: string) => {
+    if (!title) {
+      return '';
+    }
+
     return title.toLowerCase().replace(/ /g, '-');
   };
 
-  handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  private handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { filterArticles, topic, sortBy, date } = this.props;
     const { name } = event.target;
     const value = event.target.value === name ? '' : event.target.value;
@@ -80,7 +71,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     }
   };
 
-  render() {
+  public render() {
     const {
       intl,
       articles,
@@ -169,8 +160,8 @@ class MainArticles extends PureComponent<MainArticlesProps> {
             </FilterButtonWrapper>
           </FiltersWrapper>
           <ArticlesWrapper>
-            {articles[0] &&
-              articles[0].map((article: Article) => (
+            {articles &&
+              articles.map((article: MainArticlesStateData) => (
                 <ArticleWrapper key={article.author + v1()}>
                   <ArticleImage
                     alt={article.title}

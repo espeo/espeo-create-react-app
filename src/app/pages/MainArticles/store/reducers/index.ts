@@ -17,7 +17,7 @@ export const mainArticlesReducer = (
       return {
         ...state,
         isLoading: false,
-        data: [...state.data, action.payload.data.articles],
+        data: [...state.data, ...action.payload.data.articles],
       };
     case MainArticlesTypes.FETCH_ARTICLES_FAILED:
       return {
@@ -28,7 +28,7 @@ export const mainArticlesReducer = (
       return {
         ...state,
         isLoading: false,
-        data: [action.payload.articles],
+        data: [...action.payload.articles],
       };
     case MainArticlesTypes.SORT_ARTICLES_FILTER:
       return {

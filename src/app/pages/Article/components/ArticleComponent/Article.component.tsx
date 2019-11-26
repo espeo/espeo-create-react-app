@@ -29,7 +29,7 @@ interface ArticleOwnProps {
 type ArticleProps = ArticleOwnProps & InjectedIntlProps;
 
 class Article extends PureComponent<ArticleProps> {
-  render() {
+  public render() {
     const { intl, location } = this.props;
 
     const { article } = location.state;

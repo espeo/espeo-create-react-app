@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 export default class DynamicComponent extends PureComponent {
-  render() {
+  public render() {
     return <div>Example content</div>;
   }
 }
