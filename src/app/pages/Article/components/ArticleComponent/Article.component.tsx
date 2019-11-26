@@ -35,7 +35,7 @@ class Article extends PureComponent<ArticleProps> {
     const { article } = location.state;
 
     return (
-      <AppWrapper>
+      <AppWrapper className="article">
         <TitleWrapper>
           <MainTitle text={intl.formatMessage({ id: 'article.mainTitle' })} />
         </TitleWrapper>
@@ -45,7 +45,7 @@ class Article extends PureComponent<ArticleProps> {
               {intl.formatMessage({ id: 'article.backToArticles' })}
             </BackLinkText>
           </BackLink>
-          <ArticleContainer>
+          <ArticleContainer className="article-content">
             <ArticleBTitle>{article.title}</ArticleBTitle>
             <ArticleBDescription>{article.description}</ArticleBDescription>
             <ArticleImage alt={article.title} src={article.urlToImage} />

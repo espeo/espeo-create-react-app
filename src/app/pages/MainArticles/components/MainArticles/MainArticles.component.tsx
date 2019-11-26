@@ -82,18 +82,19 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     } = this.props;
 
     return (
-      <AppWrapper>
+      <AppWrapper className="main-page">
         <TitleWrapper>
           <MainTitle text={intl.formatMessage({ id: 'page.main.title' })} />
         </TitleWrapper>
         <ContentWrapper>
-          <FiltersWrapper>
-            <FilterWrapper>
+          <FiltersWrapper className="filters-wrapper">
+            <FilterWrapper className="filters">
               <Select
                 value={date}
                 onChange={this.handleChange}
                 id="select-date"
                 name="date"
+                className="filter"
               >
                 <option value="" />
                 <option value="today">
@@ -111,6 +112,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 onChange={this.handleChange}
                 id="select-topic"
                 name="topic"
+                className="filter"
               >
                 <option value="" />
                 <option value="sport">
@@ -131,6 +133,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 onChange={this.handleChange}
                 id="select-sort"
                 name="sortBy"
+                className="filter"
               >
                 <option value="" />
                 <option value="popularity">
@@ -146,7 +149,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 </option>
               </Select>
             </FilterWrapper>
-            <FilterButtonWrapper>
+            <FilterButtonWrapper className="filter-button">
               <StyledButton
                 type="button"
                 text={intl.formatMessage({
@@ -159,7 +162,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
               />
             </FilterButtonWrapper>
           </FiltersWrapper>
-          <ArticlesWrapper>
+          <ArticlesWrapper className="articles">
             {articles &&
               articles.map((article: MainArticlesStateData) => (
                 <ArticleWrapper key={article.author + v1()}>
@@ -188,6 +191,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                       pathname: `/details/:${this.changeTitle(article.title)}`,
                       state: { article },
                     }}
+                    className="article-button"
                   >
                     {intl.formatMessage({ id: 'mainArticles.knowMore' })}
                   </ArticleButton>
