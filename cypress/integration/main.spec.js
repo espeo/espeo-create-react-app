@@ -50,6 +50,18 @@ describe('Main View', () => {
       .get('select')
       .first()
       .select('week')
+      .should('have.value', 'week')
       .get('.articles').children().should('have.length', 20)
+  });
+
+  it('should clear filters after click', () => {
+    cy
+      .get('.filters-wrapper')
+      .get('.filter-button')
+      .click()
+      .get('.filters')
+      .get('select')
+      .first()
+      .should('have.value', '') 
   });
 });
