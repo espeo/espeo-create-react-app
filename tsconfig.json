@@ -16,6 +16,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
+    "allowJs": true,
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",
     "paths": {

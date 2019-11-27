@@ -6,12 +6,15 @@
       "tsConfig": "./tsconfig.json"
     }
   },
+  "transform": {
+    "^.+\\.(t|j)sx?$": "ts-jest"
+  },
   "moduleDirectories": ["node_modules", "src"],
   "moduleFileExtensions": ["ts", "tsx", "html", "js", "json"],
   "moduleNameMapper": {
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
-    "^@environments/(.*)": "<rootDir>/src/environments/$1"
+    "^@styles/(.*)": "<rootDir>/src/app/styles/$1"
   },
-  "setupFiles": ["<rootDir>/test-setup.js"]
+  "setupFiles": ["<rootDir>/test-setup.ts"]
 }
