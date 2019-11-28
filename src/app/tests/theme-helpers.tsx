@@ -3,13 +3,15 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { IntlProvider, injectIntl } from 'react-intl';
 import translationsEn from '@assets/i18n/en.json';
 
-export const withThemeProvider = (theme: DefaultTheme) =>
-  (Component: any) =>
-    (props: any) => (
+export const withThemeProvider = (theme: DefaultTheme) => {
+  return (Component: any) => {
+    return (props: any) => (
       <ThemeProvider theme={theme}>
         <Component {...props} />
       </ThemeProvider>
     );
+  }
+}
 
 export const withIntlInjected = (WrappedComponent: any) => {
   const ComponentInjected = injectIntl(WrappedComponent);
@@ -20,8 +22,10 @@ export const withIntlInjected = (WrappedComponent: any) => {
   )
 }
 
-export const withAdditionalProperties = (additionalProps: any) =>
-  (Component: any) =>
-    (props: any) => (
+export const withAdditionalProperties = (additionalProps: any) => {
+  return (Component: any) => {
+    return (props: any) => (
       <Component {...props} {...additionalProps} />
     );
+  }
+}
