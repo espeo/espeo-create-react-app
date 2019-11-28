@@ -1,12 +1,10 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { compose } from 'redux';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import { defaultTheme } from '@core/styles/themes';
 import {
-  withIntlInjected,
-  withThemeProvider,
+  withProviders,
   withAdditionalProperties,
 } from '@core/tests/theme-helpers';
 
@@ -19,22 +17,26 @@ const fetchArticlesMock = jest.fn().mockReturnValue([
 ]);
 
 const WrappedComponent = compose(
+  withProviders,
   withAdditionalProperties({
     fetchArticles: fetchArticlesMock,
   }),
-  withIntlInjected,
-  withThemeProvider(defaultTheme),
-)(MainArticles, defaultTheme);
+)(MainArticles);
 
 describe('Articles component test suite', () => {
   it('should match snapshot', () => {
-    const component = renderer.create(() => <WrappedComponent />);
+    const component = renderer.create(<WrappedComponent />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('should fetch articles', () => {
-    const component = shallow(<WrappedComponent />).first();
-    // expect(fetchArticlesMock.mock.calls.length).toBe(1);
+    shallow(<WrappedComponent />);
+    expect(fetchArticlesMock.mock.calls.length).toBe(1);
+  });
+
+  it('should mount articles', () => {
+    mount(<WrappedComponent />);
+    // TODO - some test with mounting
   });
 });
