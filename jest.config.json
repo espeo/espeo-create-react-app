@@ -10,7 +10,7 @@
     "^.+\\.(t|j)sx?$": "ts-jest"
   },
   "moduleDirectories": ["node_modules", "src"],
-  "moduleFileExtensions": ["ts", "tsx", "html", "js", "json"],
+  "moduleFileExtensions": ["ts", "tsx", "html", "js", "json", "jsx"],
   "moduleNameMapper": {
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
