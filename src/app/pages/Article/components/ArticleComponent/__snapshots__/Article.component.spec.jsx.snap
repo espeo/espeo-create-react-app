@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article component test suite should match snapshot 1`] = `
+<div
+  className="sc-htpNat cTiQRV article"
+>
+  <div
+    className="sc-ifAKCX kjOYKb"
+  >
+    <h1
+      className="sc-jzJRlG gUwiRh"
+    >
+      Article Details
+    </h1>
+  </div>
+  <div
+    className="sc-bxivhb dKaubX"
+  >
+    <a
+      className="sc-kAzzGY knAwDu"
+      href="/"
+      onClick={[Function]}
+    >
+      <p
+        className="sc-chPdSV dmrJyt"
+      >
+        Back to Articles
+      </p>
+    </a>
+    <div
+      className="sc-cSHVUG heEdLu article-content"
+    >
+      <p
+        className="sc-VigVT sc-jTzLTM lkNGIF"
+      >
+        title
+      </p>
+      <p
+        className="sc-bZQynM sc-gzVnrw fUMedX"
+      >
+        description
+      </p>
+      <img
+        alt="title"
+        className="sc-EHOje iXbLk"
+        src="urlToImage"
+      />
+      <p
+        className="sc-dnqmqq sc-iwsKbI iTtTSh"
+      >
+        Invalid Date
+      </p>
+      <p
+        className="sc-dnqmqq sc-gqjmRU jBFvQt"
+      >
+        author
+      </p>
+      <p
+        className="sc-VigVT dqedxV"
+      >
+        title
+      </p>
+      <p
+        className="sc-bZQynM sc-htoDjs gWbtok"
+      >
+        content
+      </p>
+      <a
+        className="sc-kGXeez dyIyAp"
+        href="url"
+        rel="noopener"
+        target="_blank"
+      >
+        Read more here &gt; Source: name
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -5,7 +5,7 @@ import MainArticles from '@core/pages/MainArticles';
 import Article from '@core/pages/Article/components/ArticleComponent/Article.component';
 
 const MyDynamicRoute = React.lazy(() =>
-  import(/* webpackChunkName: "dynamic-route" */ '@core/pages/dynamic-route'),
+  import(/* webpackChunkName: "dynamic-route" */ '@core/pages/DynamicRoute'),
 );
 
 export const AppRoutes = () => (

@@ -34,9 +34,15 @@ describe('Articles component test suite', () => {
     shallow(<WrappedComponent />);
     expect(fetchArticlesMock.mock.calls.length).toBe(1);
   });
+  
+  it('should mount component with children', () => {
+    const text = 'Time for new information';
+    const wrapper = mount(<WrappedComponent />);
+    expect(wrapper.find('h1').text()).toEqual(text);
+  });
 
-  it('should mount articles', () => {
-    mount(<WrappedComponent />);
-    // TODO - some test with mounting
+  it('should render articles component', () => {
+    const wrapper = shallow(<WrappedComponent />);
+    expect(wrapper.contains('.main-page'));
   });
 });
