@@ -7,27 +7,14 @@ import { BrowserRouter } from 'react-router-dom';
 import {
     withProviders,
     withAdditionalProperties,
+    articleMock
 } from '@core/tests/theme-helpers';
 
 import Article from './Article.component';
 
 const locationMock = {
     state: {
-        article: {
-            author: 'author',
-            content: 'content',
-            description: 'description',
-            publishedAt: 'publishedAt',
-            source: {
-                id: 'id',
-                name: 'name',
-            },
-            id: 'id',
-            name: 'name',
-            title: 'title',
-            url: 'url',
-            urlToImage: 'urlToImage',
-        }
+        article: articleMock
     }
 };
 
@@ -47,12 +34,12 @@ describe('Article component test suite', () => {
 
     it('should mount article with children', () => {
         const text = 'Article Details';
-        const wrapper = mount(<BrowserRouter><WrappedComponent /></BrowserRouter>);
+        const wrapper = mount(<BrowserRouter><WrappedComponent /></BrowserRouter>);        
         expect(wrapper.find('h1').text()).toEqual(text);
     });
 
     it('should render article component', () => {
-        const wrapper = shallow(<WrappedComponent />);
-        expect(wrapper.contains('.article'));
-      });
+        const wrapper = mount(<BrowserRouter><WrappedComponent/></BrowserRouter>);  
+        expect(wrapper.find('.article')).toBeTruthy();
+    });
 });

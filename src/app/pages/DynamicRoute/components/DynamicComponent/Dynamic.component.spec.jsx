@@ -27,7 +27,7 @@ describe('Dynamic component test suite', () => {
     });
 
     it('should render dynamic component', () => {
-        const wrapper = shallow(<WrappedComponent />);
-        expect(wrapper.contains('.dynamic-component'));
+        const wrapper = shallow(<DynamicComponent />);
+        expect(wrapper.find('.dynamic-component')).toHaveLength(1);
     });
 });
