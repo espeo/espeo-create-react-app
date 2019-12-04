@@ -47,17 +47,7 @@ describe('Articles component test suite', () => {
   });
 
   it('should have these five nodes when mounting', () => {
-    const wrapper = mount(<WrappedComponent />);    
+    const wrapper = mount(<WrappedComponent />);
     expect(wrapper.containsAllMatchingElements([fetchArticlesMock.mock])).toBeTruthy();
   })
 });
-// expect(wrapper.containsAllMatchingElements([
-//   <div>
-//     <div>
-//       {dayjs(article.publishedAt).format('YYYY, MMM DD ')}
-//     </div>
-//     <div>{article.author}</div>
-//     <div>{article.title}</div>
-//     <div>{article.description}</div>
-//   </div>
-// ])).toBeTruthy();

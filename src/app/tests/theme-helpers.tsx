@@ -18,7 +18,7 @@ export const articleMock = {
   title: 'title',
   url: 'url',
   urlToImage: 'urlToImage',
-}
+};
 
 export const withProviders = (Component: any) => {
   const ComponentInjected = injectIntl(Component);

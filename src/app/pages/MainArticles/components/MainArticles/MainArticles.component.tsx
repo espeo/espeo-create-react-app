@@ -40,7 +40,8 @@ interface OwnProps {
   date: string;
   handleDate(): void;
 }
-const fallbackImage = '';
+const fallbackImage = require('@assets/images/logo_espeo.svg');
+
 type MainArticlesProps = OwnProps & InjectedIntlProps;
 
 class MainArticles extends PureComponent<MainArticlesProps> {
