@@ -7,7 +7,7 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strictFunctionTypes": true,
@@ -16,7 +16,6 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "allowJs": true,
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",
     "paths": {

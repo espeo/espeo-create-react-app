@@ -1,11 +1,8 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { compose } from 'redux';
-import { shallow, mount } from 'enzyme';
-import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
-import configureMockStore from 'redux-mock-store';
-import createSagaMiddleware from 'redux-saga';
 
 import {
   withProviders,
@@ -14,9 +11,7 @@ import {
 } from '@core/tests/theme-helpers';
 
 import MainArticles from '@core/pages/MainArticles';
-import { ArticleWrapper, ArticlesWrapper } from './MainArticles.style';
-
-const mockStore = configureMockStore([createSagaMiddleware()]);
+import { ArticleWrapper } from './MainArticles.style';
 
 const fetchArticlesMock = jest
   .fn()
@@ -35,11 +30,6 @@ const WrappedComponent = compose(
 let wrapper: any;
 
 beforeEach(() => {
-  const store = mockStore({
-    articles: fetchArticlesMock(),
-    topic: 'snowboard',
-  });
-
   wrapper = mount(
     <BrowserRouter>
       <WrappedComponent />
@@ -64,7 +54,7 @@ describe('Articles component test suite', () => {
 
   it('should fetch articles', () => {
     expect(wrapper.find(<ArticleWrapper />)).toBeTruthy();
-    expect(fetchArticlesMock.mock.calls.length).toBe(1);
+    expect(fetchArticlesMock.mock.calls.length).toBe(0);
   });
 
   it('should mount component with children', () => {
@@ -78,7 +68,7 @@ describe('Articles component test suite', () => {
 
   it('should have these five nodes when mounting', () => {
     expect(wrapper.find(<ArticleWrapper />)).toBeTruthy();
-    expect(fetchArticlesMock.mock.calls.length).toBe(1);
+    expect(fetchArticlesMock.mock.calls.length).toBe(0);
     expect(wrapper.find(ArticleWrapper).length).toEqual(5);
   });
 });
