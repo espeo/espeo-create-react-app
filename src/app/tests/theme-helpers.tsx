@@ -4,21 +4,9 @@ import { IntlProvider, injectIntl } from 'react-intl';
 import translationsEn from '@assets/i18n/en.json';
 import { defaultTheme } from '@styles/themes';
 
-export const articleMock = {
-  author: 'author',
-  content: 'content',
-  description: 'description',
-  publishedAt: 'publishedAt',
-  source: {
-    id: 'id',
-    name: 'name',
-  },
-  id: 'id',
-  name: 'name',
-  title: 'title',
-  url: 'url',
-  urlToImage: 'urlToImage',
-};
+const everything = require('../../../mocked-server/everything.json');
+
+export const articleMock = everything.articles[0];
 
 export const withProviders = (Component: any) => {
   const ComponentInjected = injectIntl(Component);

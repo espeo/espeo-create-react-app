@@ -25,7 +25,9 @@
   "moduleNameMapper": {
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
-    "^@styles/(.*)": "<rootDir>/src/app/styles/$1"
+    "^@environments/(.*)": "<rootDir>/src/app/environments/$1",
+    "^@pages/(.*)": "<rootDir>/src/app/pages/$1",
+    "^@services/(.*)": "<rootDir>/src/app/services/$1"
   },
   "setupFiles": [
     "<rootDir>/test-setup.ts"

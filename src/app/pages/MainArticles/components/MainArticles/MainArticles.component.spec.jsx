@@ -9,7 +9,7 @@ import {
   articleMock as article
 } from '@core/tests/theme-helpers';
 
-import MainArticles from './MainArticles.component';
+import MainArticles, { ArticleWrapper } from './MainArticles.component';
 
 const fetchArticlesMock = jest.fn().mockReturnValue([
   article,
@@ -49,8 +49,9 @@ describe('Articles component test suite', () => {
     expect(wrapper.find('.main-page')).toBeTruthy();
   });
 
-  // it('should have these five nodes when mounting', () => {
-  //   const wrapper = mount(<WrappedComponent />);
-  //   expect(wrapper.containsAllMatchingElements([fetchArticlesMock.mock])).toHaveLength(5);
-  // })
+  it('should have these five nodes when mounting', () => {
+    const wrapper = mount(<WrappedComponent />);
+    expect(wrapper.contains(<ArticleWrapper />)).toBe(true);
+    // expect(wrapper.find(<ArticleWrapper />)).to.have.lengthOf(5);
+  })
 });
