@@ -11,7 +11,7 @@
     "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --open  --config ./webpack.config.js --mode=none'",
     "start:prod": "webpack-dev-server --open --config ./webpack.config.js --mode=production",
     "lint": "eslint --config ./.eslintrc.json 'src/**/*.{ts,tsx}'",
-    "test": "jest src/** --config jest.config.json --coverage",
+    "test": "jest src/** --config jest.config.json --coverage --verbose",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
     "build:dev": "webpack --config ./webpack.config.js --mode=development",
     "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
@@ -71,6 +71,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@types/enzyme-adapter-react-16": "1.0.5",
     "@types/redux-logger": "3.0.7",
     "axios": "^0.19.0",
     "babel-jest": "24.9.0",
@@ -90,6 +91,7 @@
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
     "redux-logger": "3.0.6",
+    "redux-mock-store": "1.5.3",
     "redux-observable": "1.2.0",
     "redux-saga": "1.1.1",
     "rxjs": "6.5.3",

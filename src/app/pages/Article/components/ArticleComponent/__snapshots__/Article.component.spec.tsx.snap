@@ -33,45 +33,45 @@ exports[`Article component test suite should match snapshot 1`] = `
       <p
         className="sc-VigVT sc-jTzLTM lkNGIF"
       >
-        title
+        Formel E: Nur Marketing-Event oder ernsthafter Motorsport?
       </p>
       <p
         className="sc-bZQynM sc-gzVnrw fUMedX"
       >
-        description
+        Sorgt die Formel E wirklich für eine saubere Zukunft? Die Gegenwart ist es jedenfalls nicht. Und wieso startet die Rennserie im umstrittenen Saudi-Arabien? Ein widersprüchlicheres Sportereignis ist schwer vorstellbar.
       </p>
       <img
-        alt="title"
+        alt="Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
         className="sc-EHOje iXbLk"
-        src="urlToImage"
+        src="https://media0.faz.net/ppmedia/aktuell/sport/287963728/1.6501020/facebook_teaser_fplus/bekommen-sie-die-kurve-die.jpg"
       />
       <p
         className="sc-dnqmqq sc-iwsKbI iTtTSh"
       >
-        Invalid Date
+        2019, Nov 24 
       </p>
       <p
         className="sc-dnqmqq sc-gqjmRU jBFvQt"
       >
-        author
+        Michael Wittershagen
       </p>
       <p
         className="sc-VigVT dqedxV"
       >
-        title
+        Formel E: Nur Marketing-Event oder ernsthafter Motorsport?
       </p>
       <p
         className="sc-bZQynM sc-htoDjs gWbtok"
       >
-        content
+        Bis zu 25,6 Milliarden Dollar (etwa 23,11 Milliarden Euro) will Saudi-Arabien demnächst durch den Börsengang des staatlichen Ölkonzerns Aramco einnehmen. Dabei werden nur 1,5 Prozent der Unternehmensanteile verkauft, der Wert von Saudi Aramco wird damit auf e… [+1537 chars]
       </p>
       <a
         className="sc-kGXeez dyIyAp"
-        href="url"
+        href="https://www.faz.net/aktuell/sport/formel-1/motorsport/was-bedeutet-der-formel-e-start-in-saudi-arabien-16500882.html"
         rel="noopener"
         target="_blank"
       >
-        Read more here &gt; Source: name
+        Read more here &gt; Source: Faz.net
       </a>
     </div>
   </div>

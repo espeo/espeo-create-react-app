@@ -11,7 +11,6 @@ import {
 
 const mapStateToProps = (state: any): any => {
   const { page, topic, sortBy, date, data } = state.articles;
-
   return {
     page,
     topic,
