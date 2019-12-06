@@ -8,20 +8,10 @@
   },
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest",
-    ".+\\.(css|styl|less|sass|scss|png|jpg|svg|ttf|woff|woff2)$": "jest-transform-stub"
+    ".+\\.(css|png|jpg|svg|ttf|woff|woff2)$": "jest-transform-stub"
   },
-  "moduleDirectories": [
-    "node_modules",
-    "src"
-  ],
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "html",
-    "js",
-    "json",
-    "jsx"
-  ],
+  "moduleDirectories": ["node_modules", "src"],
+  "moduleFileExtensions": ["ts", "tsx", "html", "js", "json", "jsx"],
   "moduleNameMapper": {
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/assets/$1",
@@ -30,7 +20,5 @@
     "^@services/(.*)": "<rootDir>/src/app/services/$1",
     "^@styles/(.*)": "<rootDir>/src/app/styles/$1"
   },
-  "setupFiles": [
-    "<rootDir>/test-setup.ts"
-  ]
+  "setupFiles": ["<rootDir>/test-setup.ts"]
 }
