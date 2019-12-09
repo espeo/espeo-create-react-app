@@ -13,8 +13,8 @@ import {
   ArticleTitle,
   ContentWrapper,
   TitleWrapper,
-} from '@styles/components';
-import { defaultTheme } from '@styles/themes';
+} from '@core/styles/components';
+import { defaultTheme } from '@core/styles/themes';
 import {
   ArticleButton,
   ArticlesWrapper,

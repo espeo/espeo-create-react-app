@@ -17,12 +17,12 @@
     "experimentalDecorators": true,
     "jsx": "react",
     "jsxFactory": "React.createElement",
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
       "@core/*": ["app/*"],
-      "@environments/*": ["environments/*"],
-      "@pages": ["pages/*"],
-      "@assets/*": ["assets/*"],
+      "@environments/*": ["app/environments/*"],
+      "@pages/*": ["app/pages/*"],
+      "@assets/*": ["app/assets/*"],
       "@styles/*": ["styles/*"]
     },
     "typeRoots": ["node_modules/@types"],

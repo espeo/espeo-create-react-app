@@ -13,7 +13,7 @@ import {
   ArticleTitle,
   ArticleContent,
   ArticleBDescription,
-} from '@styles/components';
+} from '@core/styles/components';
 import { MainTitle } from '@core/components';
 import { MainArticlesStateData } from '@core/pages/MainArticles/namespace';
 import { ArticleContainer, BackLink, BackLinkText, SourceLink } from './styles';

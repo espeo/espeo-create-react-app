@@ -8,5 +8,6 @@ cypress/videos
 *-code-workspace
 .idea
 .env
-.DS_store
+.DS_Store
 coverage/
+.vscode/
