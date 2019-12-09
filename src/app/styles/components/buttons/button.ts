@@ -1,4 +1,4 @@
-import { styled } from '@styles/themes/defaultTheme';
+import { styled } from '@core/styles/themes/defaultTheme';
 
 export const ArticleButton = styled.button`
   height: 24px;

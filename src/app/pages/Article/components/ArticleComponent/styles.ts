@@ -1,4 +1,4 @@
-import { styled } from '@styles/themes/defaultTheme';
+import { styled } from '@core/styles/themes/defaultTheme';
 import { Link } from 'react-router-dom';
 
 export const ArticleContainer = styled.div`

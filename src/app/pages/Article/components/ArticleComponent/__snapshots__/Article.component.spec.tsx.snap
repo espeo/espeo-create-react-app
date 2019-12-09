@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article component test suite should match snapshot 1`] = `
+<div
+  className="sc-htpNat cTiQRV article"
+>
+  <div
+    className="sc-ifAKCX kjOYKb"
+  >
+    <h1
+      className="sc-jzJRlG gUwiRh"
+    >
+      Article Details
+    </h1>
+  </div>
+  <div
+    className="sc-bxivhb dKaubX"
+  >
+    <a
+      className="sc-kAzzGY knAwDu"
+      href="/"
+      onClick={[Function]}
+    >
+      <p
+        className="sc-chPdSV dmrJyt"
+      >
+        Back to Articles
+      </p>
+    </a>
+    <div
+      className="sc-cSHVUG heEdLu article-content"
+    >
+      <p
+        className="sc-VigVT sc-jTzLTM lkNGIF"
+      >
+        Formel E: Nur Marketing-Event oder ernsthafter Motorsport?
+      </p>
+      <p
+        className="sc-bZQynM sc-gzVnrw fUMedX"
+      >
+        Sorgt die Formel E wirklich für eine saubere Zukunft? Die Gegenwart ist es jedenfalls nicht. Und wieso startet die Rennserie im umstrittenen Saudi-Arabien? Ein widersprüchlicheres Sportereignis ist schwer vorstellbar.
+      </p>
+      <img
+        alt="Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
+        className="sc-EHOje iXbLk"
+        src="https://media0.faz.net/ppmedia/aktuell/sport/287963728/1.6501020/facebook_teaser_fplus/bekommen-sie-die-kurve-die.jpg"
+      />
+      <p
+        className="sc-dnqmqq sc-iwsKbI iTtTSh"
+      >
+        2019, Nov 24 
+      </p>
+      <p
+        className="sc-dnqmqq sc-gqjmRU jBFvQt"
+      >
+        Michael Wittershagen
+      </p>
+      <p
+        className="sc-VigVT dqedxV"
+      >
+        Formel E: Nur Marketing-Event oder ernsthafter Motorsport?
+      </p>
+      <p
+        className="sc-bZQynM sc-htoDjs gWbtok"
+      >
+        Bis zu 25,6 Milliarden Dollar (etwa 23,11 Milliarden Euro) will Saudi-Arabien demnächst durch den Börsengang des staatlichen Ölkonzerns Aramco einnehmen. Dabei werden nur 1,5 Prozent der Unternehmensanteile verkauft, der Wert von Saudi Aramco wird damit auf e… [+1537 chars]
+      </p>
+      <a
+        className="sc-kGXeez dyIyAp"
+        href="https://www.faz.net/aktuell/sport/formel-1/motorsport/was-bedeutet-der-formel-e-start-in-saudi-arabien-16500882.html"
+        rel="noopener"
+        target="_blank"
+      >
+        Read more here &gt; Source: Faz.net
+      </a>
+    </div>
+  </div>
+</div>
+`;

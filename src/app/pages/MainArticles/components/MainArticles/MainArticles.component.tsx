@@ -13,8 +13,8 @@ import {
   ArticleTitle,
   ContentWrapper,
   TitleWrapper,
-} from '@styles/components';
-import { defaultTheme } from '@styles/themes';
+} from '@core/styles/components';
+import { defaultTheme } from '@core/styles/themes';
 import {
   ArticleButton,
   ArticlesWrapper,
@@ -40,7 +40,7 @@ interface OwnProps {
   date: string;
   handleDate(): void;
 }
-const fallbackImage = require('@assets/images/logo_espeo.svg');
+const fallbackImage = require(`@assets/images/logo_espeo.svg`);
 
 type MainArticlesProps = OwnProps & InjectedIntlProps;
 
@@ -168,11 +168,7 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                 <ArticleWrapper key={article.author + v1()}>
                   <ArticleImage
                     alt={article.title}
-                    src={
-                      article.urlToImage
-                        ? article.urlToImage.replace('https', 'http')
-                        : fallbackImage
-                    }
+                    src={article.urlToImage ?? fallbackImage}
                   />
                   <ArticleDate>
                     {dayjs(article.publishedAt).format('YYYY, MMM DD ')}

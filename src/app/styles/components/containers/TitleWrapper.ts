@@ -1,4 +1,4 @@
-import { styled } from '@styles/themes/defaultTheme';
+import { styled } from '@core/styles/themes/defaultTheme';
 
 export const TitleWrapper = styled.div`
   background-color: ${props => props.theme.colors.darkViolet};

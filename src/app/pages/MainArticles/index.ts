@@ -11,7 +11,6 @@ import {
 
 const mapStateToProps = (state: any): any => {
   const { page, topic, sortBy, date, data } = state.articles;
-
   return {
     page,
     topic,
@@ -28,9 +27,6 @@ const mapDispatchToProps: any = {
 };
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   injectIntl,
 )(MainArticles);

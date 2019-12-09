@@ -1,4 +1,4 @@
-import { styled } from '@styles/themes/defaultTheme';
+import { styled } from '@core/styles/themes/defaultTheme';
 
 export const ContentWrapper = styled.div`
   padding-left: 5%;
