@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 
-import { defaultTheme, GlobalStyles } from '@core/styles/themes';
+import { defaultTheme, GlobalStyles } from '@styles/themes';
 import { AppRoutes } from '@core/config/routes';
 import { rootStore } from '@core/store';
 
