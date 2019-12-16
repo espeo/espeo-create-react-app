@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "prepare-commit-msg": "exec < /dev/tty && yarn commit",
+    "prepare-commit-msg": "exec < /dev/tty && yarn commit --hook || true",
     "pre-commit": "yarn lint",
     "pre-push": "yarn test",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
