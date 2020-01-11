@@ -1,5 +1,6 @@
 {
   "preset": "ts-jest",
+  "testMatch": ["<rootDir>/src/**/*.spec.{ts,tsx}"],
   "testEnvironment": "jsdom",
   "globals": {
     "ts-jest": {
@@ -20,5 +21,7 @@
     "^@services/(.*)": "<rootDir>/src/app/services/$1",
     "^@styles/(.*)": "<rootDir>/src/app/styles/$1"
   },
-  "setupFiles": ["<rootDir>/test-setup.ts"]
+  "setupFiles": ["<rootDir>/test-setup.ts"],
+  "verbose": true,
+  "collectCoverage": true
 }

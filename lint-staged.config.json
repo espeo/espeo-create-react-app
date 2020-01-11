@@ -1,0 +1,7 @@
+{
+  "src/**/*.{ts,tsx}": [
+    "eslint --config .eslintrc.json",
+    "yarn test --onlyChanged --coverage false",
+    "git add"
+  ]
+}
