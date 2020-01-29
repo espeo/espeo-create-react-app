@@ -3,7 +3,7 @@ import { dateValues } from '../store/saga/index';
 export interface MainArticlesState {
   isLoading: boolean;
   isErr: boolean;
-  page: number;
+  page?: number;
   topic: string;
   sortBy: string;
   date: dateValues;

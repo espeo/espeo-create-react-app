@@ -14,10 +14,10 @@ export interface FiltersProps {
   topic: string;
   sortBy: string;
   date: dateValues;
-  page: number;
+  page?: number;
 }
 
-const getFilterProps = (payload: any) => {
+const getFilterProps = (payload: FiltersProps): FiltersProps => {
   return {
     topic: payload.topic || 'sport',
     sortBy: payload.sortBy || '',

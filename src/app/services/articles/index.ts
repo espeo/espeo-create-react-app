@@ -4,7 +4,6 @@ import { dateValues } from '@pages/MainArticles/store/saga';
 import ApiService from '../config';
 
 const apiKey = process.env.API_KEY;
-const now = dayjs();
 
 const getArticlesService = (
   page = 1,
@@ -12,6 +11,7 @@ const getArticlesService = (
   sortBy?: string,
   date?: dateValues,
 ) => {
+  const now = dayjs();
   const selectedTopic = topic || 'sport';
   const sort = sortBy || '';
   const to = now.format('YYYY-MM-DD');
@@ -30,9 +30,16 @@ const getArticlesService = (
       from = to;
   }
 
-  const myUrl = `everything?q=${selectedTopic}&page=${page}&sortBy=${sort}&from=${from}&to=${to}&apiKey=${apiKey}`;
-
-  return ApiService.get(myUrl)
+  const url = `everything`;
+  const params = {
+    q: selectedTopic,
+    page,
+    sortBy: sort,
+    from,
+    to,
+    apiKey,
+  };
+  return ApiService.get(url, params)
     .then((data: any) => data)
     .catch((error: any) => {
       throw new Error(error);
