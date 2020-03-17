@@ -37,8 +37,7 @@ const sagaMiddleware = createSagaMiddleware();
 const usedMiddleware =
   chosenMiddleware === 'saga' ? sagaMiddleware : epicMiddleware;
 
-const composeEnhancers =
-  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = compose;
 
 const middleware = [usedMiddleware, logger];
 
