@@ -34,7 +34,7 @@ module.exports = (env, args) => {
   return merge(base, {
     target: 'web',
     entry: {
-      app: './src/main.tsx',
+      app: './src/client.tsx',
     },
     output: {
       filename: isProduction ? './bundle.[hash].js' : './bundle.js',
