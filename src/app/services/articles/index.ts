@@ -1,11 +1,10 @@
 import dayjs from 'dayjs';
-
 import { dateValues } from '@pages/MainArticles/store/saga';
 import ApiService from '../config';
 
 const apiKey = process.env.API_KEY;
 
-const getArticlesService = (
+export const getArticles = (
   page = 1,
   topic?: string,
   sortBy?: string,
@@ -46,4 +45,26 @@ const getArticlesService = (
     });
 };
 
-export default getArticlesService;
+export const getArticleByTitle = (title: string) => {
+  const url = `everything`;
+  const params = {
+    q: title,
+    pageSize: 1,
+    apiKey,
+  };
+
+  return ApiService.get(url, params)
+    .then((response: any) => {
+      const { data } = response;
+      return {
+        ...response,
+        data: {
+          status: data.status,
+          article: data.articles[0],
+        },
+      };
+    })
+    .catch((error: any) => {
+      throw new Error(error);
+    });
+};
