@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 
 const inAnalyze = process.env.ANALYZE === 'true';
@@ -33,7 +32,8 @@ module.exports = (env, args) => {
         {
           test: /\.css$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'css-loader',
+            'isomorphic-style-loader',
+            'css-loader',
             {
               loader: 'postcss-loader',
               options: {

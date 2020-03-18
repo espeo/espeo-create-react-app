@@ -1,34 +1,29 @@
 import express from 'express';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import path from 'path';
-import { StaticRouter } from 'react-router';
+import { StaticRouter } from 'react-router-dom';
 import { Root } from '@core/root';
+import { Html } from './html';
 
 const server = express();
 
 server.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
+server.use('/public', express.static(path.join(__dirname, '..', 'public')));
 
 server.get('*', (req, res) => {
   const appString = renderToString(
-    <StaticRouter location={req.url} context={{}}>
+    <StaticRouter location={req.url}>
       <Root />
     </StaticRouter>,
   );
 
-  const html = `
-    <!doctype html>
-    <html>
-      <body>
-        <div id="root">${appString}</div>
-        <script src="/dist/bundle.js"></script>
-      </body>
-    </html>`;
+  const html = renderToStaticMarkup(<Html appString={appString} />);
 
-  res.send(html);
+  res.send(`<!doctype html>${html}`);
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 server.listen(port, () => {
   // eslint-disable-next-line no-console
