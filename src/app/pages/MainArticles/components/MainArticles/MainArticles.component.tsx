@@ -50,14 +50,6 @@ class MainArticles extends PureComponent<MainArticlesProps> {
     fetchArticles(1, { topic: '', sortBy: '', date: '' });
   }
 
-  private changeTitle = (title: string) => {
-    if (!title) {
-      return '';
-    }
-
-    return title.toLowerCase().replace(/ /g, '-');
-  };
-
   private handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { filterArticles, topic, sortBy, date } = this.props;
     const { name } = event.target;
@@ -184,8 +176,8 @@ class MainArticles extends PureComponent<MainArticlesProps> {
                   <ArticleDescription>{article.description}</ArticleDescription>
                   <ArticleButton
                     to={{
-                      pathname: `/details/:${this.changeTitle(article.title)}`,
-                      state: { article },
+                      pathname: `/details/${article.title}`,
+                      state: article,
                     }}
                     className="article-button"
                   >
