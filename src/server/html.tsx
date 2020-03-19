@@ -1,12 +1,13 @@
 /* eslint-disable react/no-danger */
-import React, { FC, MetaHTMLAttributes } from 'react';
+import React, { FC, MetaHTMLAttributes, ReactElement } from 'react';
 
 type HtmlProps = {
-  appString: string;
+  app: string;
   metaTags: MetaHTMLAttributes<HTMLMetaElement>[];
+  styleTags: ReactElement[];
 };
 
-export const Html: FC<HtmlProps> = ({ appString, metaTags }) => (
+export const Html: FC<HtmlProps> = ({ app, styleTags, metaTags }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
@@ -31,9 +32,10 @@ export const Html: FC<HtmlProps> = ({ appString, metaTags }) => (
       {metaTags.map(m => (
         <meta key={`${m.name}-${m.property}`} {...m} />
       ))}
+      {styleTags}
     </head>
     <body>
-      <div id="root" dangerouslySetInnerHTML={{ __html: appString }} />
+      <div id="root" dangerouslySetInnerHTML={{ __html: app }} />
       <script
         dangerouslySetInnerHTML={{
           __html: `

@@ -3,6 +3,7 @@ import express from 'express';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import path from 'path';
 import { StaticRouter } from 'react-router-dom';
+import { ServerStyleSheet } from 'styled-components';
 import { Root } from '@core/root';
 import { Html } from '@server/html';
 import { createMetaTags } from '@server/metaTagsFactory';
@@ -14,15 +15,20 @@ server.use('/public', express.static(path.join(__dirname, '..', 'public')));
 
 server.get('*', (req, res) => {
   const metaTags = createMetaTags(req);
+  const sheet = new ServerStyleSheet();
 
   const appString = renderToString(
-    <StaticRouter location={req.url}>
-      <Root />
-    </StaticRouter>,
+    sheet.collectStyles(
+      <StaticRouter location={req.url}>
+        <Root />
+      </StaticRouter>,
+    ),
   );
 
+  const styleTags = sheet.getStyleElement();
+
   const html = renderToStaticMarkup(
-    <Html metaTags={metaTags} appString={appString} />,
+    <Html metaTags={metaTags} app={appString} styleTags={styleTags} />,
   );
 
   res.send(`<!doctype html>${html}`);
