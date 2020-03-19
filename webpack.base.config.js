@@ -14,6 +14,7 @@ module.exports = (env, args) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
       alias: {
+        '@server': getPath('./src/server'),
         '@core': getPath('./src/app'),
         '@environments': getPath('./src/environments'),
         '@assets': getPath('./src/assets/'),

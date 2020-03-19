@@ -1,7 +1,12 @@
 /* eslint-disable react/no-danger */
-import React, { FC } from 'react';
+import React, { FC, MetaHTMLAttributes } from 'react';
 
-export const Html: FC<{ appString: string }> = ({ appString }) => (
+type HtmlProps = {
+  appString: string;
+  metaTags: MetaHTMLAttributes<HTMLMetaElement>[];
+};
+
+export const Html: FC<HtmlProps> = ({ appString, metaTags }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
@@ -23,6 +28,9 @@ export const Html: FC<{ appString: string }> = ({ appString }) => (
       />
       <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico" />
       <link rel="manifest" href="/public/manifest.json" />
+      {metaTags.map(m => (
+        <meta key={`${m.name}-${m.property}`} {...m} />
+      ))}
     </head>
     <body>
       <div id="root" dangerouslySetInnerHTML={{ __html: appString }} />

@@ -35,6 +35,7 @@
     "import/resolver": {
       "alias": {
         "map": [
+          ["@server", "./src/server"],
           ["@core", "./src/app"],
           ["@environments", "./src/environments"],
           ["@assets", "./src/assets"],

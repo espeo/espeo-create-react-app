@@ -9,7 +9,7 @@ module.exports = (env, args) => {
   return merge(base, {
     target: 'node',
     entry: {
-      app: './src/server.tsx',
+      app: './src/server/server.tsx',
     },
     output: {
       filename: 'server.js',
