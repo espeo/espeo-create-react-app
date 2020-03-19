@@ -19,7 +19,6 @@ server.get('*', (req, res) => {
   );
 
   const html = renderToStaticMarkup(<Html appString={appString} />);
-
   res.send(`<!doctype html>${html}`);
 });
 
