@@ -23,7 +23,7 @@
       "@core/*": ["app/*"],
       "@environments/*": ["app/environments/*"],
       "@pages/*": ["app/pages/*"],
-      "@assets/*": ["app/assets/*"],
+      "@assets/*": ["assets/*"],
       "@styles/*": ["app/styles/*"]
     },
     "typeRoots": ["node_modules/@types"],
