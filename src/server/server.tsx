@@ -28,7 +28,7 @@ server.get('*', (req, res) => {
 
   const styleTags = sheet.getStyleTags();
 
-  res.status(200).render('index', {
+  res.render('index', {
     reactApp,
     styleTags,
     metaTags,

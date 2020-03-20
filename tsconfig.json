@@ -19,7 +19,7 @@
     "jsxFactory": "React.createElement",
     "baseUrl": "src",
     "paths": {
-      "@server": ["server/*"],
+      "@server/*": ["server/*"],
       "@core/*": ["app/*"],
       "@environments/*": ["app/environments/*"],
       "@pages/*": ["app/pages/*"],
