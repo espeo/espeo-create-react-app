@@ -2,6 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const inAnalyze = process.env.ANALYZE === 'true';
 const getPath = file => path.resolve(__dirname, file);
@@ -32,7 +35,12 @@ module.exports = (env, args) => {
         {
           test: /\.css$/,
           use: [
-            'isomorphic-style-loader',
+            {
+              loader: ExtractCssChunks.loader,
+              options: {
+                hmr: !isProduction,
+              },
+            },
             'css-loader',
             {
               loader: 'postcss-loader',
@@ -54,7 +62,13 @@ module.exports = (env, args) => {
     },
     bail: isProduction,
     devtool: !isProduction ? 'source-map' : 'none',
+    optimization: {
+      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
+      new ExtractCssChunks({
+        filename: !isProduction ? '[name].css' : '[name].[hash].css',
+      }),
       ...(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]),
       ...(inAnalyze ? [new BundleAnalyzerPlugin()] : []),
     ],
