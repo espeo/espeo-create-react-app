@@ -29,6 +29,6 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "esnext"]
   },
-  "files": ["src/client.tsx", "src/server/server.tsx"],
+  "files": ["src/main.tsx", "src/server/server.tsx"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]
 }

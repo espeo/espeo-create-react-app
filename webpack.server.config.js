@@ -13,7 +13,6 @@ module.exports = (env, args) => {
     },
     output: {
       filename: 'server.js',
-      path: path.resolve(__dirname, 'dist'),
     },
     externals: [nodeExternals()],
     node: {

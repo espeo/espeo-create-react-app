@@ -1,23 +1,24 @@
 import React from 'react';
 import express from 'express';
-import { renderToString, renderToStaticMarkup } from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import path from 'path';
 import { StaticRouter } from 'react-router-dom';
 import { ServerStyleSheet } from 'styled-components';
 import { Root } from '@core/root';
-import { Html } from '@server/html';
-import { createMetaTags } from '@server/metaTagsFactory';
+import { Meta } from '@server/Meta';
 
 const server = express();
 
-server.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
-server.use('/public', express.static(path.join(__dirname, '..', 'public')));
+server.set('views', __dirname);
+server.set('view engine', 'ejs');
+server.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 server.get('*', (req, res) => {
-  const metaTags = createMetaTags(req);
+  const metaTags = renderToString(<Meta url={req.params[0]} />);
+
   const sheet = new ServerStyleSheet();
 
-  const appString = renderToString(
+  const reactApp = renderToString(
     sheet.collectStyles(
       <StaticRouter location={req.url}>
         <Root />
@@ -25,13 +26,13 @@ server.get('*', (req, res) => {
     ),
   );
 
-  const styleTags = sheet.getStyleElement();
+  const styleTags = sheet.getStyleTags();
 
-  const html = renderToStaticMarkup(
-    <Html metaTags={metaTags} app={appString} styleTags={styleTags} />,
-  );
-
-  res.send(`<!doctype html>${html}`);
+  res.status(200).render('index', {
+    reactApp,
+    styleTags,
+    metaTags,
+  });
 });
 
 const port = process.env.PORT;

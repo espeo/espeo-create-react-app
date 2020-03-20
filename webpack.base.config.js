@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const TerserPlugin = require('terser-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const inAnalyze = process.env.ANALYZE === 'true';
@@ -47,13 +46,13 @@ module.exports = (env, args) => {
           test: /\.(png|svg|jpg|gif)$/,
           use: ['file-loader'],
         },
+        {
+          test: /\.ejs$/,
+          loader: 'raw-loader',
+        },
       ],
     },
     bail: isProduction,
-    optimization: {
-      minimize: isProduction,
-      minimizer: isProduction ? [new TerserPlugin()] : [],
-    },
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
       ...(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]),

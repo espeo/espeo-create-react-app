@@ -1,14 +1,9 @@
-import { MetaHTMLAttributes } from 'react';
+import React, { FC, MetaHTMLAttributes, Fragment } from 'react';
 import { routesConfig } from '@core/config/routes';
 import { matchPath } from 'react-router-dom';
-import { Request } from 'express';
 
-export const createMetaTags = (
-  req: Request,
-): MetaHTMLAttributes<HTMLMetaElement>[] => {
-  const encodedUrl = req.params[0];
-
-  if (matchPath(encodedUrl, routesConfig.home)) {
+const getMetaTags = (url: string): MetaHTMLAttributes<HTMLMetaElement>[] => {
+  if (matchPath(url, routesConfig.home)) {
     const title = 'Search worldwide news';
     return [
       {
@@ -22,8 +17,8 @@ export const createMetaTags = (
     ];
   }
 
-  if (matchPath(encodedUrl, routesConfig.details)) {
-    const articleTitle = encodedUrl.split('/')[2];
+  if (matchPath(url, routesConfig.details)) {
+    const articleTitle = url.split('/')[2];
     return [
       {
         property: 'description',
@@ -38,3 +33,11 @@ export const createMetaTags = (
 
   return [];
 };
+
+export const Meta: FC<{ url: string }> = ({ url }) => (
+  <Fragment>
+    {getMetaTags(url).map(m => (
+      <meta key={`${m.name}-${m.property}`} {...m} />
+    ))}
+  </Fragment>
+);
