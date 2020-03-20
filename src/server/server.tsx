@@ -1,17 +1,19 @@
 import React from 'react';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
-import path from 'path';
 import { StaticRouter } from 'react-router-dom';
 import { ServerStyleSheet } from 'styled-components';
 import { Root } from '@core/root';
 import { Meta } from '@server/Meta';
+import compression from 'compression';
 
 const server = express();
 
 server.set('views', __dirname);
 server.set('view engine', 'ejs');
-server.use('/', express.static(path.join(__dirname, '..', 'dist')));
+
+server.use(express.static(__dirname));
+server.use(compression());
 
 server.get('*', (req, res) => {
   const metaTags = renderToString(<Meta url={req.params[0]} />);
