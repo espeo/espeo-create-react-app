@@ -41,18 +41,20 @@ module.exports = (env, args) => {
     output: {
       filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js',
     },
-    optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+    optimization: isProduction
+      ? {
+          runtimeChunk: 'single',
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'all',
+              },
+            },
           },
-        },
-      },
-    },
+        }
+      : {},
     plugins: [
       new webpack.DefinePlugin(processEnvFiles(args.mode)),
       new HtmlWebpackPlugin({
