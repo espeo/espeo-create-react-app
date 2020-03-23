@@ -79,18 +79,20 @@ module.exports = (env, args) => {
       ],
     },
     bail: isProduction,
-    optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+    optimization: isProduction
+      ? {
+          runtimeChunk: 'single',
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'all',
+              },
+            },
           },
-        },
-      },
-    },
+        }
+      : {},
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
       new webpack.DefinePlugin(processEnvFiles(args.mode)),
