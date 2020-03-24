@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const inAnalyze = process.env.ANALYZE === 'true';
 const getPath = file => path.resolve(__dirname, file);
@@ -15,15 +16,7 @@ module.exports = (env, args) => {
   const config = {
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
-      alias: {
-        '@server': getPath('./src/server'),
-        '@core': getPath('./src/app'),
-        '@environments': getPath('./src/environments'),
-        '@assets': getPath('./src/assets/'),
-        '@pages': getPath('./src/app/pages'),
-        '@styles': getPath('./src/app/styles'),
-        '@services': getPath('./src/app/services'),
-      },
+      plugins: [new TsconfigPathsPlugin()],
     },
     module: {
       rules: [
