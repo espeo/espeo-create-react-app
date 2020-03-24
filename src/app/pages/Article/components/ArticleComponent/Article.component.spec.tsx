@@ -13,9 +13,7 @@ import {
 import Article from './Article.component';
 
 const locationMock = {
-  state: {
-    article: articleMock,
-  },
+  state: articleMock,
 };
 
 const WrappedComponent = compose(
