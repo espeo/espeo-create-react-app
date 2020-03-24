@@ -11,7 +11,7 @@
     "start:mocked": "concurrently --kill-others 'yarn mocked-server' 'webpack-dev-server --open  --config ./webpack.config.js --mode=none'",
     "start:prod": "webpack-dev-server --open --config ./webpack.config.js --mode=production",
     "lint": "eslint --config ./.eslintrc.json 'src/**/*.{ts,tsx}'",
-    "test": "jest --config jest.config.json --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "audit:ci": " if [[ $(yarn audit | grep Critical -B3 -A10) != '' ]]; then exit 1; fi",
     "build:dev": "webpack --config ./webpack.config.js --mode=development",
     "build:prod": "webpack --config ./webpack.config.js --optimize-minimize --mode=production",
