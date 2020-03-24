@@ -22,6 +22,7 @@ module.exports = (env, args) => {
         '@assets': getPath('./src/assets/'),
         '@pages': getPath('./src/app/pages'),
         '@styles': getPath('./src/app/styles'),
+        '@services': getPath('./src/app/services'),
       },
     },
     module: {

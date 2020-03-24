@@ -2,11 +2,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 import createSagaMiddleware from 'redux-saga';
-
+import { onServer } from '@services/ssr';
 import { getArticles } from '@core/services';
 import { MainArticlesState } from '@pages/MainArticles/namespace';
 import { MainActions } from '@pages/MainArticles/store/actions';
-
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 import { rootEpic } from './rootEpic';
@@ -37,7 +36,10 @@ const sagaMiddleware = createSagaMiddleware();
 const usedMiddleware =
   chosenMiddleware === 'saga' ? sagaMiddleware : epicMiddleware;
 
-const composeEnhancers = compose;
+const composeEnhancers =
+  !onServer() && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose;
 
 const middleware = [usedMiddleware, logger];
 
