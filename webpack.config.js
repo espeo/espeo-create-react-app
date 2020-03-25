@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const inAnalyze = process.env.ANALYZE === 'true';
 const getPath = file => path.resolve(__dirname, file);
@@ -47,13 +48,7 @@ module.exports = (env, args) => {
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
-      alias: {
-        '@core': getPath('./src/app'),
-        '@environments': getPath('./src/environments'),
-        '@assets': getPath('./src/assets/'),
-        '@pages': getPath('./src/app/pages'),
-        '@styles': getPath('./src/app/styles'),
-      },
+      plugins: [new TsconfigPathsPlugin()],
     },
     module: {
       rules: [
