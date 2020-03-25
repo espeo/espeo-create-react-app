@@ -55,12 +55,17 @@ export const getArticleByTitle = (title: string) => {
 
   return ApiService.get(url, params)
     .then((response: any) => {
-      const { data } = response;
+      const {
+        data: { status, articles },
+      } = response;
+
+      const [article] = articles;
+
       return {
         ...response,
         data: {
-          status: data.status,
-          article: data.articles[0],
+          status,
+          article,
         },
       };
     })
