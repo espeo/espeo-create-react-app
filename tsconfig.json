@@ -23,7 +23,8 @@
       "@environments/*": ["app/environments/*"],
       "@pages/*": ["app/pages/*"],
       "@assets/*": ["assets/*"],
-      "@styles/*": ["app/styles/*"]
+      "@styles/*": ["app/styles/*"],
+      "@services/*": ["app/services/*"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "esnext"]
