@@ -1,15 +1,12 @@
 const path = require('path');
 const fs = require('fs');
-
 const webpack = require('webpack');
 const dotenv = require('dotenv');
-
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const autoprefixer = require('autoprefixer');
-const TerserPlugin = require('terser-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const inAnalyze = process.env.ANALYZE === 'true';
@@ -43,8 +40,7 @@ module.exports = (env, args) => {
       app: './src/main.tsx',
     },
     output: {
-      filename: isProduction ? './bundle.[hash].js' : './bundle.js',
-      chunkFilename: '[name].bundle.js',
+      filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -78,16 +74,28 @@ module.exports = (env, args) => {
       ],
     },
     bail: isProduction,
-    optimization: {
-      minimize: isProduction,
-      minimizer: isProduction ? [new TerserPlugin()] : [],
-    },
+    optimization: isProduction
+      ? {
+          runtimeChunk: 'single',
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'all',
+              },
+            },
+          },
+        }
+      : {},
     devtool: !isProduction ? 'source-map' : 'none',
     plugins: [
       new webpack.DefinePlugin(processEnvFiles(args.mode)),
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        inject: false,
+        inject: true,
+        chunksSortMode: 'manual',
+        chunks: ['runtime', 'vendors', 'app'],
         minify: isProduction
           ? {
               removeComments: true,
