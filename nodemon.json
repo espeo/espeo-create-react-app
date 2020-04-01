@@ -1,5 +1,5 @@
 {
-  "ext": "ts tsx",
+  "ext": "ts tsx ejs",
   "watch": ["src"],
   "exec": "yarn build:dev && node -r dotenv/config dist/server.js dotenv_config_path=.env.development"
 }
