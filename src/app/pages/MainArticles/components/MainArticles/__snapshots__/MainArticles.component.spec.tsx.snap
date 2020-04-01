@@ -149,7 +149,7 @@ exports[`Articles component test suite should match snapshot 1`] = `
         </p>
         <a
           className="sc-dxgOiQ eLmpSD article-button"
-          href="/details/:formel-e:-nur-marketing-event-oder-ernsthafter-motorsport?"
+          href="/details/Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
           onClick={[Function]}
         >
           Know more
@@ -185,7 +185,7 @@ exports[`Articles component test suite should match snapshot 1`] = `
         </p>
         <a
           className="sc-dxgOiQ eLmpSD article-button"
-          href="/details/:formel-e:-nur-marketing-event-oder-ernsthafter-motorsport?"
+          href="/details/Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
           onClick={[Function]}
         >
           Know more
@@ -221,7 +221,7 @@ exports[`Articles component test suite should match snapshot 1`] = `
         </p>
         <a
           className="sc-dxgOiQ eLmpSD article-button"
-          href="/details/:formel-e:-nur-marketing-event-oder-ernsthafter-motorsport?"
+          href="/details/Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
           onClick={[Function]}
         >
           Know more
@@ -257,7 +257,7 @@ exports[`Articles component test suite should match snapshot 1`] = `
         </p>
         <a
           className="sc-dxgOiQ eLmpSD article-button"
-          href="/details/:formel-e:-nur-marketing-event-oder-ernsthafter-motorsport?"
+          href="/details/Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
           onClick={[Function]}
         >
           Know more
@@ -293,7 +293,7 @@ exports[`Articles component test suite should match snapshot 1`] = `
         </p>
         <a
           className="sc-dxgOiQ eLmpSD article-button"
-          href="/details/:formel-e:-nur-marketing-event-oder-ernsthafter-motorsport?"
+          href="/details/Formel E: Nur Marketing-Event oder ernsthafter Motorsport?"
           onClick={[Function]}
         >
           Know more

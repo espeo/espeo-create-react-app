@@ -12,12 +12,12 @@ import {
 const executeGetItemsEpic: Epic<any, any, RootStore, Dependencies> = (
   action$,
   _state$,
-  { getArticlesService },
+  { getArticles },
 ) => {
   return action$.pipe(
     ofType(MainArticlesTypes.FETCH_ARTICLES),
     switchMap(({ payload }) => {
-      return from(getArticlesService(payload)).pipe(
+      return from(getArticles(payload)).pipe(
         map((items: any) => fetchArticlesSuccess(items)),
         catchError(() => of(fetchArticlesFailed())),
       );
