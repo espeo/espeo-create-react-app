@@ -6,10 +6,9 @@ import {
 } from '../actions';
 
 import { RootStore } from '@core/store';
-import {executeGetItemsEpic} from './index';
+import { executeGetItemsEpic } from './index';
 
-describe('Fetching list of articles should', () =>{
-    
+describe('Fetching list of articles should', () => {
     const type = MainArticlesTypes.FETCH_ARTICLES;
     const action$: ActionsObservable<MainActions> = ActionsObservable.of({
         type,
@@ -21,10 +20,8 @@ describe('Fetching list of articles should', () =>{
     const getArticles = jest.fn();
     const state$: StateObservable<RootStore> = new StateObservable(new Subject(), {} as RootStore );
 
-    it('fetch articles and call fetchArticlesSuccess action', async () =>{
-      
+    it('fetch articles and call fetchArticlesSuccess action', async () => {
         getArticles.mockReturnValue(Promise.resolve({items: []}));
-        
         const result = await executeGetItemsEpic(action$, state$, { getArticles }).toPromise();
         
         expect(result).toEqual({
@@ -35,7 +32,7 @@ describe('Fetching list of articles should', () =>{
         });
     })
 
-    it('call fetchArticlesFailed action when getArticles fails', async () =>{
+    it('call fetchArticlesFailed action when getArticles fails', async () => {
         getArticles.mockReturnValue(Promise.reject());
         const result = await executeGetItemsEpic(action$, state$, { getArticles }).toPromise();
         
