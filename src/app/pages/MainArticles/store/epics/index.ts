@@ -1,15 +1,16 @@
+import { from, of } from 'rxjs';
+import { catchError, filter, map, switchMap } from 'rxjs/operators';
 import { ActionsObservable, Epic } from 'redux-observable';
+import { isOfType } from 'typesafe-actions';
+
 import {
   MainActions,
   MainArticlesTypes,
   fetchArticlesFailed,
   fetchArticlesSuccess
 } from '../actions';
-import { catchError, filter, map, switchMap } from 'rxjs/operators';
-import { from, of } from 'rxjs';
 
 import { RootStore } from '@core/store';
-import { isOfType } from 'typesafe-actions';
 
 export const executeGetItemsEpic: Epic<MainActions, MainActions, RootStore> = (
   action$: ActionsObservable<MainActions>,

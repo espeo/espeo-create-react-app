@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { ActionsObservable, StateObservable } from 'redux-observable';
 import {
     MainActions,
@@ -5,7 +6,6 @@ import {
 } from '../actions';
 
 import { RootStore } from '@core/store';
-import { Subject } from 'rxjs';
 import {executeGetItemsEpic} from './index';
 
 describe('Fetching list of articles should', () =>{
