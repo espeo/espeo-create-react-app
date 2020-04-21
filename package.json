@@ -102,6 +102,7 @@
     "redux-saga": "1.1.1",
     "rxjs": "6.5.3",
     "styled-components": "^4.3.2",
+    "typesafe-actions": "5.1.0",
     "uuid": "3.3.3"
   },
   "engines": {

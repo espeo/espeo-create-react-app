@@ -1,21 +1,23 @@
-import { of, from } from 'rxjs';
-import { map, switchMap, catchError } from 'rxjs/operators';
-import { ofType, Epic } from 'redux-observable';
-import { RootStore, Dependencies } from '@core/store';
-
+import { ActionsObservable, Epic } from 'redux-observable';
 import {
+  MainActions,
   MainArticlesTypes,
-  fetchArticlesSuccess,
   fetchArticlesFailed,
+  fetchArticlesSuccess
 } from '../actions';
+import { catchError, filter, map, switchMap } from 'rxjs/operators';
+import { from, of } from 'rxjs';
 
-const executeGetItemsEpic: Epic<any, any, RootStore, Dependencies> = (
-  action$,
+import { RootStore } from '@core/store';
+import { isOfType } from 'typesafe-actions';
+
+export const executeGetItemsEpic: Epic<MainActions, MainActions, RootStore> = (
+  action$: ActionsObservable<MainActions>,
   _state$,
   { getArticles },
 ) => {
   return action$.pipe(
-    ofType(MainArticlesTypes.FETCH_ARTICLES),
+    filter(isOfType(MainArticlesTypes.FETCH_ARTICLES)),
     switchMap(({ payload }) => {
       return from(getArticles(payload)).pipe(
         map((items: any) => fetchArticlesSuccess(items)),
