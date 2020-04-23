@@ -1,3 +1,4 @@
+import { Dependencies } from './../../../../store/index';
 import { from, of } from 'rxjs';
 import { catchError, filter, map, switchMap } from 'rxjs/operators';
 import { ActionsObservable, Epic } from 'redux-observable';
