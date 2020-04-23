@@ -1,4 +1,3 @@
-import { Dependencies } from './../../../../store/index';
 import { from, of } from 'rxjs';
 import { catchError, filter, map, switchMap } from 'rxjs/operators';
 import { ActionsObservable, Epic } from 'redux-observable';
@@ -11,7 +10,7 @@ import {
   fetchArticlesSuccess,
 } from '../actions';
 
-import { RootStore } from '@core/store';
+import { Dependencies, RootStore } from '@core/store';
 
 export const executeGetItemsEpic: Epic<
   MainActions,
