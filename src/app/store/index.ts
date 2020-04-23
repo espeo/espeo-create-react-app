@@ -19,7 +19,7 @@ export interface RootStore {
 }
 
 const dependencies = {
-  getArticles
+  getArticles,
 };
 export type Dependencies = typeof dependencies;
 

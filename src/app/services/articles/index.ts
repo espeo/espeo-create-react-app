@@ -4,12 +4,17 @@ import ApiService from '../config';
 
 const apiKey = process.env.API_KEY;
 
-export const getArticles = (
+export const getArticles = ({
   page = 1,
-  topic?: string,
-  sortBy?: string,
-  date?: dateValues,
-) => {
+  topic = 'sport',
+  sortBy = '',
+  date = '',
+}: {
+  page: number;
+  topic?: string;
+  sortBy?: string;
+  date?: dateValues;
+}) => {
   const now = dayjs();
   const selectedTopic = topic || 'sport';
   const sort = sortBy || '';

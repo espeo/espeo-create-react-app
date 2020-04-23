@@ -1,5 +1,5 @@
 import { RootStore } from './../../store/index';
-import {TestScheduler} from "rxjs/testing";
+import { TestScheduler } from 'rxjs/testing';
 import { Action } from 'redux';
 import { ActionsObservable, StateObservable } from 'redux-observable';
 

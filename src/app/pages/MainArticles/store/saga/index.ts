@@ -32,7 +32,7 @@ function* getArticles(action: {
   try {
     const { page } = action.payload;
     const { topic, sortBy, date } = getFilterProps(action.payload.filters);
-    const data = yield call(getArticlesApi, page, topic, sortBy, date);
+    const data = yield call(getArticlesApi, { page, topic, sortBy, date });
     yield put(fetchArticlesSuccess(data));
   } catch (e) {
     yield put(fetchArticlesFailed());
@@ -43,7 +43,7 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
   try {
     const { topic, sortBy, date } = getFilterProps(action.payload);
     const page = 1;
-    const { data } = yield call(getArticlesApi, page, topic, sortBy, date);
+    const { data } = yield call(getArticlesApi, { page, topic, sortBy, date });
     yield put(reloadArticles(data));
   } catch (e) {
     yield put(fetchArticlesFailed());
@@ -52,7 +52,7 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
 
 function* clearArticlesFilters() {
   try {
-    const { data } = yield call(getArticlesApi);
+    const { data } = yield call(getArticlesApi, { page: 1 });
     yield put(reloadArticles(data));
   } catch (e) {
     yield put(fetchArticlesFailed());

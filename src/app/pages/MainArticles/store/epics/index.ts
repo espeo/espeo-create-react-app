@@ -8,16 +8,17 @@ import {
   MainActions,
   MainArticlesTypes,
   fetchArticlesFailed,
-  fetchArticlesSuccess
+  fetchArticlesSuccess,
 } from '../actions';
 
 import { RootStore } from '@core/store';
 
-export const executeGetItemsEpic: Epic<MainActions, MainActions, RootStore> = (
-  action$: ActionsObservable<MainActions>,
-  _state$,
-  { getArticles },
-) => {
+export const executeGetItemsEpic: Epic<
+  MainActions,
+  MainActions,
+  RootStore,
+  Dependencies
+> = (action$: ActionsObservable<MainActions>, _state$, { getArticles }) => {
   return action$.pipe(
     filter(isOfType(MainArticlesTypes.FETCH_ARTICLES)),
     switchMap(({ payload }) => {

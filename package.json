@@ -21,7 +21,8 @@
     "mocked-server": "json-server --watch mocked-server/index.js --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)"
+    "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)",
+    "prettier:write": "prettier --write **/*.{js,jsx,ts,tsx,json} && prettier --write *.{js,jsx,ts,tsx,json}"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
