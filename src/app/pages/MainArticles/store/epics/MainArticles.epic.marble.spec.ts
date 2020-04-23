@@ -1,9 +1,11 @@
+import { MainArticlesState } from './../../namespace/index';
 import { RootStore, Dependencies } from './../../../../store/index';
 import { ActionsObservable, StateObservable } from 'redux-observable';
-import { fetchArticles, fetchArticlesSuccess, fetchArticlesFailed } from './../actions/index';
+import { fetchArticles, fetchArticlesSuccess, fetchArticlesFailed, MainActions } from './../actions/index';
 
 import {TestScheduler} from "rxjs/testing";
 import { executeGetItemsEpic } from ".";
+import { Subject } from 'rxjs';
 
 
 describe('Fetching list of articles should', () => {    
@@ -13,27 +15,37 @@ describe('Fetching list of articles should', () => {
   it("fetch articles and call fetchArticlesSuccess action", () => {
     
         testScheduler.run(({ hot, cold, expectObservable }) => {
-            const action$ = hot('a', {
-                a: fetchArticles(1, undefined),
-            })
 
-            const state$ = cold('b')
+            const response = {
+                items: []
+            };
+
+            const marbles = {
+                i: 'i', // input action
+                r: 'r', // mock api response
+                o: 'o', // output action
+              };
+
+              const values = {
+                i: fetchArticles(1, undefined),
+                r: response,
+                o: fetchArticlesSuccess(response),
+              };
+
+
+            const action$ = hot(marbles.i, values) as any;
+
+            const state$ = null as any;
 
             const dependencies = {
                 getArticles: () =>{
-                    return cold('a', {
-                        a: {
-                            items: []
-                        }
-                    })
+                    return cold(marbles.r, values)
                 }
             };
-            //@ts-ignore
+
             const output$ = executeGetItemsEpic(action$, state$, dependencies);
 
-            expectObservable(output$).toBe('a', {
-                a: fetchArticlesSuccess({items: []})
-            })
+            expectObservable(output$).toBe(marbles.o, values)
 
         });
     
