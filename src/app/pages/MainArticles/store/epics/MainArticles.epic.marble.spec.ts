@@ -32,7 +32,7 @@ describe('Fetching list of articles should', () => {
     };
     const state$ = new StateObservable<RootStore>(
       new Subject(), 
-      {} as RootStore
+      {} as RootStore,
     );
 
   it('fetch articles and call fetchArticlesSuccess action', () => {
