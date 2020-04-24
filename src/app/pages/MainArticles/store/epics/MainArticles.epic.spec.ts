@@ -15,7 +15,7 @@ describe('Fetching list of articles should', () => {
     },
   });
   const getArticles = jest.fn();
-  const state$: StateObservable<RootStore> = new StateObservable(
+  const state$= new StateObservable<RootStore>(
     new Subject(),
     {} as RootStore,
   );

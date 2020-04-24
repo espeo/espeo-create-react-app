@@ -3,7 +3,6 @@ import { TestScheduler } from 'rxjs/testing';
 import { ActionsObservable, StateObservable } from 'redux-observable';
 
 import { RootStore } from '@core/store';
-import { initial } from '../initial';
 import {
   fetchArticles,
   fetchArticlesSuccess,
@@ -31,9 +30,10 @@ describe('Fetching list of articles should', () => {
       i: fetchArticles(1, undefined),
       r: response,
     };
-    const state$ = new StateObservable<RootStore>(new Subject(),{
-      main: initial
-    });
+    const state$ = new StateObservable<RootStore>(
+      new Subject(), 
+      {} as RootStore
+    );
 
   it('fetch articles and call fetchArticlesSuccess action', () => {
       testScheduler.run(({ hot, cold, expectObservable }) => {
