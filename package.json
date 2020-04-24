@@ -21,7 +21,8 @@
     "mocked-server": "json-server --watch mocked-server/index.js --routes mocked-server/routes.json --port 4201 --watch --static ./dist",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)"
+    "cy:ci": "yarn mocked-server & (sleep 2 && yarn cy:run)",
+    "prettier:write": "prettier --write **/*.{js,jsx,ts,tsx,json} && prettier --write *.{js,jsx,ts,tsx,json}"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -102,6 +103,7 @@
     "redux-saga": "1.1.1",
     "rxjs": "6.5.3",
     "styled-components": "^4.3.2",
+    "typesafe-actions": "5.1.0",
     "uuid": "3.3.3"
   },
   "engines": {
